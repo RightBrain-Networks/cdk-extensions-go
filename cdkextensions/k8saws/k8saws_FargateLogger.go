@@ -1,34 +1,19 @@
-package ram
+package k8saws
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 	_init_ "github.com/vibe-io/cdk-extensions-go/cdkextensions/jsii"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsram"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseks"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/constructs-go/constructs/v10"
-	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ram/internal"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/k8saws/internal"
 )
 
-// Creates a resource share that can used to share AWS resources with other AWS accounts, organizations, or organizational units (OU's).
-// See: [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html)
-//
-type ResourceShare interface {
+type FargateLogger interface {
 	awscdk.Resource
-	// Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share.
-	//
-	// A value of `true`
-	// lets you share with individual AWS accounts that are not in your
-	// organization. A value of `false` only has meaning if your account is a
-	// member of an AWS Organization.
-	//
-	// In order for an account to be auto discovered it must be part of the same
-	// CDK application. It must also be an explicitly defined environment and not
-	// environment agnostic.
-	// See: [CDK Environments](https://docs.aws.amazon.com/cdk/v2/guide/environments.html)
-	//
-	AllowExternalPrincipals() *bool
-	AutoDiscovery() *bool
+	Cluster() awseks.ICluster
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -38,10 +23,8 @@ type ResourceShare interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
-	// Specifies the name of the resource share.
-	// See: [ResourceShare.Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-name)
-	//
-	Name() *string
+	LogGroup() awslogs.ILogGroup
+	LogStreamPrefix() *string
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -52,14 +35,11 @@ type ResourceShare interface {
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
 	PhysicalName() *string
-	// The underlying ResourceShare CloudFormation resource.
-	// See: [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html)
-	//
-	Resource() awsram.CfnResourceShare
+	Resource() awseks.KubernetesManifest
+	Retention() awslogs.RetentionDays
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	AddPrincipal(principal ISharedPrincipal)
-	AddResource(resource ISharedResource)
+	AddFargateProfile(profile awseks.FargateProfile) FargateLogger
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -70,7 +50,6 @@ type ResourceShare interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	EnableAutoDiscovery()
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -89,32 +68,22 @@ type ResourceShare interface {
 	ToString() *string
 }
 
-// The jsii proxy struct for ResourceShare
-type jsiiProxy_ResourceShare struct {
+// The jsii proxy struct for FargateLogger
+type jsiiProxy_FargateLogger struct {
 	internal.Type__awscdkResource
 }
 
-func (j *jsiiProxy_ResourceShare) AllowExternalPrincipals() *bool {
-	var returns *bool
+func (j *jsiiProxy_FargateLogger) Cluster() awseks.ICluster {
+	var returns awseks.ICluster
 	_jsii_.Get(
 		j,
-		"allowExternalPrincipals",
+		"cluster",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) AutoDiscovery() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"autoDiscovery",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ResourceShare) Env() *awscdk.ResourceEnvironment {
+func (j *jsiiProxy_FargateLogger) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(
 		j,
@@ -124,17 +93,27 @@ func (j *jsiiProxy_ResourceShare) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) Name() *string {
-	var returns *string
+func (j *jsiiProxy_FargateLogger) LogGroup() awslogs.ILogGroup {
+	var returns awslogs.ILogGroup
 	_jsii_.Get(
 		j,
-		"name",
+		"logGroup",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) Node() constructs.Node {
+func (j *jsiiProxy_FargateLogger) LogStreamPrefix() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logStreamPrefix",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateLogger) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
 		j,
@@ -144,7 +123,7 @@ func (j *jsiiProxy_ResourceShare) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) PhysicalName() *string {
+func (j *jsiiProxy_FargateLogger) PhysicalName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
@@ -154,8 +133,8 @@ func (j *jsiiProxy_ResourceShare) PhysicalName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) Resource() awsram.CfnResourceShare {
-	var returns awsram.CfnResourceShare
+func (j *jsiiProxy_FargateLogger) Resource() awseks.KubernetesManifest {
+	var returns awseks.KubernetesManifest
 	_jsii_.Get(
 		j,
 		"resource",
@@ -164,7 +143,17 @@ func (j *jsiiProxy_ResourceShare) Resource() awsram.CfnResourceShare {
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) Stack() awscdk.Stack {
+func (j *jsiiProxy_FargateLogger) Retention() awslogs.RetentionDays {
+	var returns awslogs.RetentionDays
+	_jsii_.Get(
+		j,
+		"retention",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateLogger) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
 		j,
@@ -175,17 +164,16 @@ func (j *jsiiProxy_ResourceShare) Stack() awscdk.Stack {
 }
 
 
-// Creates a new instance of the ResourceShare class.
-func NewResourceShare(scope constructs.Construct, id *string, props *ResourceShareProps) ResourceShare {
+func NewFargateLogger(scope constructs.Construct, id *string, props *FargateLoggerProps) FargateLogger {
 	_init_.Initialize()
 
-	if err := validateNewResourceShareParameters(scope, id, props); err != nil {
+	if err := validateNewFargateLoggerParameters(scope, id, props); err != nil {
 		panic(err)
 	}
-	j := jsiiProxy_ResourceShare{}
+	j := jsiiProxy_FargateLogger{}
 
 	_jsii_.Create(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.FargateLogger",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -193,14 +181,13 @@ func NewResourceShare(scope constructs.Construct, id *string, props *ResourceSha
 	return &j
 }
 
-// Creates a new instance of the ResourceShare class.
-func NewResourceShare_Override(r ResourceShare, scope constructs.Construct, id *string, props *ResourceShareProps) {
+func NewFargateLogger_Override(f FargateLogger, scope constructs.Construct, id *string, props *FargateLoggerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.FargateLogger",
 		[]interface{}{scope, id, props},
-		r,
+		f,
 	)
 }
 
@@ -208,16 +195,16 @@ func NewResourceShare_Override(r ResourceShare, scope constructs.Construct, id *
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
 // Deprecated: use `x instanceof Construct` instead.
-func ResourceShare_IsConstruct(x interface{}) *bool {
+func FargateLogger_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateResourceShare_IsConstructParameters(x); err != nil {
+	if err := validateFargateLogger_IsConstructParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.FargateLogger",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -227,16 +214,16 @@ func ResourceShare_IsConstruct(x interface{}) *bool {
 }
 
 // Returns true if the construct was created by CDK, and false otherwise.
-func ResourceShare_IsOwnedResource(construct constructs.IConstruct) *bool {
+func FargateLogger_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
-	if err := validateResourceShare_IsOwnedResourceParameters(construct); err != nil {
+	if err := validateFargateLogger_IsOwnedResourceParameters(construct); err != nil {
 		panic(err)
 	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.FargateLogger",
 		"isOwnedResource",
 		[]interface{}{construct},
 		&returns,
@@ -246,16 +233,16 @@ func ResourceShare_IsOwnedResource(construct constructs.IConstruct) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ResourceShare_IsResource(construct constructs.IConstruct) *bool {
+func FargateLogger_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
-	if err := validateResourceShare_IsResourceParameters(construct); err != nil {
+	if err := validateFargateLogger_IsResourceParameters(construct); err != nil {
 		panic(err)
 	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.FargateLogger",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -264,52 +251,38 @@ func ResourceShare_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) AddPrincipal(principal ISharedPrincipal) {
-	if err := r.validateAddPrincipalParameters(principal); err != nil {
+func (f *jsiiProxy_FargateLogger) AddFargateProfile(profile awseks.FargateProfile) FargateLogger {
+	if err := f.validateAddFargateProfileParameters(profile); err != nil {
 		panic(err)
 	}
-	_jsii_.InvokeVoid(
-		r,
-		"addPrincipal",
-		[]interface{}{principal},
+	var returns FargateLogger
+
+	_jsii_.Invoke(
+		f,
+		"addFargateProfile",
+		[]interface{}{profile},
+		&returns,
 	)
+
+	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) AddResource(resource ISharedResource) {
-	if err := r.validateAddResourceParameters(resource); err != nil {
+func (f *jsiiProxy_FargateLogger) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
-		r,
-		"addResource",
-		[]interface{}{resource},
-	)
-}
-
-func (r *jsiiProxy_ResourceShare) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		r,
+		f,
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
 }
 
-func (r *jsiiProxy_ResourceShare) EnableAutoDiscovery() {
-	_jsii_.InvokeVoid(
-		r,
-		"enableAutoDiscovery",
-		nil, // no parameters
-	)
-}
-
-func (r *jsiiProxy_ResourceShare) GeneratePhysicalName() *string {
+func (f *jsiiProxy_FargateLogger) GeneratePhysicalName() *string {
 	var returns *string
 
 	_jsii_.Invoke(
-		r,
+		f,
 		"generatePhysicalName",
 		nil, // no parameters
 		&returns,
@@ -318,14 +291,14 @@ func (r *jsiiProxy_ResourceShare) GeneratePhysicalName() *string {
 	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
-	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+func (f *jsiiProxy_FargateLogger) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
 		panic(err)
 	}
 	var returns *string
 
 	_jsii_.Invoke(
-		r,
+		f,
 		"getResourceArnAttribute",
 		[]interface{}{arnAttr, arnComponents},
 		&returns,
@@ -334,14 +307,14 @@ func (r *jsiiProxy_ResourceShare) GetResourceArnAttribute(arnAttr *string, arnCo
 	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) GetResourceNameAttribute(nameAttr *string) *string {
-	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+func (f *jsiiProxy_FargateLogger) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
 		panic(err)
 	}
 	var returns *string
 
 	_jsii_.Invoke(
-		r,
+		f,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
 		&returns,
@@ -350,11 +323,11 @@ func (r *jsiiProxy_ResourceShare) GetResourceNameAttribute(nameAttr *string) *st
 	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) ToString() *string {
+func (f *jsiiProxy_FargateLogger) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
-		r,
+		f,
 		"toString",
 		nil, // no parameters
 		&returns,

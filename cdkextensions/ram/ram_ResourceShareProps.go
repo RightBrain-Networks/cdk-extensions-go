@@ -22,10 +22,32 @@ type ResourceShareProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share.
+	//
+	// A value of `true`
+	// lets you share with individual AWS accounts that are not in your
+	// organization. A value of `false` only has meaning if your account is a
+	// member of an AWS Organization.
+	// See: [ResourceShare.AllowExternalPrinicpals](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-allowexternalprincipals)
+	//
 	AllowExternalPrincipals *bool `field:"optional" json:"allowExternalPrincipals" yaml:"allowExternalPrincipals"`
+	// Controls whether the resource share should attempt to search for AWS accounts that are part of the same CDK application.
+	//
+	// Any accounts is finds
+	// will be added to the resource automatically and will be able to use the
+	// shared resources.
 	AutoDiscoverAccounts *bool `field:"optional" json:"autoDiscoverAccounts" yaml:"autoDiscoverAccounts"`
+	// Specifies the name of the resource share.
+	// See: [ResourceShare.Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-name)
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Specifies a list of one or more principals to associate with the resource share.
+	// See: [ResourceShare.Prinicipals](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-principals)
+	//
 	Principals *[]ISharedPrincipal `field:"optional" json:"principals" yaml:"principals"`
+	// Specifies a list of AWS resources to share with the configured principal accounts and organizations.
+	// See: [ResourceShare.ResourceArns](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns)
+	//
 	Resources *[]ISharedResource `field:"optional" json:"resources" yaml:"resources"`
 }
 

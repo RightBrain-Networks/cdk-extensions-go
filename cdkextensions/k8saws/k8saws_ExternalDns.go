@@ -1,34 +1,19 @@
-package ram
+package k8saws
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 	_init_ "github.com/vibe-io/cdk-extensions-go/cdkextensions/jsii"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsram"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseks"
 	"github.com/aws/constructs-go/constructs/v10"
-	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ram/internal"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/k8saws/internal"
 )
 
-// Creates a resource share that can used to share AWS resources with other AWS accounts, organizations, or organizational units (OU's).
-// See: [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html)
-//
-type ResourceShare interface {
+type ExternalDns interface {
 	awscdk.Resource
-	// Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share.
-	//
-	// A value of `true`
-	// lets you share with individual AWS accounts that are not in your
-	// organization. A value of `false` only has meaning if your account is a
-	// member of an AWS Organization.
-	//
-	// In order for an account to be auto discovered it must be part of the same
-	// CDK application. It must also be an explicitly defined environment and not
-	// environment agnostic.
-	// See: [CDK Environments](https://docs.aws.amazon.com/cdk/v2/guide/environments.html)
-	//
-	AllowExternalPrincipals() *bool
-	AutoDiscovery() *bool
+	Cluster() awseks.ICluster
+	DomainFilter() *[]*string
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -38,10 +23,6 @@ type ResourceShare interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
-	// Specifies the name of the resource share.
-	// See: [ResourceShare.Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-name)
-	//
-	Name() *string
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -52,14 +33,11 @@ type ResourceShare interface {
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
 	PhysicalName() *string
-	// The underlying ResourceShare CloudFormation resource.
-	// See: [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html)
-	//
-	Resource() awsram.CfnResourceShare
+	Resource() awseks.HelmChart
+	ServiceAccount() awseks.ServiceAccount
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	AddPrincipal(principal ISharedPrincipal)
-	AddResource(resource ISharedResource)
+	AddDomainFilter(domain *string) ExternalDns
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -70,7 +48,6 @@ type ResourceShare interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	EnableAutoDiscovery()
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -89,32 +66,32 @@ type ResourceShare interface {
 	ToString() *string
 }
 
-// The jsii proxy struct for ResourceShare
-type jsiiProxy_ResourceShare struct {
+// The jsii proxy struct for ExternalDns
+type jsiiProxy_ExternalDns struct {
 	internal.Type__awscdkResource
 }
 
-func (j *jsiiProxy_ResourceShare) AllowExternalPrincipals() *bool {
-	var returns *bool
+func (j *jsiiProxy_ExternalDns) Cluster() awseks.ICluster {
+	var returns awseks.ICluster
 	_jsii_.Get(
 		j,
-		"allowExternalPrincipals",
+		"cluster",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) AutoDiscovery() *bool {
-	var returns *bool
+func (j *jsiiProxy_ExternalDns) DomainFilter() *[]*string {
+	var returns *[]*string
 	_jsii_.Get(
 		j,
-		"autoDiscovery",
+		"domainFilter",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) Env() *awscdk.ResourceEnvironment {
+func (j *jsiiProxy_ExternalDns) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(
 		j,
@@ -124,17 +101,7 @@ func (j *jsiiProxy_ResourceShare) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) Name() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"name",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ResourceShare) Node() constructs.Node {
+func (j *jsiiProxy_ExternalDns) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
 		j,
@@ -144,7 +111,7 @@ func (j *jsiiProxy_ResourceShare) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) PhysicalName() *string {
+func (j *jsiiProxy_ExternalDns) PhysicalName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
@@ -154,8 +121,8 @@ func (j *jsiiProxy_ResourceShare) PhysicalName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) Resource() awsram.CfnResourceShare {
-	var returns awsram.CfnResourceShare
+func (j *jsiiProxy_ExternalDns) Resource() awseks.HelmChart {
+	var returns awseks.HelmChart
 	_jsii_.Get(
 		j,
 		"resource",
@@ -164,7 +131,17 @@ func (j *jsiiProxy_ResourceShare) Resource() awsram.CfnResourceShare {
 	return returns
 }
 
-func (j *jsiiProxy_ResourceShare) Stack() awscdk.Stack {
+func (j *jsiiProxy_ExternalDns) ServiceAccount() awseks.ServiceAccount {
+	var returns awseks.ServiceAccount
+	_jsii_.Get(
+		j,
+		"serviceAccount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalDns) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
 		j,
@@ -175,17 +152,16 @@ func (j *jsiiProxy_ResourceShare) Stack() awscdk.Stack {
 }
 
 
-// Creates a new instance of the ResourceShare class.
-func NewResourceShare(scope constructs.Construct, id *string, props *ResourceShareProps) ResourceShare {
+func NewExternalDns(scope constructs.Construct, id *string, props *ExternalDnsProps) ExternalDns {
 	_init_.Initialize()
 
-	if err := validateNewResourceShareParameters(scope, id, props); err != nil {
+	if err := validateNewExternalDnsParameters(scope, id, props); err != nil {
 		panic(err)
 	}
-	j := jsiiProxy_ResourceShare{}
+	j := jsiiProxy_ExternalDns{}
 
 	_jsii_.Create(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.ExternalDns",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -193,14 +169,13 @@ func NewResourceShare(scope constructs.Construct, id *string, props *ResourceSha
 	return &j
 }
 
-// Creates a new instance of the ResourceShare class.
-func NewResourceShare_Override(r ResourceShare, scope constructs.Construct, id *string, props *ResourceShareProps) {
+func NewExternalDns_Override(e ExternalDns, scope constructs.Construct, id *string, props *ExternalDnsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.ExternalDns",
 		[]interface{}{scope, id, props},
-		r,
+		e,
 	)
 }
 
@@ -208,16 +183,16 @@ func NewResourceShare_Override(r ResourceShare, scope constructs.Construct, id *
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
 // Deprecated: use `x instanceof Construct` instead.
-func ResourceShare_IsConstruct(x interface{}) *bool {
+func ExternalDns_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateResourceShare_IsConstructParameters(x); err != nil {
+	if err := validateExternalDns_IsConstructParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.ExternalDns",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -227,16 +202,16 @@ func ResourceShare_IsConstruct(x interface{}) *bool {
 }
 
 // Returns true if the construct was created by CDK, and false otherwise.
-func ResourceShare_IsOwnedResource(construct constructs.IConstruct) *bool {
+func ExternalDns_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
-	if err := validateResourceShare_IsOwnedResourceParameters(construct); err != nil {
+	if err := validateExternalDns_IsOwnedResourceParameters(construct); err != nil {
 		panic(err)
 	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.ExternalDns",
 		"isOwnedResource",
 		[]interface{}{construct},
 		&returns,
@@ -246,16 +221,16 @@ func ResourceShare_IsOwnedResource(construct constructs.IConstruct) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ResourceShare_IsResource(construct constructs.IConstruct) *bool {
+func ExternalDns_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
-	if err := validateResourceShare_IsResourceParameters(construct); err != nil {
+	if err := validateExternalDns_IsResourceParameters(construct); err != nil {
 		panic(err)
 	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"cdk-extensions.ram.ResourceShare",
+		"cdk-extensions.k8s_aws.ExternalDns",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -264,52 +239,38 @@ func ResourceShare_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) AddPrincipal(principal ISharedPrincipal) {
-	if err := r.validateAddPrincipalParameters(principal); err != nil {
+func (e *jsiiProxy_ExternalDns) AddDomainFilter(domain *string) ExternalDns {
+	if err := e.validateAddDomainFilterParameters(domain); err != nil {
 		panic(err)
 	}
-	_jsii_.InvokeVoid(
-		r,
-		"addPrincipal",
-		[]interface{}{principal},
+	var returns ExternalDns
+
+	_jsii_.Invoke(
+		e,
+		"addDomainFilter",
+		[]interface{}{domain},
+		&returns,
 	)
+
+	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) AddResource(resource ISharedResource) {
-	if err := r.validateAddResourceParameters(resource); err != nil {
+func (e *jsiiProxy_ExternalDns) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := e.validateApplyRemovalPolicyParameters(policy); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
-		r,
-		"addResource",
-		[]interface{}{resource},
-	)
-}
-
-func (r *jsiiProxy_ResourceShare) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		r,
+		e,
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
 }
 
-func (r *jsiiProxy_ResourceShare) EnableAutoDiscovery() {
-	_jsii_.InvokeVoid(
-		r,
-		"enableAutoDiscovery",
-		nil, // no parameters
-	)
-}
-
-func (r *jsiiProxy_ResourceShare) GeneratePhysicalName() *string {
+func (e *jsiiProxy_ExternalDns) GeneratePhysicalName() *string {
 	var returns *string
 
 	_jsii_.Invoke(
-		r,
+		e,
 		"generatePhysicalName",
 		nil, // no parameters
 		&returns,
@@ -318,14 +279,14 @@ func (r *jsiiProxy_ResourceShare) GeneratePhysicalName() *string {
 	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
-	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+func (e *jsiiProxy_ExternalDns) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := e.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
 		panic(err)
 	}
 	var returns *string
 
 	_jsii_.Invoke(
-		r,
+		e,
 		"getResourceArnAttribute",
 		[]interface{}{arnAttr, arnComponents},
 		&returns,
@@ -334,14 +295,14 @@ func (r *jsiiProxy_ResourceShare) GetResourceArnAttribute(arnAttr *string, arnCo
 	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) GetResourceNameAttribute(nameAttr *string) *string {
-	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+func (e *jsiiProxy_ExternalDns) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := e.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
 		panic(err)
 	}
 	var returns *string
 
 	_jsii_.Invoke(
-		r,
+		e,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
 		&returns,
@@ -350,11 +311,11 @@ func (r *jsiiProxy_ResourceShare) GetResourceNameAttribute(nameAttr *string) *st
 	return returns
 }
 
-func (r *jsiiProxy_ResourceShare) ToString() *string {
+func (e *jsiiProxy_ExternalDns) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
-		r,
+		e,
 		"toString",
 		nil, // no parameters
 		&returns,
