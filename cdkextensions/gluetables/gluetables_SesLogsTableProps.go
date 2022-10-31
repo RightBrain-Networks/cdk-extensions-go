@@ -26,11 +26,23 @@ type SesLogsTableProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// A bucket where logs will be stored.
+	// See: [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+	//
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
+	// A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+	// See: [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
+	//
 	Database glue.Database `field:"required" json:"database" yaml:"database"`
+	// Boolean indicating whether to create default Athena queries for the Ses Logs.
+	// See: [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+	//
 	CreateQueries *bool `field:"optional" json:"createQueries" yaml:"createQueries"`
+	// Boolean for adding "friendly names" for the created Athena queries.
 	FriendlyQueryNames *bool `field:"optional" json:"friendlyQueryNames" yaml:"friendlyQueryNames"`
+	// Name for SES Logs Table.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Set a custom prefix for the S3 Bucket.
 	S3Prefix *string `field:"optional" json:"s3Prefix" yaml:"s3Prefix"`
 }
 

@@ -16,6 +16,9 @@ import (
 type FlowLogsTable interface {
 	glue.Table
 	Compressed() *bool
+	// Boolean indicating whether to create default Athena queries for the Flow Logs.
+	// See: [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+	//
 	CreateQueries() *bool
 	Database() glue.Database
 	DataFormat() glue.DataFormat
@@ -29,7 +32,9 @@ type FlowLogsTable interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
 	Format() ec2.FlowLogFormat
+	// Boolean for adding "friendly names" for the created Athena queries.
 	FriendlyQueryNames() *bool
 	InternalRejectedNamedQuery() athena.NamedQuery
 	Location() *string

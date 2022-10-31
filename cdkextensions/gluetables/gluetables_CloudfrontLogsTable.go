@@ -15,6 +15,9 @@ import (
 type CloudfrontLogsTable interface {
 	glue.Table
 	Compressed() *bool
+	// Boolean indicating whether to create default Athena queries for the Cloudfront Logs.
+	// See: [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+	//
 	CreateQueries() *bool
 	Database() glue.Database
 	DataFormat() glue.DataFormat
@@ -29,6 +32,7 @@ type CloudfrontLogsTable interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// Boolean for adding "friendly names" for the created Athena queries.
 	FriendlyQueryNames() *bool
 	Location() *string
 	Name() *string
