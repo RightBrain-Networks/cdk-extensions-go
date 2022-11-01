@@ -10,12 +10,16 @@ import (
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue/internal"
 )
 
+// Creates a Glue Database resource to contain a collection of metadata Tables.
+// See: [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html
+//
 type Database interface {
 	awscdk.Resource
 	CatalogArn() *string
 	CatalogId() *string
 	DatabaseArn() *string
 	DatabaseName() *string
+	// {@link DatabaseProps.description}.
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -26,7 +30,9 @@ type Database interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// {@link DatabaseProps.locationUri}.
 	LocationUri() *string
+	// {@link DatabaseProps.name:}.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node

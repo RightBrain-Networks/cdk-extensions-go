@@ -11,6 +11,9 @@ import (
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue/internal"
 )
 
+// Creates a resource specifying a Glue Connection to a data source.
+// See: [AWS::Glue::Connection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html)
+//
 type Connection interface {
 	awscdk.Resource
 	awsec2.IConnectable
@@ -18,7 +21,9 @@ type Connection interface {
 	ConnectionName() *string
 	// The network connections associated with this resource.
 	Connections() awsec2.Connections
+	// {@link ConnectionProps.connectionType:}.
 	ConnectionType() ConnectionType
+	// {@link ConnectionProps.description}.
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -29,6 +34,7 @@ type Connection interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// {@link ConnectionProps.name}.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node
@@ -42,10 +48,13 @@ type Connection interface {
 	PhysicalName() *string
 	Resource() awsglue.CfnConnection
 	SecurityGroup() awsec2.SecurityGroup
+	// {@link ConnectionProps.securityGroups:}.
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// {@link ConnectionProps.subnets}.
 	Subnets() *awsec2.SubnetSelection
+	// {@link ConnectionProps.vpc}.
 	Vpc() awsec2.IVpc
 	AddMatchCriteria(value *string)
 	AddProperty(key *string, value *string)
@@ -234,6 +243,7 @@ func (j *jsiiProxy_Connection) Vpc() awsec2.IVpc {
 }
 
 
+// Creates a new instance of the Connection class.
 func NewConnection(scope constructs.Construct, id *string, props *ConnectionProps) Connection {
 	_init_.Initialize()
 
@@ -251,6 +261,7 @@ func NewConnection(scope constructs.Construct, id *string, props *ConnectionProp
 	return &j
 }
 
+// Creates a new instance of the Connection class.
 func NewConnection_Override(c Connection, scope constructs.Construct, id *string, props *ConnectionProps) {
 	_init_.Initialize()
 

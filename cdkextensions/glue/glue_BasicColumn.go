@@ -10,7 +10,13 @@ import (
 
 type BasicColumn interface {
 	Column
+	// A free-form text comment.
+	// See: [AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)
+	//
 	Comment() *string
+	// The name of the Column.
+	// See: [AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)
+	//
 	Name() *string
 	TypeString() *string
 	Bind(scope constructs.IConstruct) *awsglue.CfnTable_ColumnProperty

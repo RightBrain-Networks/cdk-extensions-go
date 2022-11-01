@@ -12,6 +12,7 @@ import (
 
 type Workflow interface {
 	awscdk.Resource
+	// {@link WorkflowProps.description}.
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -22,6 +23,7 @@ type Workflow interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// {@link WorkflowProps.name}.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node
@@ -163,6 +165,7 @@ func (j *jsiiProxy_Workflow) WorkflowName() *string {
 }
 
 
+// Creates a new instance of the Workflow class.
 func NewWorkflow(scope constructs.Construct, id *string, props *WorkflowProps) Workflow {
 	_init_.Initialize()
 
@@ -180,6 +183,7 @@ func NewWorkflow(scope constructs.Construct, id *string, props *WorkflowProps) W
 	return &j
 }
 
+// Creates a new instance of the Workflow class.
 func NewWorkflow_Override(w Workflow, scope constructs.Construct, id *string, props *WorkflowProps) {
 	_init_.Initialize()
 

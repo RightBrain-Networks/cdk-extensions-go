@@ -13,6 +13,7 @@ import (
 
 type SecurityConfiguration interface {
 	awscdk.Resource
+	// {@link SecurityConfigurationProps.cloudWatchEncryption}.
 	CloudWatchEncryption() *CloudWatchEncryption
 	// The environment this resource belongs to.
 	//
@@ -23,8 +24,10 @@ type SecurityConfiguration interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// {@link SecurityConfigurationProps.jobBookmarksEncryption}.
 	JobBookmarksEncryption() *JobBookmarksEncryption
 	Key() awskms.Key
+	// {@link SecurityConfigurationProps.name}.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node
@@ -37,6 +40,7 @@ type SecurityConfiguration interface {
 	//    cross-environment scenarios.
 	PhysicalName() *string
 	Resource() awsglue.CfnSecurityConfiguration
+	// {@link SecurityConfigurationProps.s3Encryption}.
 	S3Encryption() *S3Encryption
 	SecurityConfigurationName() *string
 	// The stack in which this resource is defined.

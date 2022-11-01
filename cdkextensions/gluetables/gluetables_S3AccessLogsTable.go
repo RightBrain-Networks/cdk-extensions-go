@@ -14,13 +14,17 @@ import (
 
 type S3AccessLogsTable interface {
 	glue.Table
+	// {@link TableProps.compressed}.
 	Compressed() *bool
 	// Boolean indicating whether to create default Athena queries for the S3 Access Logs.
 	// See: [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
 	//
 	CreateQueries() *bool
+	// {@link TableProps.database:}.
 	Database() glue.Database
+	// {@link TableProps.dataFormat}.
 	DataFormat() glue.DataFormat
+	// {@link TableProps.description}.
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -33,10 +37,13 @@ type S3AccessLogsTable interface {
 	Env() *awscdk.ResourceEnvironment
 	// Boolean for adding "friendly names" for the created Athena queries.
 	FriendlyQueryNames() *bool
+	// {@link TableProps.location}.
 	Location() *string
+	// {@link TableProps.name}.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node
+	// {@link TableProps.owner}.
 	Owner() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -48,16 +55,23 @@ type S3AccessLogsTable interface {
 	PhysicalName() *string
 	RequestErrorsNamedQuery() athena.NamedQuery
 	Resource() awsglue.CfnTable
+	// {@link TableProps.retention}.
 	Retention() awscdk.Duration
+	// {@link TableProps.serdeName}.
 	SerdeName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// {@link TableProps.storedAsSubDirectories}.
 	StoredAsSubDirectories() *bool
 	TableArn() *string
 	TableName() *string
+	// {@link TableProps.tableType}.
 	TableType() glue.TableType
+	// {@link TableProps.targetTable}.
 	TargetTable() glue.Table
+	// {@link TableProps.viewExpandedText}.
 	ViewExpandedText() *string
+	// {@link TableProps.viewOriginalText}.
 	ViewOriginalText() *string
 	AddColumn(column glue.Column)
 	AddParameter(key *string, value *string)

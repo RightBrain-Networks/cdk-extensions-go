@@ -22,7 +22,9 @@ type WorkflowProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// A description of the Workflow.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// A name of the Workflow.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

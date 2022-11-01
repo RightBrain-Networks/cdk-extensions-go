@@ -13,6 +13,7 @@ import (
 
 type Trigger interface {
 	awscdk.Resource
+	// {@link TriggerProps.description}.
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -23,6 +24,7 @@ type Trigger interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// {@link TriggerProps.name}.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node
@@ -34,13 +36,18 @@ type Trigger interface {
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
 	PhysicalName() *string
+	// {@link TriggerProps.predicateOperator:}.
 	PredicateOperator() PredicateOperator
 	Resource() awsglue.CfnTrigger
+	// {@link TriggerProps.schedule}.
 	Schedule() awsevents.Schedule
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// {@link TriggerProps.startOnCreation}.
 	StartOnCreation() *bool
+	// {@link TriggerProps.type:}.
 	Type() TriggerType
+	// {@link TriggerProps.workflow}.
 	Workflow() Workflow
 	WorkflowArn() *string
 	WorkflowName() *string
@@ -220,6 +227,7 @@ func (j *jsiiProxy_Trigger) WorkflowName() *string {
 }
 
 
+// Creates a new instance of the Trigger class.
 func NewTrigger(scope constructs.Construct, id *string, props *TriggerProps) Trigger {
 	_init_.Initialize()
 
@@ -237,6 +245,7 @@ func NewTrigger(scope constructs.Construct, id *string, props *TriggerProps) Tri
 	return &j
 }
 
+// Creates a new instance of the Trigger class.
 func NewTrigger_Override(t Trigger, scope constructs.Construct, id *string, props *TriggerProps) {
 	_init_.Initialize()
 

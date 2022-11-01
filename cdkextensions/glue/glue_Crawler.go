@@ -12,13 +12,20 @@ import (
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue/internal"
 )
 
+// Create a Crawler resource to pull information from the provided resource.
+// See: [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html)
+//
 type Crawler interface {
 	awscdk.Resource
+	// {@link CrawlerProps.configuration}.
 	Configuration() *CrawlerConfiguration
 	CrawlerArn() *string
 	CrawlerName() *string
+	// {@link CrawlerProps.database}.
 	Database() Database
+	// {@link CrawlerProps.deleteBehavior}.
 	DeleteBehavior() DeleteBehavior
+	// {@link CrawlerProps.description}.
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -29,6 +36,7 @@ type Crawler interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// {@link CrawlerProps.name}.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node
@@ -40,14 +48,19 @@ type Crawler interface {
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
 	PhysicalName() *string
+	// {@link CrawlerProps.recrawlBehavior}.
 	RecrawlBehavior() RecrawlBehavior
 	Resource() awsglue.CfnCrawler
 	Role() awsiam.Role
+	// {@link CrawlerProps.scheduleExpression}.
 	ScheduleExpression() awsevents.Schedule
+	// {@link CrawlerProps.securityConfiguration}.
 	SecurityConfiguration() SecurityConfiguration
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// {@link CrawlerProps.tablePrefix}.
 	TablePrefix() *string
+	// {@link CrawlerProps.updateBehavior}.
 	UpdateBehavior() UpdateBehavior
 	AddClassifier(classifier *string)
 	AddTarget(target ICrawlerTarget)

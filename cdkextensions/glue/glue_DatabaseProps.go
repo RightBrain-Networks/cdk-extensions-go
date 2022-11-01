@@ -22,8 +22,15 @@ type DatabaseProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// A description of the database.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The location of the database (for example, an HDFS path).
+	// See: [AWS::Glue::Database DatabaseInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri)
+	//
 	LocationUri *string `field:"optional" json:"locationUri" yaml:"locationUri"`
+	// The name of the database.
+	//
+	// For Hive compatibility, this is folded to lowercase when it is stored.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

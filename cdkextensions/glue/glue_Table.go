@@ -10,11 +10,18 @@ import (
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue/internal"
 )
 
+// Creates a Table resource specifying tabular data in the Glue Database.
+// See: [AWS::Glue::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html)
+//
 type Table interface {
 	awscdk.Resource
+	// {@link TableProps.compressed}.
 	Compressed() *bool
+	// {@link TableProps.database:}.
 	Database() Database
+	// {@link TableProps.dataFormat}.
 	DataFormat() DataFormat
+	// {@link TableProps.description}.
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -25,10 +32,13 @@ type Table interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// {@link TableProps.location}.
 	Location() *string
+	// {@link TableProps.name}.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node
+	// {@link TableProps.owner}.
 	Owner() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -39,16 +49,23 @@ type Table interface {
 	//    cross-environment scenarios.
 	PhysicalName() *string
 	Resource() awsglue.CfnTable
+	// {@link TableProps.retention}.
 	Retention() awscdk.Duration
+	// {@link TableProps.serdeName}.
 	SerdeName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// {@link TableProps.storedAsSubDirectories}.
 	StoredAsSubDirectories() *bool
 	TableArn() *string
 	TableName() *string
+	// {@link TableProps.tableType}.
 	TableType() TableType
+	// {@link TableProps.targetTable}.
 	TargetTable() Table
+	// {@link TableProps.viewExpandedText}.
 	ViewExpandedText() *string
+	// {@link TableProps.viewOriginalText}.
 	ViewOriginalText() *string
 	AddColumn(column Column)
 	AddParameter(key *string, value *string)

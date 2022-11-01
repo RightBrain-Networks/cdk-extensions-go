@@ -12,11 +12,18 @@ import (
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue/internal"
 )
 
+// Creates a Glue Job.
+// See: [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html)
+//
 type Job interface {
 	awscdk.Resource
+	// {@link JobProps.allocatedCapacity }.
 	AllocatedCapacity() *float64
+	// {@link JobProps.connections}.
 	Connections() *[]Connection
+	// {@link JobProps.continuousLogging}.
 	ContinuousLogging() *ContinuousLoggingProps
+	// {@link JobProps.description}.
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -27,16 +34,22 @@ type Job interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// {@link JobProps.executable:}.
 	Executable() JobExecutable
 	JobArn() *string
 	JobName() *string
 	LogGroup() awslogs.ILogGroup
+	// {@link JobProps.maxCapacity}.
 	MaxCapacity() *float64
+	// {@link JobProps.maxConcurrentRuns}.
 	MaxConcurrentRuns() *float64
+	// {@link JobProps.maxRetries}.
 	MaxRetries() *float64
+	// {@link JobProps.name}.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node
+	// {@link JobProps.notifyDelayAfter}.
 	NotifyDelayAfter() awscdk.Duration
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -48,11 +61,15 @@ type Job interface {
 	PhysicalName() *string
 	Resource() awsglue.CfnJob
 	Role() awsiam.IRole
+	// {@link JobProps.securityConfiguration}.
 	SecurityConfiguration() SecurityConfiguration
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// {@link JobProps.timeout}.
 	Timeout() awscdk.Duration
+	// {@link JobProps.workerCount}.
 	WorkerCount() *float64
+	// {@link JobProps.workerType}.
 	WorkerType() WorkerType
 	AddArgument(key *string, value *string)
 	AddConnection(connection Connection)
@@ -320,6 +337,7 @@ func (j *jsiiProxy_Job) WorkerType() WorkerType {
 }
 
 
+// Creates a new instance of the Job class.
 func NewJob(scope constructs.Construct, id *string, props *JobProps) Job {
 	_init_.Initialize()
 
@@ -337,6 +355,7 @@ func NewJob(scope constructs.Construct, id *string, props *JobProps) Job {
 	return &j
 }
 
+// Creates a new instance of the Job class.
 func NewJob_Override(j Job, scope constructs.Construct, id *string, props *JobProps) {
 	_init_.Initialize()
 

@@ -29,6 +29,7 @@ func (j *jsiiProxy_JdbcTarget) Connection() Connection {
 }
 
 
+// Creates a new instance of the JdbcTarget class.
 func NewJdbcTarget(connection Connection, options *JdbcTargetOptions) JdbcTarget {
 	_init_.Initialize()
 
@@ -46,6 +47,7 @@ func NewJdbcTarget(connection Connection, options *JdbcTargetOptions) JdbcTarget
 	return &j
 }
 
+// Creates a new instance of the JdbcTarget class.
 func NewJdbcTarget_Override(j JdbcTarget, connection Connection, options *JdbcTargetOptions) {
 	_init_.Initialize()
 

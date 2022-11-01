@@ -9,10 +9,15 @@ import (
 
 type S3Target interface {
 	ICrawlerTarget
+	// Bucket to use as the Target.
 	Bucket() awss3.IBucket
+	// {@link S3TargetOptions.connection}.
 	Connection() Connection
+	// {@link S3TargetOptions.exclusions}.
 	Exclusions() *[]*string
+	// {@link S3TargetOptions.keyPrefix}.
 	KeyPrefix() *string
+	// {@link S3TargetOptions.sampleSize}.
 	SampleSize() *string
 	AddExclusion(exclusion *string)
 	Bind(crawler Crawler) *CrawlerTargetCollection
