@@ -5,7 +5,13 @@ import (
 )
 
 type IInstance interface {
+	// The ARN of the IAM Identity Center instance under which the operation will be executed.
+	//
+	// For more information about ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces in the AWS General Reference.
+	// See: [AWS::SSO::Assignment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn)
+	//
 	InstanceArn() *string
+	// The ID of the IAM Identity Center instance under which the operation will be executed.
 	InstanceId() *string
 }
 

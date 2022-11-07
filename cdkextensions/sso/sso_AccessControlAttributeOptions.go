@@ -9,6 +9,8 @@ type AccessControlAttributeOptions struct {
 	// identity source with an attribute in IAM Identity Center.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of identity sources to use when mapping a specified attribute to IAM Identity Center.
+	// See: [AWS::SSO::InstanceAccessControlAttributeConfiguration AccessControlAttributeValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source)
+	//
 	Sources *[]*string `field:"optional" json:"sources" yaml:"sources"`
 }
 

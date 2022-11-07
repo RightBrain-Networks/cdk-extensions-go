@@ -33,7 +33,7 @@ type InstanceAccessControlAttributeConfiguration interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
-	// The ARN of the IAM Identity Center instance under which the operation will be executed.
+	// The ARN of the IAM Identity Center {@link aws-sso.IInstance | instance } under which the operation will be executed.
 	Instance() IInstance
 	// The tree node.
 	Node() constructs.Node

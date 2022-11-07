@@ -22,7 +22,7 @@ type AssignmentProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
-	// The IAM Identity Center instance under which the operation will be executed.
+	// The IAM Identity Center {@link aws-sso.IInstance | instance } under which the operation will be executed.
 	Instance IInstance `field:"required" json:"instance" yaml:"instance"`
 	// The permission set which governs the access being assigned.
 	//

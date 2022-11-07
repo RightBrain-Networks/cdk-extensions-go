@@ -13,12 +13,14 @@ import (
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/stacks/internal"
 )
 
-// Creates a demo web service running in Fargate that is accessible through an application load balancer.
+// Creates a Stack that deploys a logging strategy for several AWS services.
 //
-// The demo service serves a generic "Welcome to nginx" page.
+// Stack creates a Glue Database using cdk-extensions Database, deploys
+// cdk-extensions/s3-buckets patterns for each service, and utilizes methods exposed
+// by cdk-extensions/s3-buckets S3AccessLogsBucket to enable logging for each created
+// bucket.
+// See: {@link aws-s3-buckets!WafLogsBucket | cdk-extensions/s3-buckets WafLogsBucket}
 //
-// The service can be accessed remotely using ECS Exec. For details see the documentation at:
-// https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html#ecs-exec-running-commands
 type AwsLoggingStack interface {
 	awscdk.Stack
 	// The AWS account into which this stack will be deployed.
@@ -61,6 +63,7 @@ type AwsLoggingStack interface {
 	CloudfrontLogsBucket() s3buckets.CloudfrontLogsBucket
 	CloudtrailLogsBucket() s3buckets.CloudtrailBucket
 	Database() glue.Database
+	// Name for the AWS Logs Glue Database.
 	DatabaseName() *string
 	// Return the stacks this stack depends on.
 	Dependencies() *[]awscdk.Stack
@@ -79,7 +82,9 @@ type AwsLoggingStack interface {
 	// region/account-agnostic.
 	Environment() *string
 	FlowLogsBucket() s3buckets.FlowLogsBucket
+	// A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
 	FlowLogsFormat() ec2.FlowLogFormat
+	// Boolean for adding "friendly names" for the created Athena queries.
 	FriendlyQueryNames() *bool
 	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent.
 	Nested() *bool
@@ -134,6 +139,7 @@ type AwsLoggingStack interface {
 	// If you wish to obtain the deploy-time AWS::StackName intrinsic,
 	// you can use `Aws.STACK_NAME` directly.
 	StackName() *string
+	// Boolean for using standardized names (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets.
 	StandardizeNames() *bool
 	// Synthesis method for this stack.
 	Synthesizer() awscdk.IStackSynthesizer
@@ -662,6 +668,7 @@ func (j *jsiiProxy_AwsLoggingStack) WafLogsBucket() s3buckets.WafLogsBucket {
 }
 
 
+// Creates a new instance of the AwsLoggingStack class.
 func NewAwsLoggingStack(scope constructs.Construct, id *string, props *AwsLoggingStackProps) AwsLoggingStack {
 	_init_.Initialize()
 
@@ -679,6 +686,7 @@ func NewAwsLoggingStack(scope constructs.Construct, id *string, props *AwsLoggin
 	return &j
 }
 
+// Creates a new instance of the AwsLoggingStack class.
 func NewAwsLoggingStack_Override(a AwsLoggingStack, scope constructs.Construct, id *string, props *AwsLoggingStackProps) {
 	_init_.Initialize()
 

@@ -21,7 +21,11 @@ type InstanceBase interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The ARN of the IAM Identity Center instance under which the operation will be executed.
+	//
+	// For more information about ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces in the AWS General Reference.
 	InstanceArn() *string
+	// The ID of the IAM Identity Center instance under which the operation will be executed.
 	InstanceId() *string
 	// The tree node.
 	Node() constructs.Node

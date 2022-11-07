@@ -29,16 +29,24 @@ type PermissionSetProps struct {
 	// The ARN of the IAM Identity Center instance under which the operation will be executed.
 	Instance IInstance `field:"required" json:"instance" yaml:"instance"`
 	// A user friendly description providing details about the permission set.
+	// See: [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description)
+	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Adds inline policy documents that will be embedded in the permission set.
+	// See: [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy)
+	//
 	InlinePolicies *map[string]awsiam.PolicyDocument `field:"optional" json:"inlinePolicies" yaml:"inlinePolicies"`
 	// A list of the IAM managed policies that you want to attach to the permission set.
 	//
 	// Managed policies specified here must be AWS managed.
 	// To reference custom managed policies use the {@link PermissionSet.addCustomerManagedPolicy}
 	// method.
+	// See: [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies)
+	//
 	ManagedPolicies *[]awsiam.IManagedPolicy `field:"optional" json:"managedPolicies" yaml:"managedPolicies"`
 	// The name of the permission set.
+	// See: [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name)
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary.
 	//
@@ -49,14 +57,20 @@ type PermissionSetProps struct {
 	// any policy can grant your role. For more information, see [Permissions
 	// boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) for IAM entities in the AWS Identity and Access Management
 	// User Guide.
+	// See: [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-permissionsboundary)
+	//
 	PermissionsBoundary PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Used to redirect users within the application during the federation authentication process.
 	//
 	// For example, you can redirect users to a
 	// specific page that is most applicable to their job after singing in to
 	// an AWS account.
+	// See: [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype)
+	//
 	RelayState *string `field:"optional" json:"relayState" yaml:"relayState"`
 	// The length of time that the application user sessions are valid for.
+	// See: [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration)
+	//
 	SessionDuration awscdk.Duration `field:"optional" json:"sessionDuration" yaml:"sessionDuration"`
 }
 
