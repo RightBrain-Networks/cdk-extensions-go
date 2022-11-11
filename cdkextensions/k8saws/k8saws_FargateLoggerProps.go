@@ -5,8 +5,21 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 )
 
-// Configuration for the FargateLogger resource.
+// Required configuration for the Fargate logger resource.
 type FargateLoggerProps struct {
+	// A default list of Fargate profiles that should have permissions configured.
+	//
+	// Alternatively profiles can be added at any time by calling
+	// `addProfile`.
+	FargateProfiles *[]awseks.FargateProfile `field:"optional" json:"fargateProfiles" yaml:"fargateProfiles"`
+	// The filters that should be applied to logs being processed.
+	Filters *[]IFluentBitFilterPlugin `field:"optional" json:"filters" yaml:"filters"`
+	// The CloudWatch log group where Farget container logs will be sent.
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	// The output destinations where logs should be written.
+	Outputs *[]IFluentBitOutputPlugin `field:"optional" json:"outputs" yaml:"outputs"`
+	// The parsers to be used when reading log files.
+	Parsers *[]IFluentBitParserPlugin `field:"optional" json:"parsers" yaml:"parsers"`
 	// The AWS account ID this resource belongs to.
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// ARN to deduce region and account from.
@@ -28,16 +41,5 @@ type FargateLoggerProps struct {
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// The EKS Cluster to configure Fargate logging for.
 	Cluster awseks.ICluster `field:"required" json:"cluster" yaml:"cluster"`
-	// A default list of Fargate profiles that should have permissions configured.
-	//
-	// Alternatively profiles can be added at any time by calling
-	// `addProfile`.
-	FargateProfiles *[]awseks.FargateProfile `field:"optional" json:"fargateProfiles" yaml:"fargateProfiles"`
-	// The CloudWatch log group where Farget container logs will be sent.
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
-	// The prefix to add to the start of log streams created by the Fargate logger.
-	LogStreamPrefix *string `field:"optional" json:"logStreamPrefix" yaml:"logStreamPrefix"`
-	// The number of days logs sent to CloudWatch from Fluent Bit should be retained before they are automatically removed.
-	Retention awslogs.RetentionDays `field:"optional" json:"retention" yaml:"retention"`
 }
 

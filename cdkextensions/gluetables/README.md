@@ -7,7 +7,7 @@ the CDK module, but with additional features included.
 
 [AWS CDK Glue API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-glue-alpha-readme.html)
 
-The patterns here extend the Glue constructs in the **cdk-extensions/glue** module to
+The patterns here extend and depend on the Glue constructs in the **cdk-extensions/glue** module(`crawler`, `table`, et al) to
 ensure all defaults follow best practices, and utilize most secure settings.
 
 To import and use this module within your CDK project:
@@ -31,7 +31,9 @@ These constructs are utilized as part of the logging strategy defined by
 and named Athena queries for ingesting and analyzing each services log data from
 an S3 Bucket.
 
-* [Common Settings](#CommonSettings)
+* [Usage](#Usage)
+
+  * [Required Parameters](#RequiredParameters)
 * [GlueTables](#GlueTables)
 
   * [AlbLogsTable](#AlbLogsTable)
@@ -42,9 +44,21 @@ an S3 Bucket.
   * [SesLogsTable](#SesLogsTable)
   * [WafLogsTable](#WafLogsTable)
 
-## Common Settings
+### Usage
 
-### Required Parameters
+These tables all expect input from S3_buckets. By default, for each service in
+the **AwsLoggingStack**, a Glue crawler performs an ETL process to analyze and categorize
+the stored data and store the associated metadata in the AWS Glue Data Catalog.
+All fields are represented, with handling for nested data as structs.
+
+For each service, projections are configured where necessary and tables constructed
+to patterns expected for that service, including any necessary SerDe Info.
+
+Several default named **Athena** queries are defined using the **cdk_extensions/athena**
+module that aid in improving the security posture of your AWS Account. These named
+queries have been defined for each AWS service.
+
+#### Required Parameters
 
 These constructs are intended to be used internally by the **AwsLoggingStack**. If
 using them directly, requires:
@@ -53,16 +67,11 @@ using them directly, requires:
   representing the s3 bucket logs are stored in
 * **database**: A **cdk-extensions/glue** `Database` to create the table in.
 
-These tables all expect input from S3_buckets. By default, for each service in
-the **AwsLoggingStack** a Glue crawler performs an ETL process to analyze and categorize
-the stored data and store the associated metadata in the AWS Glue Data Catalog.
+### About ETL
 
-For each service, projections are configured where necessary and tables constructed
-to patterns expected for that service, including any necessary SerDe Info.
-
-Several default named queries are defined that aid in improving the security posture
-of your AWS Account. These default named queries have been defined for each AWS
-service.
+ETL stands for **E**xtract, **T**ransform, **L**oad. Data is *extracted* from the
+service logs by the Glue crawler, and *transformed* to a proper schema and format
+for *loading* into a Glue table.
 
 ## AlbLogsTable
 
@@ -104,7 +113,8 @@ alb_logging_stack = AlbLogsTable(self, 'AwsLoggingStack',
 
 ### Glue
 
-Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected ALB log fields.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Table schema is configured for expected ALB log fields.
 
 The following partition keys are set:
 
@@ -163,7 +173,8 @@ cloudfront_logging_stack = CloudFrontLogsTable(self, 'AwsLoggingStack',
 
 ### Glue
 
-Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected CloudFront log fields.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Table schema is configured for expected CloudFront log fields.
 
 ### Athena Queries
 
@@ -217,7 +228,8 @@ cloudtrail_table_stack = CloudTrailTable(self, 'AwsLoggingStack',
 
 ### Glue
 
-Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected CloudTrail event logs data.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Table schema is configured for expected CloudTrail event logs data.
 
 The following partition keys are set:
 
@@ -277,7 +289,8 @@ flowlogs_stack = FlowLogsTable(self, 'AwsLoggingStack',
 
 ### Glue
 
-Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected VPC FlowLog data.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Table schema is configured for expected VPC FlowLog data.
 
 The following partition keys are set:
 
@@ -335,7 +348,8 @@ s3_access_logging_stack = S3AccessLogsTable(self, 'AwsLoggingStack',
 
 ### Glue
 
-Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected S3 Access log data.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Table schema is configured for expected S3 Access log data.
 
 ### Athena Queries
 
@@ -384,7 +398,8 @@ ses_logging_stack = SesLogsTable(self, 'AwsLoggingStack',
 
 ### Glue
 
-Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for the expected SES event logs.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Table schema is configured for the expected SES event logs.
 
 Projection is enabled and configured for the expected `yyyy/MM/dd` log format.
 
@@ -439,7 +454,8 @@ waf_logging_stack = WafLogsTable(self, 'AwsLoggingStack',
 
 ### Glue
 
-Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected WAF log data.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Table schema is configured for expected WAF log data.
 
 The following partition keys are set:
 

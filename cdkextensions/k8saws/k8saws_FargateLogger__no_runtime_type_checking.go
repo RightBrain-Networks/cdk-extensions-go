@@ -9,6 +9,18 @@ func (f *jsiiProxy_FargateLogger) validateAddFargateProfileParameters(profile aw
 	return nil
 }
 
+func (f *jsiiProxy_FargateLogger) validateAddFilterParameters(filter IFluentBitFilterPlugin) error {
+	return nil
+}
+
+func (f *jsiiProxy_FargateLogger) validateAddOutputParameters(output IFluentBitOutputPlugin) error {
+	return nil
+}
+
+func (f *jsiiProxy_FargateLogger) validateAddParserParameters(parser IFluentBitParserPlugin) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateLogger) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

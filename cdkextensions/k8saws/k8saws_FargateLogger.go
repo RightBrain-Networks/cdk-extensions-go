@@ -6,13 +6,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/k8saws/internal"
 )
 
+// Creates a ConfigMap that configures logging for containers running in EKS on Fargate.
 type FargateLogger interface {
 	awscdk.Resource
+	// The EKS cluster where Fargate logging is being configured.
 	Cluster() awseks.ICluster
 	// The environment this resource belongs to.
 	//
@@ -23,10 +24,16 @@ type FargateLogger interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
-	LogGroup() awslogs.ILogGroup
-	LogStreamPrefix() *string
+	// Collection of Fluent Bit filter plugins being configured for logging.
+	Filters() *[]IFluentBitFilterPlugin
+	// The Kubernetes manifest that creates the ConfigMap that Fargate uses to configure logging.
+	Manifest() awseks.KubernetesManifest
 	// The tree node.
 	Node() constructs.Node
+	// Collection of Fluent Bit output plugins being configured for logging.
+	Outputs() *[]IFluentBitOutputPlugin
+	// Collection of Fluent Bit parser plugins being configured for logging.
+	Parsers() *[]IFluentBitParserPlugin
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -35,11 +42,12 @@ type FargateLogger interface {
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
 	PhysicalName() *string
-	Resource() awseks.KubernetesManifest
-	Retention() awslogs.RetentionDays
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	AddFargateProfile(profile awseks.FargateProfile) FargateLogger
+	AddFilter(filter IFluentBitFilterPlugin) FargateLogger
+	AddOutput(output IFluentBitOutputPlugin) FargateLogger
+	AddParser(parser IFluentBitParserPlugin) FargateLogger
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -93,21 +101,21 @@ func (j *jsiiProxy_FargateLogger) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_FargateLogger) LogGroup() awslogs.ILogGroup {
-	var returns awslogs.ILogGroup
+func (j *jsiiProxy_FargateLogger) Filters() *[]IFluentBitFilterPlugin {
+	var returns *[]IFluentBitFilterPlugin
 	_jsii_.Get(
 		j,
-		"logGroup",
+		"filters",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_FargateLogger) LogStreamPrefix() *string {
-	var returns *string
+func (j *jsiiProxy_FargateLogger) Manifest() awseks.KubernetesManifest {
+	var returns awseks.KubernetesManifest
 	_jsii_.Get(
 		j,
-		"logStreamPrefix",
+		"manifest",
 		&returns,
 	)
 	return returns
@@ -123,31 +131,31 @@ func (j *jsiiProxy_FargateLogger) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_FargateLogger) Outputs() *[]IFluentBitOutputPlugin {
+	var returns *[]IFluentBitOutputPlugin
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateLogger) Parsers() *[]IFluentBitParserPlugin {
+	var returns *[]IFluentBitParserPlugin
+	_jsii_.Get(
+		j,
+		"parsers",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_FargateLogger) PhysicalName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"physicalName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_FargateLogger) Resource() awseks.KubernetesManifest {
-	var returns awseks.KubernetesManifest
-	_jsii_.Get(
-		j,
-		"resource",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_FargateLogger) Retention() awslogs.RetentionDays {
-	var returns awslogs.RetentionDays
-	_jsii_.Get(
-		j,
-		"retention",
 		&returns,
 	)
 	return returns
@@ -164,6 +172,7 @@ func (j *jsiiProxy_FargateLogger) Stack() awscdk.Stack {
 }
 
 
+// Creates a new instance of the FargateLogger class.
 func NewFargateLogger(scope constructs.Construct, id *string, props *FargateLoggerProps) FargateLogger {
 	_init_.Initialize()
 
@@ -181,6 +190,7 @@ func NewFargateLogger(scope constructs.Construct, id *string, props *FargateLogg
 	return &j
 }
 
+// Creates a new instance of the FargateLogger class.
 func NewFargateLogger_Override(f FargateLogger, scope constructs.Construct, id *string, props *FargateLoggerProps) {
 	_init_.Initialize()
 
@@ -261,6 +271,54 @@ func (f *jsiiProxy_FargateLogger) AddFargateProfile(profile awseks.FargateProfil
 		f,
 		"addFargateProfile",
 		[]interface{}{profile},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FargateLogger) AddFilter(filter IFluentBitFilterPlugin) FargateLogger {
+	if err := f.validateAddFilterParameters(filter); err != nil {
+		panic(err)
+	}
+	var returns FargateLogger
+
+	_jsii_.Invoke(
+		f,
+		"addFilter",
+		[]interface{}{filter},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FargateLogger) AddOutput(output IFluentBitOutputPlugin) FargateLogger {
+	if err := f.validateAddOutputParameters(output); err != nil {
+		panic(err)
+	}
+	var returns FargateLogger
+
+	_jsii_.Invoke(
+		f,
+		"addOutput",
+		[]interface{}{output},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FargateLogger) AddParser(parser IFluentBitParserPlugin) FargateLogger {
+	if err := f.validateAddParserParameters(parser); err != nil {
+		panic(err)
+	}
+	var returns FargateLogger
+
+	_jsii_.Invoke(
+		f,
+		"addParser",
+		[]interface{}{parser},
 		&returns,
 	)
 

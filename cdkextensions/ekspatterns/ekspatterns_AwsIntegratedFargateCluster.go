@@ -15,7 +15,7 @@ import (
 
 type AwsIntegratedFargateCluster interface {
 	awscdk.Resource
-	CloudWatchMonitoring() k8saws.CloudWatchMonitoring
+	AdotCollector() k8saws.AdotCollector
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -25,7 +25,6 @@ type AwsIntegratedFargateCluster interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
-	ExternalDns() k8saws.ExternalDns
 	ExternalSecrets() k8saws.ExternalSecretsOperator
 	FargateLogger() k8saws.FargateLogger
 	// The tree node.
@@ -39,6 +38,7 @@ type AwsIntegratedFargateCluster interface {
 	//    cross-environment scenarios.
 	PhysicalName() *string
 	Resource() awseks.FargateCluster
+	Route53Dns() k8saws.Route53Dns
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -76,11 +76,11 @@ type jsiiProxy_AwsIntegratedFargateCluster struct {
 	internal.Type__awscdkResource
 }
 
-func (j *jsiiProxy_AwsIntegratedFargateCluster) CloudWatchMonitoring() k8saws.CloudWatchMonitoring {
-	var returns k8saws.CloudWatchMonitoring
+func (j *jsiiProxy_AwsIntegratedFargateCluster) AdotCollector() k8saws.AdotCollector {
+	var returns k8saws.AdotCollector
 	_jsii_.Get(
 		j,
-		"cloudWatchMonitoring",
+		"adotCollector",
 		&returns,
 	)
 	return returns
@@ -91,16 +91,6 @@ func (j *jsiiProxy_AwsIntegratedFargateCluster) Env() *awscdk.ResourceEnvironmen
 	_jsii_.Get(
 		j,
 		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AwsIntegratedFargateCluster) ExternalDns() k8saws.ExternalDns {
-	var returns k8saws.ExternalDns
-	_jsii_.Get(
-		j,
-		"externalDns",
 		&returns,
 	)
 	return returns
@@ -151,6 +141,16 @@ func (j *jsiiProxy_AwsIntegratedFargateCluster) Resource() awseks.FargateCluster
 	_jsii_.Get(
 		j,
 		"resource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AwsIntegratedFargateCluster) Route53Dns() k8saws.Route53Dns {
+	var returns k8saws.Route53Dns
+	_jsii_.Get(
+		j,
+		"route53Dns",
 		&returns,
 	)
 	return returns

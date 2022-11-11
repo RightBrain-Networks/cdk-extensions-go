@@ -12,9 +12,24 @@ import (
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/k8saws/internal"
 )
 
+// External Secrets Operator is a Kubernetes operator that integrates external secret management systems like AWS Secrets Manager, HashiCorp Vault, Google Secrets Manager, Azure Key Vault and many more.
+//
+// The operator reads
+// information from external APIs and automatically injects the values into a
+// Kubernetes Secret.
+// See: [External Secrets Website](https://external-secrets.io/)
+//
 type ExternalSecretsOperator interface {
 	awscdk.Resource
+	// The EKS cluster where the external secrets operator service should be installed and configured.
 	Cluster() awseks.Cluster
+	// Determines the behavior when the service is deployed to a namespace that doesn't already exist on the EKS cluster.
+	//
+	// When this flag is `true` and the namespace doesn't exist, the namespace
+	// will be created automatically.
+	//
+	// When this flag is `false` and the namespace doesn't exist, an error will
+	// occur and resource creation will fail.
 	CreateNamespace() *bool
 	// The environment this resource belongs to.
 	//
@@ -25,12 +40,12 @@ type ExternalSecretsOperator interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The Helm chart the manages the installation and configuration of the external secrets operator service.
 	HelmChart() awseks.HelmChart
-	Name() *string
+	// The Kubernetes namespace where the external secrets operator service should be installed and configured.
 	Namespace() *string
 	// The tree node.
 	Node() constructs.Node
-	OperatorName() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -65,7 +80,13 @@ type ExternalSecretsOperator interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Registers a Secrets Manager secret with the external secrets operator, enabling syncing from the Secrets Manager secret into Kubernetes.
+	//
+	// Returns: The external secret object that was created.
 	RegisterSecretsManagerSecret(id *string, secret awssecretsmanager.ISecret, options *NamespacedExternalSecretOptions) ExternalSecret
+	// Registers a Systems Manager parameter with the external secrets operator, enabling syncing from the Systems Manager parameter into Kubernetes.
+	//
+	// Returns: The external secret object that was created.
 	RegisterSsmParameterSecret(id *string, parameter awsssm.IParameter, options *NamespacedExternalSecretOptions) ExternalSecret
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -116,16 +137,6 @@ func (j *jsiiProxy_ExternalSecretsOperator) HelmChart() awseks.HelmChart {
 	return returns
 }
 
-func (j *jsiiProxy_ExternalSecretsOperator) Name() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"name",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_ExternalSecretsOperator) Namespace() *string {
 	var returns *string
 	_jsii_.Get(
@@ -141,16 +152,6 @@ func (j *jsiiProxy_ExternalSecretsOperator) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ExternalSecretsOperator) OperatorName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"operatorName",
 		&returns,
 	)
 	return returns
@@ -177,6 +178,7 @@ func (j *jsiiProxy_ExternalSecretsOperator) Stack() awscdk.Stack {
 }
 
 
+// Creates a new instance of the ExternalSecretsOperator class.
 func NewExternalSecretsOperator(scope constructs.Construct, id *string, props *ExternalSecretsOperatorProps) ExternalSecretsOperator {
 	_init_.Initialize()
 
@@ -194,6 +196,7 @@ func NewExternalSecretsOperator(scope constructs.Construct, id *string, props *E
 	return &j
 }
 
+// Creates a new instance of the ExternalSecretsOperator class.
 func NewExternalSecretsOperator_Override(e ExternalSecretsOperator, scope constructs.Construct, id *string, props *ExternalSecretsOperatorProps) {
 	_init_.Initialize()
 
@@ -261,6 +264,28 @@ func ExternalSecretsOperator_IsResource(construct constructs.IConstruct) *bool {
 		&returns,
 	)
 
+	return returns
+}
+
+func ExternalSecretsOperator_CHART_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdk-extensions.k8s_aws.ExternalSecretsOperator",
+		"CHART_NAME",
+		&returns,
+	)
+	return returns
+}
+
+func ExternalSecretsOperator_CHART_REPOSITORY() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdk-extensions.k8s_aws.ExternalSecretsOperator",
+		"CHART_REPOSITORY",
+		&returns,
+	)
 	return returns
 }
 

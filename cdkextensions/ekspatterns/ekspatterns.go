@@ -11,10 +11,9 @@ func init() {
 		"cdk-extensions.eks_patterns.AwsIntegratedFargateCluster",
 		reflect.TypeOf((*AwsIntegratedFargateCluster)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "adotCollector", GoGetter: "AdotCollector"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "cloudWatchMonitoring", GoGetter: "CloudWatchMonitoring"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "externalDns", GoGetter: "ExternalDns"},
 			_jsii_.MemberProperty{JsiiProperty: "externalSecrets", GoGetter: "ExternalSecrets"},
 			_jsii_.MemberProperty{JsiiProperty: "fargateLogger", GoGetter: "FargateLogger"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -25,6 +24,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "registerSecretsManagerSecret", GoMethod: "RegisterSecretsManagerSecret"},
 			_jsii_.MemberMethod{JsiiMethod: "registerSsmParameterSecret", GoMethod: "RegisterSsmParameterSecret"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "route53Dns", GoGetter: "Route53Dns"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -39,19 +39,19 @@ func init() {
 		reflect.TypeOf((*AwsIntegratedFargateClusterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"cdk-extensions.eks_patterns.CloudWatchMonitoringOptions",
-		reflect.TypeOf((*CloudWatchMonitoringOptions)(nil)).Elem(),
+		"cdk-extensions.eks_patterns.ClusterFargateLoggingOptions",
+		reflect.TypeOf((*ClusterFargateLoggingOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"cdk-extensions.eks_patterns.ExternalDnsOptions",
-		reflect.TypeOf((*ExternalDnsOptions)(nil)).Elem(),
+		"cdk-extensions.eks_patterns.ClusterRoute53DnsOptions",
+		reflect.TypeOf((*ClusterRoute53DnsOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.eks_patterns.ContainerInsightsOptions",
+		reflect.TypeOf((*ContainerInsightsOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.eks_patterns.ExternalSecretsOptions",
 		reflect.TypeOf((*ExternalSecretsOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"cdk-extensions.eks_patterns.FargateLoggingOptions",
-		reflect.TypeOf((*FargateLoggingOptions)(nil)).Elem(),
 	)
 }

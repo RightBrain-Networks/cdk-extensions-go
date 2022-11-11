@@ -21,6 +21,30 @@ func (f *jsiiProxy_FargateLogger) validateAddFargateProfileParameters(profile aw
 	return nil
 }
 
+func (f *jsiiProxy_FargateLogger) validateAddFilterParameters(filter IFluentBitFilterPlugin) error {
+	if filter == nil {
+		return fmt.Errorf("parameter filter is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (f *jsiiProxy_FargateLogger) validateAddOutputParameters(output IFluentBitOutputPlugin) error {
+	if output == nil {
+		return fmt.Errorf("parameter output is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (f *jsiiProxy_FargateLogger) validateAddParserParameters(parser IFluentBitParserPlugin) error {
+	if parser == nil {
+		return fmt.Errorf("parameter parser is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FargateLogger) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

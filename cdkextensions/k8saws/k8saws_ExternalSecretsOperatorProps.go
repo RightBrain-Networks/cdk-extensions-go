@@ -4,7 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks"
 )
 
-// Configuration for the Inbound Resolver resource.
+// Configuration for the ExternalSecretsOperator resource.
 type ExternalSecretsOperatorProps struct {
 	// The AWS account ID this resource belongs to.
 	Account *string `field:"optional" json:"account" yaml:"account"`
@@ -25,9 +25,17 @@ type ExternalSecretsOperatorProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// The EKS cluster where the external secrets operator should be installed.
 	Cluster awseks.Cluster `field:"required" json:"cluster" yaml:"cluster"`
+	// Determines the behavior when the service is deployed to a namespace that doesn't already exist on the EKS cluster.
+	//
+	// When this flag is `true` and the namespace doesn't exist, the namespace
+	// will be created automatically.
+	//
+	// When this flag is `false` and the namespace doesn't exist, an error will
+	// occur and resource creation will fail.
 	CreateNamespace *bool `field:"optional" json:"createNamespace" yaml:"createNamespace"`
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The Kubernetes namespace where the external secrets operator service should be installed and configured.
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 

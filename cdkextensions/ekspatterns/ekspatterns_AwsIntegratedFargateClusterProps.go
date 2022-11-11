@@ -121,9 +121,9 @@ type AwsIntegratedFargateClusterProps struct {
 	ServiceIpv4Cidr *string `field:"optional" json:"serviceIpv4Cidr" yaml:"serviceIpv4Cidr"`
 	// Fargate Profile to create along with the cluster.
 	DefaultProfile *awseks.FargateProfileOptions `field:"optional" json:"defaultProfile" yaml:"defaultProfile"`
-	CloudWatchMonitoringOptions *CloudWatchMonitoringOptions `field:"optional" json:"cloudWatchMonitoringOptions" yaml:"cloudWatchMonitoringOptions"`
-	ExternalDnsOptions *ExternalDnsOptions `field:"optional" json:"externalDnsOptions" yaml:"externalDnsOptions"`
+	ContainerInsightsOptions *ContainerInsightsOptions `field:"optional" json:"containerInsightsOptions" yaml:"containerInsightsOptions"`
+	ExternalDnsOptions *ClusterRoute53DnsOptions `field:"optional" json:"externalDnsOptions" yaml:"externalDnsOptions"`
 	ExternalSecretsOptions *ExternalSecretsOptions `field:"optional" json:"externalSecretsOptions" yaml:"externalSecretsOptions"`
-	LoggingOptions *FargateLoggingOptions `field:"optional" json:"loggingOptions" yaml:"loggingOptions"`
+	LoggingOptions *ClusterFargateLoggingOptions `field:"optional" json:"loggingOptions" yaml:"loggingOptions"`
 }
 
