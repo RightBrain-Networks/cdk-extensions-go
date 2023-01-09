@@ -26,6 +26,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "databaseName", GoGetter: "DatabaseName"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
+			_jsii_.MemberMethod{JsiiMethod: "exportStringListValue", GoMethod: "ExportStringListValue"},
 			_jsii_.MemberMethod{JsiiMethod: "exportValue", GoMethod: "ExportValue"},
 			_jsii_.MemberProperty{JsiiProperty: "flowLogsBucket", GoGetter: "FlowLogsBucket"},
 			_jsii_.MemberProperty{JsiiProperty: "flowLogsFormat", GoGetter: "FlowLogsFormat"},

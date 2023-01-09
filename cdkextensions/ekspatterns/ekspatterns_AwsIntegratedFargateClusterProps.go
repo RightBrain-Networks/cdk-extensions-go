@@ -39,6 +39,14 @@ type AwsIntegratedFargateClusterProps struct {
 	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 	//
 	AlbController *awseks.AlbControllerOptions `field:"optional" json:"albController" yaml:"albController"`
+	// An AWS Lambda layer that contains the `aws` CLI.
+	//
+	// The handler expects the layer to include the following executables:
+	//
+	// ```
+	// /opt/awscli/aws
+	// ```.
+	AwscliLayer awslambda.ILayerVersion `field:"optional" json:"awscliLayer" yaml:"awscliLayer"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
 	ClusterHandlerEnvironment *map[string]*string `field:"optional" json:"clusterHandlerEnvironment" yaml:"clusterHandlerEnvironment"`
 	// A security group to associate with the Cluster Handler's Lambdas.
@@ -59,25 +67,20 @@ type AwsIntegratedFargateClusterProps struct {
 	//
 	// Only relevant for kubectl enabled clusters.
 	KubectlEnvironment *map[string]*string `field:"optional" json:"kubectlEnvironment" yaml:"kubectlEnvironment"`
-	// An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
+	// An AWS Lambda Layer which includes `kubectl` and Helm.
 	//
-	// By default, the provider will use the layer included in the
-	// "aws-lambda-layer-kubectl" SAR application which is available in all
-	// commercial regions.
+	// This layer is used by the kubectl handler to apply manifests and install
+	// helm charts. You must pick an appropriate releases of one of the
+	// `@aws-cdk/layer-kubectl-vXX` packages, that works with the version of
+	// Kubernetes you have chosen. If you don't supply this value `kubectl`
+	// 1.20 will be used, but that version is most likely too old.
 	//
-	// To deploy the layer locally, visit
-	// https://github.com/aws-samples/aws-lambda-layer-kubectl/blob/master/cdk/README.md
-	// for instructions on how to prepare the .zip file and then define it in your
-	// app as follows:
+	// The handler expects the layer to include the following executables:
 	//
-	// ```ts
-	// const layer = new lambda.LayerVersion(this, 'kubectl-layer', {
-	//    code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
-	//    compatibleRuntimes: [lambda.Runtime.PROVIDED],
-	// });
+	// ```
+	// /opt/helm/helm
+	// /opt/kubectl/kubectl
 	// ```.
-	// See: https://github.com/aws-samples/aws-lambda-layer-kubectl
-	//
 	KubectlLayer awslambda.ILayerVersion `field:"optional" json:"kubectlLayer" yaml:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
 	KubectlMemory awscdk.Size `field:"optional" json:"kubectlMemory" yaml:"kubectlMemory"`

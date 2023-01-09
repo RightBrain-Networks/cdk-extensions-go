@@ -10,6 +10,13 @@ import (
 type AwsLoggingStackProps struct {
 	// Include runtime versioning information in this Stack.
 	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
+	// Enable this flag to allow native cross region stack references.
+	//
+	// Enabling this will create a CloudFormation custom resource
+	// in both the producing stack and consuming stack in order to perform the export/import
+	//
+	// This feature is currently experimental.
+	CrossRegionReferences *bool `field:"optional" json:"crossRegionReferences" yaml:"crossRegionReferences"`
 	// A description of the stack.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The AWS environment (account/region) where this stack will be deployed.
@@ -72,6 +79,8 @@ type AwsLoggingStackProps struct {
 	//   new MyStack(app, 'Stack1');
 	//
 	Env *awscdk.Environment `field:"optional" json:"env" yaml:"env"`
+	// Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
+	PermissionsBoundary awscdk.PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Name to deploy the stack with.
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Synthesis method to use while deploying this stack.

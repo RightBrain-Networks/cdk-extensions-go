@@ -49,6 +49,18 @@ func (a *jsiiProxy_AwsLoggingStack) validateAllocateLogicalIdParameters(cfnEleme
 	return nil
 }
 
+func (a *jsiiProxy_AwsLoggingStack) validateExportStringListValueParameters(exportedValue interface{}, options *awscdk.ExportValueOptions) error {
+	if exportedValue == nil {
+		return fmt.Errorf("parameter exportedValue is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_AwsLoggingStack) validateExportValueParameters(exportedValue interface{}, options *awscdk.ExportValueOptions) error {
 	if exportedValue == nil {
 		return fmt.Errorf("parameter exportedValue is required, but nil was provided")

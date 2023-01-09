@@ -21,6 +21,10 @@ func (a *jsiiProxy_AwsLoggingStack) validateAllocateLogicalIdParameters(cfnEleme
 	return nil
 }
 
+func (a *jsiiProxy_AwsLoggingStack) validateExportStringListValueParameters(exportedValue interface{}, options *awscdk.ExportValueOptions) error {
+	return nil
+}
+
 func (a *jsiiProxy_AwsLoggingStack) validateExportValueParameters(exportedValue interface{}, options *awscdk.ExportValueOptions) error {
 	return nil
 }

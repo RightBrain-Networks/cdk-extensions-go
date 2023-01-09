@@ -218,7 +218,27 @@ type AwsLoggingStack interface {
 	//    path, but included in the hash. This reduces visual noise in the human readable
 	//    part of the identifier.
 	AllocateLogicalId(cfnElement awscdk.CfnElement) *string
-	// Create a CloudFormation Export for a value.
+	// Create a CloudFormation Export for a string list value.
+	//
+	// Returns a string list representing the corresponding `Fn.importValue()`
+	// expression for this Export. The export expression is automatically wrapped with an
+	// `Fn::Join` and the import value with an `Fn::Split`, since CloudFormation can only
+	// export strings. You can control the name for the export by passing the `name` option.
+	//
+	// If you don't supply a value for `name`, the value you're exporting must be
+	// a Resource attribute (for example: `bucket.bucketName`) and it will be
+	// given the same name as the automatic cross-stack reference that would be created
+	// if you used the attribute in another Stack.
+	//
+	// One of the uses for this method is to *remove* the relationship between
+	// two Stacks established by automatic cross-stack references. It will
+	// temporarily ensure that the CloudFormation Export still exists while you
+	// remove the reference from the consuming stack. After that, you can remove
+	// the resource and the manual export.
+	//
+	// See `exportValue` for an example of this process.
+	ExportStringListValue(exportedValue interface{}, options *awscdk.ExportValueOptions) *[]*string
+	// Create a CloudFormation Export for a string value.
 	//
 	// Returns a string representing the corresponding `Fn.importValue()`
 	// expression for this Export. You can control the name for the export by
@@ -804,6 +824,22 @@ func (a *jsiiProxy_AwsLoggingStack) AllocateLogicalId(cfnElement awscdk.CfnEleme
 		a,
 		"allocateLogicalId",
 		[]interface{}{cfnElement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AwsLoggingStack) ExportStringListValue(exportedValue interface{}, options *awscdk.ExportValueOptions) *[]*string {
+	if err := a.validateExportStringListValueParameters(exportedValue, options); err != nil {
+		panic(err)
+	}
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"exportStringListValue",
+		[]interface{}{exportedValue, options},
 		&returns,
 	)
 
