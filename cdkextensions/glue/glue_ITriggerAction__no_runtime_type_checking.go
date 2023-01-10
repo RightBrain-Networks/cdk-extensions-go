@@ -5,7 +5,7 @@ package glue
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_ITriggerAction) validateBindParameters(trigger Trigger) error {
+func (i *jsiiProxy_ITriggerAction) validateBindParameters(scope constructs.IConstruct) error {
 	return nil
 }
 

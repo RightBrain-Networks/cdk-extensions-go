@@ -58,6 +58,21 @@ func init() {
 		reflect.TypeOf((*BasicColumnProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"cdk-extensions.glue.BookmarkConfiguration",
+		reflect.TypeOf((*BookmarkConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "range", GoGetter: "Range"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_BookmarkConfiguration{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.BookmarkRange",
+		reflect.TypeOf((*BookmarkRange)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"cdk-extensions.glue.ClassificationString",
 		reflect.TypeOf((*ClassificationString)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -201,6 +216,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_Crawler{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICrawler)
 			return &j
 		},
 	)
@@ -208,9 +224,39 @@ func init() {
 		"cdk-extensions.glue.CrawlerConfiguration",
 		reflect.TypeOf((*CrawlerConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.glue.CrawlerPredicate",
+		reflect.TypeOf((*CrawlerPredicate)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "crawler", GoGetter: "Crawler"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalOperator", GoGetter: "LogicalOperator"},
+			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CrawlerPredicate{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PredicateBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITriggerPredicate)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.CrawlerPredicateOptions",
+		reflect.TypeOf((*CrawlerPredicateOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.CrawlerProps",
 		reflect.TypeOf((*CrawlerProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"cdk-extensions.glue.CrawlerState",
+		reflect.TypeOf((*CrawlerState)(nil)).Elem(),
+		map[string]interface{}{
+			"CANCELLED": CrawlerState_CANCELLED,
+			"FAILED": CrawlerState_FAILED,
+			"SUCCEEDED": CrawlerState_SUCCEEDED,
+		},
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.CrawlerTargetCollection",
@@ -285,6 +331,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"cdk-extensions.glue.ICrawler",
+		reflect.TypeOf((*ICrawler)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "crawlerArn", GoGetter: "CrawlerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "crawlerName", GoGetter: "CrawlerName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICrawler{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"cdk-extensions.glue.ICrawlerTarget",
 		reflect.TypeOf((*ICrawlerTarget)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -292,6 +352,34 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ICrawlerTarget{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdk-extensions.glue.IJob",
+		reflect.TypeOf((*IJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IJob{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdk-extensions.glue.ITrigger",
+		reflect.TypeOf((*ITrigger)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "triggerArn", GoGetter: "TriggerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "triggerName", GoGetter: "TriggerName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITrigger{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -421,6 +509,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_Job{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IJob)
 			return &j
 		},
 	)
@@ -457,9 +546,40 @@ func init() {
 			"SCALA": JobLanguage_SCALA,
 		},
 	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.glue.JobPredicate",
+		reflect.TypeOf((*JobPredicate)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "job", GoGetter: "Job"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalOperator", GoGetter: "LogicalOperator"},
+			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
+		},
+		func() interface{} {
+			j := jsiiProxy_JobPredicate{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PredicateBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITriggerPredicate)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.JobPredicateOptions",
+		reflect.TypeOf((*JobPredicateOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.JobProps",
 		reflect.TypeOf((*JobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"cdk-extensions.glue.JobState",
+		reflect.TypeOf((*JobState)(nil)).Elem(),
+		map[string]interface{}{
+			"FAILED": JobState_FAILED,
+			"STOPPED": JobState_STOPPED,
+			"SUCCEEDED": JobState_SUCCEEDED,
+			"TIMEOUT": JobState_TIMEOUT,
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdk-extensions.glue.JobType",
@@ -488,6 +608,23 @@ func init() {
 			"INHERIT_FROM_TABLE": PartitionUpdateBehavior_INHERIT_FROM_TABLE,
 		},
 	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.glue.PredicateBase",
+		reflect.TypeOf((*PredicateBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
+		},
+		func() interface{} {
+			return &jsiiProxy_PredicateBase{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"cdk-extensions.glue.PredicateLogicalOperator",
+		reflect.TypeOf((*PredicateLogicalOperator)(nil)).Elem(),
+		map[string]interface{}{
+			"EQUALS": PredicateLogicalOperator_EQUALS,
+		},
+	)
 	_jsii_.RegisterEnum(
 		"cdk-extensions.glue.PredicateOperator",
 		reflect.TypeOf((*PredicateOperator)(nil)).Elem(),
@@ -495,6 +632,10 @@ func init() {
 			"AND": PredicateOperator_AND,
 			"OR": PredicateOperator_OR,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.PredicateOptions",
+		reflect.TypeOf((*PredicateOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.PythonShellExecutableProps",
@@ -722,14 +863,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "startOnCreation", GoGetter: "StartOnCreation"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "triggerArn", GoGetter: "TriggerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "triggerName", GoGetter: "TriggerName"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "workflow", GoGetter: "Workflow"},
-			_jsii_.MemberProperty{JsiiProperty: "workflowArn", GoGetter: "WorkflowArn"},
-			_jsii_.MemberProperty{JsiiProperty: "workflowName", GoGetter: "WorkflowName"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Trigger{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITrigger)
 			return &j
 		},
 	)
@@ -794,6 +936,66 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.glue.WorkflowActionBase",
+		reflect.TypeOf((*WorkflowActionBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addArgument", GoMethod: "AddArgument"},
+			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "notifyDelayAfter", GoGetter: "NotifyDelayAfter"},
+			_jsii_.MemberProperty{JsiiProperty: "securityConfiguration", GoGetter: "SecurityConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WorkflowActionBase{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.WorkflowActionOptions",
+		reflect.TypeOf((*WorkflowActionOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.glue.WorkflowCrawlerAction",
+		reflect.TypeOf((*WorkflowCrawlerAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addArgument", GoMethod: "AddArgument"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "crawler", GoGetter: "Crawler"},
+			_jsii_.MemberProperty{JsiiProperty: "notifyDelayAfter", GoGetter: "NotifyDelayAfter"},
+			_jsii_.MemberProperty{JsiiProperty: "securityConfiguration", GoGetter: "SecurityConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WorkflowCrawlerAction{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_WorkflowActionBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITriggerAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.glue.WorkflowJobAction",
+		reflect.TypeOf((*WorkflowJobAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addArgument", GoMethod: "AddArgument"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "job", GoGetter: "Job"},
+			_jsii_.MemberProperty{JsiiProperty: "notifyDelayAfter", GoGetter: "NotifyDelayAfter"},
+			_jsii_.MemberProperty{JsiiProperty: "securityConfiguration", GoGetter: "SecurityConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WorkflowJobAction{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_WorkflowActionBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITriggerAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.WorkflowJobActionOptions",
+		reflect.TypeOf((*WorkflowJobActionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.WorkflowProps",

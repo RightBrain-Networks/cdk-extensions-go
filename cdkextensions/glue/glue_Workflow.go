@@ -40,7 +40,7 @@ type Workflow interface {
 	Stack() awscdk.Stack
 	WorkflowArn() *string
 	WorkflowName() *string
-	AddTrigger(id *string, options *TriggerOptions) Trigger
+	AddTrigger(id *string, options *TriggerOptions) ITrigger
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -254,11 +254,11 @@ func Workflow_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func (w *jsiiProxy_Workflow) AddTrigger(id *string, options *TriggerOptions) Trigger {
+func (w *jsiiProxy_Workflow) AddTrigger(id *string, options *TriggerOptions) ITrigger {
 	if err := w.validateAddTriggerParameters(id, options); err != nil {
 		panic(err)
 	}
-	var returns Trigger
+	var returns ITrigger
 
 	_jsii_.Invoke(
 		w,

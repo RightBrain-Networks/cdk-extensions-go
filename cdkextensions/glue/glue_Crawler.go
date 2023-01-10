@@ -17,9 +17,12 @@ import (
 //
 type Crawler interface {
 	awscdk.Resource
+	ICrawler
 	// {@link CrawlerProps.configuration}.
 	Configuration() *CrawlerConfiguration
+	// The Amazon Resource Name (ARN) of the crawler.
 	CrawlerArn() *string
+	// The name of the crawler.
 	CrawlerName() *string
 	// {@link CrawlerProps.database}.
 	Database() Database
@@ -95,6 +98,7 @@ type Crawler interface {
 // The jsii proxy struct for Crawler
 type jsiiProxy_Crawler struct {
 	internal.Type__awscdkResource
+	jsiiProxy_ICrawler
 }
 
 func (j *jsiiProxy_Crawler) Configuration() *CrawlerConfiguration {
@@ -305,6 +309,48 @@ func NewCrawler_Override(c Crawler, scope constructs.Construct, id *string, prop
 		[]interface{}{scope, id, props},
 		c,
 	)
+}
+
+// Imports an existing crawler using its Amazon Resource Name (ARN).
+//
+// Returns: An object representing the crawler that was imported.
+func Crawler_FromCrawlerArn(scope constructs.IConstruct, id *string, crawlerArn *string) ICrawler {
+	_init_.Initialize()
+
+	if err := validateCrawler_FromCrawlerArnParameters(scope, id, crawlerArn); err != nil {
+		panic(err)
+	}
+	var returns ICrawler
+
+	_jsii_.StaticInvoke(
+		"cdk-extensions.glue.Crawler",
+		"fromCrawlerArn",
+		[]interface{}{scope, id, crawlerArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports an existing crawler using its name.
+//
+// Returns: An object representing the crawler that was imported.
+func Crawler_FromCrawlerName(scope constructs.IConstruct, id *string, crawlerName *string) ICrawler {
+	_init_.Initialize()
+
+	if err := validateCrawler_FromCrawlerNameParameters(scope, id, crawlerName); err != nil {
+		panic(err)
+	}
+	var returns ICrawler
+
+	_jsii_.StaticInvoke(
+		"cdk-extensions.glue.Crawler",
+		"fromCrawlerName",
+		[]interface{}{scope, id, crawlerName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

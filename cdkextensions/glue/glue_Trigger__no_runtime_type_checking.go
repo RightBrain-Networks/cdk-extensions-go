@@ -25,6 +25,14 @@ func (t *jsiiProxy_Trigger) validateGetResourceNameAttributeParameters(nameAttr 
 	return nil
 }
 
+func validateTrigger_FromTriggerArnParameters(scope constructs.IConstruct, id *string, triggerArn *string) error {
+	return nil
+}
+
+func validateTrigger_FromTriggerNameParameters(scope constructs.IConstruct, id *string, triggerName *string) error {
+	return nil
+}
+
 func validateTrigger_IsConstructParameters(x interface{}) error {
 	return nil
 }

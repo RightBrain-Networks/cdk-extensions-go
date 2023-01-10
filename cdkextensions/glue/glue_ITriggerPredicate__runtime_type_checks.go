@@ -5,11 +5,13 @@ package glue
 
 import (
 	"fmt"
+
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (i *jsiiProxy_ITriggerPredicate) validateBindParameters(trigger Trigger) error {
-	if trigger == nil {
-		return fmt.Errorf("parameter trigger is required, but nil was provided")
+func (i *jsiiProxy_ITriggerPredicate) validateBindParameters(scope constructs.IConstruct) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	return nil

@@ -17,6 +17,7 @@ import (
 //
 type Job interface {
 	awscdk.Resource
+	IJob
 	// {@link JobProps.allocatedCapacity }.
 	AllocatedCapacity() *float64
 	// {@link JobProps.connections}.
@@ -36,7 +37,9 @@ type Job interface {
 	Env() *awscdk.ResourceEnvironment
 	// {@link JobProps.executable:}.
 	Executable() JobExecutable
+	// The Amazon Resource Name (ARN) of the job.
 	JobArn() *string
+	// The name of the job.
 	JobName() *string
 	LogGroup() awslogs.ILogGroup
 	// {@link JobProps.maxCapacity}.
@@ -104,6 +107,7 @@ type Job interface {
 // The jsii proxy struct for Job
 type jsiiProxy_Job struct {
 	internal.Type__awscdkResource
+	jsiiProxy_IJob
 }
 
 func (j *jsiiProxy_Job) AllocatedCapacity() *float64 {
@@ -364,6 +368,48 @@ func NewJob_Override(j Job, scope constructs.Construct, id *string, props *JobPr
 		[]interface{}{scope, id, props},
 		j,
 	)
+}
+
+// Imports an existing job using its Amazon Resource Name (ARN).
+//
+// Returns: An object representing the job that was imported.
+func Job_FromJobArn(scope constructs.IConstruct, id *string, jobArn *string) IJob {
+	_init_.Initialize()
+
+	if err := validateJob_FromJobArnParameters(scope, id, jobArn); err != nil {
+		panic(err)
+	}
+	var returns IJob
+
+	_jsii_.StaticInvoke(
+		"cdk-extensions.glue.Job",
+		"fromJobArn",
+		[]interface{}{scope, id, jobArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports an existing job using its name.
+//
+// Returns: An object representing the job that was imported.
+func Job_FromJobName(scope constructs.IConstruct, id *string, jobName *string) IJob {
+	_init_.Initialize()
+
+	if err := validateJob_FromJobNameParameters(scope, id, jobName); err != nil {
+		panic(err)
+	}
+	var returns IJob
+
+	_jsii_.StaticInvoke(
+		"cdk-extensions.glue.Job",
+		"fromJobName",
+		[]interface{}{scope, id, jobName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

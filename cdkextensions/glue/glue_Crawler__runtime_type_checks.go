@@ -59,6 +59,38 @@ func (c *jsiiProxy_Crawler) validateGetResourceNameAttributeParameters(nameAttr 
 	return nil
 }
 
+func validateCrawler_FromCrawlerArnParameters(scope constructs.IConstruct, id *string, crawlerArn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if crawlerArn == nil {
+		return fmt.Errorf("parameter crawlerArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCrawler_FromCrawlerNameParameters(scope constructs.IConstruct, id *string, crawlerName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if crawlerName == nil {
+		return fmt.Errorf("parameter crawlerName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCrawler_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

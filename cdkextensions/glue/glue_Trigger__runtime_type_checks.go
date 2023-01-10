@@ -59,6 +59,38 @@ func (t *jsiiProxy_Trigger) validateGetResourceNameAttributeParameters(nameAttr 
 	return nil
 }
 
+func validateTrigger_FromTriggerArnParameters(scope constructs.IConstruct, id *string, triggerArn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if triggerArn == nil {
+		return fmt.Errorf("parameter triggerArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateTrigger_FromTriggerNameParameters(scope constructs.IConstruct, id *string, triggerName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if triggerName == nil {
+		return fmt.Errorf("parameter triggerName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateTrigger_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

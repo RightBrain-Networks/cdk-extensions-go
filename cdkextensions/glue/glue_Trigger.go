@@ -13,7 +13,10 @@ import (
 
 type Trigger interface {
 	awscdk.Resource
-	// {@link TriggerProps.description}.
+	ITrigger
+	// A description for the trigger.
+	// See: [Trigger Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-description)
+	//
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -24,7 +27,9 @@ type Trigger interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
-	// {@link TriggerProps.name}.
+	// A name for the trigger.
+	// See: [Trigger Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-name)
+	//
 	Name() *string
 	// The tree node.
 	Node() constructs.Node
@@ -36,22 +41,52 @@ type Trigger interface {
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
 	PhysicalName() *string
-	// {@link TriggerProps.predicateOperator:}.
+	// Operator for chaining predicate conditions if multiple are given.
+	// See: [Trigger Predicate.Logical](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical)
+	//
 	PredicateOperator() PredicateOperator
+	// The underlying Trigger CloudFormation resource.
+	// See: [AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html)
+	//
 	Resource() awsglue.CfnTrigger
-	// {@link TriggerProps.schedule}.
+	// A cron expression used to specify the schedule.
+	// See: [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+	//
 	Schedule() awsevents.Schedule
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	// {@link TriggerProps.startOnCreation}.
+	// Set to true to start SCHEDULED and CONDITIONAL triggers when created.
+	//
+	// True
+	// is not supported for ON_DEMAND triggers.
+	// See: [Trigger StartOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)
+	//
 	StartOnCreation() *bool
-	// {@link TriggerProps.type:}.
+	// The Amazon Resource Name (ARN) of the trigger.
+	TriggerArn() *string
+	// The name of the trigger.
+	TriggerName() *string
+	// The type of trigger that this is.
+	// See: [Trigger Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)
+	//
 	Type() TriggerType
-	// {@link TriggerProps.workflow}.
+	// The name of the workflow associated with the trigger.
+	// See: [Trigger WorkflowName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-workflowname)
+	//
 	Workflow() Workflow
-	WorkflowArn() *string
-	WorkflowName() *string
+	// Registers an action with the trigger.
+	//
+	// All actions associated with the
+	// trigger are run when the conditions to trigger the trigger are met.
+	//
+	// Returns: The trigger to which the action was added.
 	AddAction(action ITriggerAction) Trigger
+	// Registers a predicate with the trigger.
+	//
+	// Triggers with predicates must meet
+	// the conditions they specify in order to run.
+	//
+	// Returns: The trigger to which the predicate was added.
 	AddPredicate(predicate ITriggerPredicate) Trigger
 	// Apply the given removal policy to this resource.
 	//
@@ -84,6 +119,7 @@ type Trigger interface {
 // The jsii proxy struct for Trigger
 type jsiiProxy_Trigger struct {
 	internal.Type__awscdkResource
+	jsiiProxy_ITrigger
 }
 
 func (j *jsiiProxy_Trigger) Description() *string {
@@ -186,6 +222,26 @@ func (j *jsiiProxy_Trigger) StartOnCreation() *bool {
 	return returns
 }
 
+func (j *jsiiProxy_Trigger) TriggerArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"triggerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Trigger) TriggerName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"triggerName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Trigger) Type() TriggerType {
 	var returns TriggerType
 	_jsii_.Get(
@@ -201,26 +257,6 @@ func (j *jsiiProxy_Trigger) Workflow() Workflow {
 	_jsii_.Get(
 		j,
 		"workflow",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Trigger) WorkflowArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"workflowArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Trigger) WorkflowName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"workflowName",
 		&returns,
 	)
 	return returns
@@ -254,6 +290,48 @@ func NewTrigger_Override(t Trigger, scope constructs.Construct, id *string, prop
 		[]interface{}{scope, id, props},
 		t,
 	)
+}
+
+// Imports an existing trigger using its Amazon Resource Name (ARN).
+//
+// Returns: An object representing the trigger that was imported.
+func Trigger_FromTriggerArn(scope constructs.IConstruct, id *string, triggerArn *string) ITrigger {
+	_init_.Initialize()
+
+	if err := validateTrigger_FromTriggerArnParameters(scope, id, triggerArn); err != nil {
+		panic(err)
+	}
+	var returns ITrigger
+
+	_jsii_.StaticInvoke(
+		"cdk-extensions.glue.Trigger",
+		"fromTriggerArn",
+		[]interface{}{scope, id, triggerArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports an existing trigger using its name.
+//
+// Returns: An object representing the trigger that was imported.
+func Trigger_FromTriggerName(scope constructs.IConstruct, id *string, triggerName *string) ITrigger {
+	_init_.Initialize()
+
+	if err := validateTrigger_FromTriggerNameParameters(scope, id, triggerName); err != nil {
+		panic(err)
+	}
+	var returns ITrigger
+
+	_jsii_.StaticInvoke(
+		"cdk-extensions.glue.Trigger",
+		"fromTriggerName",
+		[]interface{}{scope, id, triggerName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

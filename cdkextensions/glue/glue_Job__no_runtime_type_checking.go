@@ -25,6 +25,14 @@ func (j *jsiiProxy_Job) validateGetResourceNameAttributeParameters(nameAttr *str
 	return nil
 }
 
+func validateJob_FromJobArnParameters(scope constructs.IConstruct, id *string, jobArn *string) error {
+	return nil
+}
+
+func validateJob_FromJobNameParameters(scope constructs.IConstruct, id *string, jobName *string) error {
+	return nil
+}
+
 func validateJob_IsConstructParameters(x interface{}) error {
 	return nil
 }

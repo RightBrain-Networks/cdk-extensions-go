@@ -25,6 +25,14 @@ func (c *jsiiProxy_Crawler) validateGetResourceNameAttributeParameters(nameAttr 
 	return nil
 }
 
+func validateCrawler_FromCrawlerArnParameters(scope constructs.IConstruct, id *string, crawlerArn *string) error {
+	return nil
+}
+
+func validateCrawler_FromCrawlerNameParameters(scope constructs.IConstruct, id *string, crawlerName *string) error {
+	return nil
+}
+
 func validateCrawler_IsConstructParameters(x interface{}) error {
 	return nil
 }
