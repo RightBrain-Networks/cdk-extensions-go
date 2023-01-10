@@ -8,8 +8,8 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-type CrawlerPredicate interface {
-	PredicateBase
+type WorkflowCrawlerPredicate interface {
+	WorkflowPredicateBase
 	ITriggerPredicate
 	Crawler() ICrawler
 	LogicalOperator() PredicateLogicalOperator
@@ -18,13 +18,13 @@ type CrawlerPredicate interface {
 	BindOptions(_scope constructs.IConstruct) interface{}
 }
 
-// The jsii proxy struct for CrawlerPredicate
-type jsiiProxy_CrawlerPredicate struct {
-	jsiiProxy_PredicateBase
+// The jsii proxy struct for WorkflowCrawlerPredicate
+type jsiiProxy_WorkflowCrawlerPredicate struct {
+	jsiiProxy_WorkflowPredicateBase
 	jsiiProxy_ITriggerPredicate
 }
 
-func (j *jsiiProxy_CrawlerPredicate) Crawler() ICrawler {
+func (j *jsiiProxy_WorkflowCrawlerPredicate) Crawler() ICrawler {
 	var returns ICrawler
 	_jsii_.Get(
 		j,
@@ -34,7 +34,7 @@ func (j *jsiiProxy_CrawlerPredicate) Crawler() ICrawler {
 	return returns
 }
 
-func (j *jsiiProxy_CrawlerPredicate) LogicalOperator() PredicateLogicalOperator {
+func (j *jsiiProxy_WorkflowCrawlerPredicate) LogicalOperator() PredicateLogicalOperator {
 	var returns PredicateLogicalOperator
 	_jsii_.Get(
 		j,
@@ -44,7 +44,7 @@ func (j *jsiiProxy_CrawlerPredicate) LogicalOperator() PredicateLogicalOperator 
 	return returns
 }
 
-func (j *jsiiProxy_CrawlerPredicate) State() CrawlerState {
+func (j *jsiiProxy_WorkflowCrawlerPredicate) State() CrawlerState {
 	var returns CrawlerState
 	_jsii_.Get(
 		j,
@@ -55,16 +55,16 @@ func (j *jsiiProxy_CrawlerPredicate) State() CrawlerState {
 }
 
 
-func NewCrawlerPredicate(crawler ICrawler, options *CrawlerPredicateOptions) CrawlerPredicate {
+func NewWorkflowCrawlerPredicate(crawler ICrawler, options *WorkflowCrawlerPredicateOptions) WorkflowCrawlerPredicate {
 	_init_.Initialize()
 
-	if err := validateNewCrawlerPredicateParameters(crawler, options); err != nil {
+	if err := validateNewWorkflowCrawlerPredicateParameters(crawler, options); err != nil {
 		panic(err)
 	}
-	j := jsiiProxy_CrawlerPredicate{}
+	j := jsiiProxy_WorkflowCrawlerPredicate{}
 
 	_jsii_.Create(
-		"cdk-extensions.glue.CrawlerPredicate",
+		"cdk-extensions.glue.WorkflowCrawlerPredicate",
 		[]interface{}{crawler, options},
 		&j,
 	)
@@ -72,24 +72,24 @@ func NewCrawlerPredicate(crawler ICrawler, options *CrawlerPredicateOptions) Cra
 	return &j
 }
 
-func NewCrawlerPredicate_Override(c CrawlerPredicate, crawler ICrawler, options *CrawlerPredicateOptions) {
+func NewWorkflowCrawlerPredicate_Override(w WorkflowCrawlerPredicate, crawler ICrawler, options *WorkflowCrawlerPredicateOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"cdk-extensions.glue.CrawlerPredicate",
+		"cdk-extensions.glue.WorkflowCrawlerPredicate",
 		[]interface{}{crawler, options},
-		c,
+		w,
 	)
 }
 
-func (c *jsiiProxy_CrawlerPredicate) Bind(scope constructs.IConstruct) *awsglue.CfnTrigger_ConditionProperty {
-	if err := c.validateBindParameters(scope); err != nil {
+func (w *jsiiProxy_WorkflowCrawlerPredicate) Bind(scope constructs.IConstruct) *awsglue.CfnTrigger_ConditionProperty {
+	if err := w.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *awsglue.CfnTrigger_ConditionProperty
 
 	_jsii_.Invoke(
-		c,
+		w,
 		"bind",
 		[]interface{}{scope},
 		&returns,
@@ -98,14 +98,14 @@ func (c *jsiiProxy_CrawlerPredicate) Bind(scope constructs.IConstruct) *awsglue.
 	return returns
 }
 
-func (c *jsiiProxy_CrawlerPredicate) BindOptions(_scope constructs.IConstruct) interface{} {
-	if err := c.validateBindOptionsParameters(_scope); err != nil {
+func (w *jsiiProxy_WorkflowCrawlerPredicate) BindOptions(_scope constructs.IConstruct) interface{} {
+	if err := w.validateBindOptionsParameters(_scope); err != nil {
 		panic(err)
 	}
 	var returns interface{}
 
 	_jsii_.Invoke(
-		c,
+		w,
 		"bindOptions",
 		[]interface{}{_scope},
 		&returns,

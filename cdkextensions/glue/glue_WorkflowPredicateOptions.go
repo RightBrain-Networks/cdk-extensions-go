@@ -2,7 +2,7 @@ package glue
 
 
 // Options for a generic Glue Trigger predicate.
-type PredicateOptions struct {
+type WorkflowPredicateOptions struct {
 	// The AWS account ID this resource belongs to.
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// ARN to deduce region and account from.

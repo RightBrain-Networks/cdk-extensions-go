@@ -1,7 +1,7 @@
 package glue
 
 
-type JobPredicateOptions struct {
+type WorkflowCrawlerPredicateOptions struct {
 	// The AWS account ID this resource belongs to.
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// ARN to deduce region and account from.
@@ -21,7 +21,7 @@ type JobPredicateOptions struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
-	LogicalOperator PredicateLogicalOperator `field:"optional" json:"logicalOperator" yaml:"logicalOperator"`
-	State JobState `field:"optional" json:"state" yaml:"state"`
+	LogicalOperator PredicateLogicalOperator `field:"required" json:"logicalOperator" yaml:"logicalOperator"`
+	State CrawlerState `field:"optional" json:"state" yaml:"state"`
 }
 

@@ -224,27 +224,6 @@ func init() {
 		"cdk-extensions.glue.CrawlerConfiguration",
 		reflect.TypeOf((*CrawlerConfiguration)(nil)).Elem(),
 	)
-	_jsii_.RegisterClass(
-		"cdk-extensions.glue.CrawlerPredicate",
-		reflect.TypeOf((*CrawlerPredicate)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
-			_jsii_.MemberProperty{JsiiProperty: "crawler", GoGetter: "Crawler"},
-			_jsii_.MemberProperty{JsiiProperty: "logicalOperator", GoGetter: "LogicalOperator"},
-			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CrawlerPredicate{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_PredicateBase)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITriggerPredicate)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"cdk-extensions.glue.CrawlerPredicateOptions",
-		reflect.TypeOf((*CrawlerPredicateOptions)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.CrawlerProps",
 		reflect.TypeOf((*CrawlerProps)(nil)).Elem(),
@@ -546,27 +525,6 @@ func init() {
 			"SCALA": JobLanguage_SCALA,
 		},
 	)
-	_jsii_.RegisterClass(
-		"cdk-extensions.glue.JobPredicate",
-		reflect.TypeOf((*JobPredicate)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
-			_jsii_.MemberProperty{JsiiProperty: "job", GoGetter: "Job"},
-			_jsii_.MemberProperty{JsiiProperty: "logicalOperator", GoGetter: "LogicalOperator"},
-			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
-		},
-		func() interface{} {
-			j := jsiiProxy_JobPredicate{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_PredicateBase)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITriggerPredicate)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"cdk-extensions.glue.JobPredicateOptions",
-		reflect.TypeOf((*JobPredicateOptions)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.JobProps",
 		reflect.TypeOf((*JobProps)(nil)).Elem(),
@@ -608,16 +566,6 @@ func init() {
 			"INHERIT_FROM_TABLE": PartitionUpdateBehavior_INHERIT_FROM_TABLE,
 		},
 	)
-	_jsii_.RegisterClass(
-		"cdk-extensions.glue.PredicateBase",
-		reflect.TypeOf((*PredicateBase)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
-		},
-		func() interface{} {
-			return &jsiiProxy_PredicateBase{}
-		},
-	)
 	_jsii_.RegisterEnum(
 		"cdk-extensions.glue.PredicateLogicalOperator",
 		reflect.TypeOf((*PredicateLogicalOperator)(nil)).Elem(),
@@ -632,10 +580,6 @@ func init() {
 			"AND": PredicateOperator_AND,
 			"OR": PredicateOperator_OR,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"cdk-extensions.glue.PredicateOptions",
-		reflect.TypeOf((*PredicateOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.PythonShellExecutableProps",
@@ -975,6 +919,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdk-extensions.glue.WorkflowCrawlerPredicate",
+		reflect.TypeOf((*WorkflowCrawlerPredicate)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "crawler", GoGetter: "Crawler"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalOperator", GoGetter: "LogicalOperator"},
+			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WorkflowCrawlerPredicate{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_WorkflowPredicateBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITriggerPredicate)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.WorkflowCrawlerPredicateOptions",
+		reflect.TypeOf((*WorkflowCrawlerPredicateOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"cdk-extensions.glue.WorkflowJobAction",
 		reflect.TypeOf((*WorkflowJobAction)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -996,6 +961,41 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.WorkflowJobActionOptions",
 		reflect.TypeOf((*WorkflowJobActionOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.glue.WorkflowJobPredicate",
+		reflect.TypeOf((*WorkflowJobPredicate)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "job", GoGetter: "Job"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalOperator", GoGetter: "LogicalOperator"},
+			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WorkflowJobPredicate{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_WorkflowPredicateBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITriggerPredicate)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.WorkflowJobPredicateOptions",
+		reflect.TypeOf((*WorkflowJobPredicateOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.glue.WorkflowPredicateBase",
+		reflect.TypeOf((*WorkflowPredicateBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bindOptions", GoMethod: "BindOptions"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WorkflowPredicateBase{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.WorkflowPredicateOptions",
+		reflect.TypeOf((*WorkflowPredicateOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.WorkflowProps",

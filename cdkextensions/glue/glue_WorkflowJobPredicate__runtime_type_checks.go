@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (j *jsiiProxy_JobPredicate) validateBindParameters(scope constructs.IConstruct) error {
+func (w *jsiiProxy_WorkflowJobPredicate) validateBindParameters(scope constructs.IConstruct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -19,7 +19,7 @@ func (j *jsiiProxy_JobPredicate) validateBindParameters(scope constructs.IConstr
 	return nil
 }
 
-func (j *jsiiProxy_JobPredicate) validateBindOptionsParameters(_scope constructs.IConstruct) error {
+func (w *jsiiProxy_WorkflowJobPredicate) validateBindOptionsParameters(_scope constructs.IConstruct) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}
@@ -27,7 +27,7 @@ func (j *jsiiProxy_JobPredicate) validateBindOptionsParameters(_scope constructs
 	return nil
 }
 
-func validateNewJobPredicateParameters(job IJob, options *JobPredicateOptions) error {
+func validateNewWorkflowJobPredicateParameters(job IJob, options *WorkflowJobPredicateOptions) error {
 	if job == nil {
 		return fmt.Errorf("parameter job is required, but nil was provided")
 	}

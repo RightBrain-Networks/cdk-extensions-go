@@ -8,8 +8,8 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-type JobPredicate interface {
-	PredicateBase
+type WorkflowJobPredicate interface {
+	WorkflowPredicateBase
 	ITriggerPredicate
 	Job() IJob
 	LogicalOperator() PredicateLogicalOperator
@@ -18,13 +18,13 @@ type JobPredicate interface {
 	BindOptions(_scope constructs.IConstruct) interface{}
 }
 
-// The jsii proxy struct for JobPredicate
-type jsiiProxy_JobPredicate struct {
-	jsiiProxy_PredicateBase
+// The jsii proxy struct for WorkflowJobPredicate
+type jsiiProxy_WorkflowJobPredicate struct {
+	jsiiProxy_WorkflowPredicateBase
 	jsiiProxy_ITriggerPredicate
 }
 
-func (j *jsiiProxy_JobPredicate) Job() IJob {
+func (j *jsiiProxy_WorkflowJobPredicate) Job() IJob {
 	var returns IJob
 	_jsii_.Get(
 		j,
@@ -34,7 +34,7 @@ func (j *jsiiProxy_JobPredicate) Job() IJob {
 	return returns
 }
 
-func (j *jsiiProxy_JobPredicate) LogicalOperator() PredicateLogicalOperator {
+func (j *jsiiProxy_WorkflowJobPredicate) LogicalOperator() PredicateLogicalOperator {
 	var returns PredicateLogicalOperator
 	_jsii_.Get(
 		j,
@@ -44,7 +44,7 @@ func (j *jsiiProxy_JobPredicate) LogicalOperator() PredicateLogicalOperator {
 	return returns
 }
 
-func (j *jsiiProxy_JobPredicate) State() JobState {
+func (j *jsiiProxy_WorkflowJobPredicate) State() JobState {
 	var returns JobState
 	_jsii_.Get(
 		j,
@@ -55,16 +55,16 @@ func (j *jsiiProxy_JobPredicate) State() JobState {
 }
 
 
-func NewJobPredicate(job IJob, options *JobPredicateOptions) JobPredicate {
+func NewWorkflowJobPredicate(job IJob, options *WorkflowJobPredicateOptions) WorkflowJobPredicate {
 	_init_.Initialize()
 
-	if err := validateNewJobPredicateParameters(job, options); err != nil {
+	if err := validateNewWorkflowJobPredicateParameters(job, options); err != nil {
 		panic(err)
 	}
-	j := jsiiProxy_JobPredicate{}
+	j := jsiiProxy_WorkflowJobPredicate{}
 
 	_jsii_.Create(
-		"cdk-extensions.glue.JobPredicate",
+		"cdk-extensions.glue.WorkflowJobPredicate",
 		[]interface{}{job, options},
 		&j,
 	)
@@ -72,24 +72,24 @@ func NewJobPredicate(job IJob, options *JobPredicateOptions) JobPredicate {
 	return &j
 }
 
-func NewJobPredicate_Override(j JobPredicate, job IJob, options *JobPredicateOptions) {
+func NewWorkflowJobPredicate_Override(w WorkflowJobPredicate, job IJob, options *WorkflowJobPredicateOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"cdk-extensions.glue.JobPredicate",
+		"cdk-extensions.glue.WorkflowJobPredicate",
 		[]interface{}{job, options},
-		j,
+		w,
 	)
 }
 
-func (j *jsiiProxy_JobPredicate) Bind(scope constructs.IConstruct) *awsglue.CfnTrigger_ConditionProperty {
-	if err := j.validateBindParameters(scope); err != nil {
+func (w *jsiiProxy_WorkflowJobPredicate) Bind(scope constructs.IConstruct) *awsglue.CfnTrigger_ConditionProperty {
+	if err := w.validateBindParameters(scope); err != nil {
 		panic(err)
 	}
 	var returns *awsglue.CfnTrigger_ConditionProperty
 
 	_jsii_.Invoke(
-		j,
+		w,
 		"bind",
 		[]interface{}{scope},
 		&returns,
@@ -98,14 +98,14 @@ func (j *jsiiProxy_JobPredicate) Bind(scope constructs.IConstruct) *awsglue.CfnT
 	return returns
 }
 
-func (j *jsiiProxy_JobPredicate) BindOptions(_scope constructs.IConstruct) interface{} {
-	if err := j.validateBindOptionsParameters(_scope); err != nil {
+func (w *jsiiProxy_WorkflowJobPredicate) BindOptions(_scope constructs.IConstruct) interface{} {
+	if err := w.validateBindOptionsParameters(_scope); err != nil {
 		panic(err)
 	}
 	var returns interface{}
 
 	_jsii_.Invoke(
-		j,
+		w,
 		"bindOptions",
 		[]interface{}{_scope},
 		&returns,

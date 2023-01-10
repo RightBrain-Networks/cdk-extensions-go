@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (c *jsiiProxy_CrawlerPredicate) validateBindParameters(scope constructs.IConstruct) error {
+func (w *jsiiProxy_WorkflowCrawlerPredicate) validateBindParameters(scope constructs.IConstruct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -19,7 +19,7 @@ func (c *jsiiProxy_CrawlerPredicate) validateBindParameters(scope constructs.ICo
 	return nil
 }
 
-func (c *jsiiProxy_CrawlerPredicate) validateBindOptionsParameters(_scope constructs.IConstruct) error {
+func (w *jsiiProxy_WorkflowCrawlerPredicate) validateBindOptionsParameters(_scope constructs.IConstruct) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}
@@ -27,7 +27,7 @@ func (c *jsiiProxy_CrawlerPredicate) validateBindOptionsParameters(_scope constr
 	return nil
 }
 
-func validateNewCrawlerPredicateParameters(crawler ICrawler, options *CrawlerPredicateOptions) error {
+func validateNewWorkflowCrawlerPredicateParameters(crawler ICrawler, options *WorkflowCrawlerPredicateOptions) error {
 	if crawler == nil {
 		return fmt.Errorf("parameter crawler is required, but nil was provided")
 	}
