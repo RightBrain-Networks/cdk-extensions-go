@@ -15,15 +15,36 @@ type WorkflowJobAction interface {
 	ITriggerAction
 	// The Glue job to be triggered as part of the workflow.
 	Job() IJob
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	// See: [Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter)
+	//
 	NotifyDelayAfter() awscdk.Duration
+	// The name of the SecurityConfiguration structure to be used with this action.
+	// See: [Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration)
+	//
 	SecurityConfiguration() *string
+	// The `JobRun` timeout in minutes.
+	//
+	// This is the maximum time that a job run
+	// can consume resources before it is terminated and enters TIMEOUT status.
+	// The default is 48 hours. This overrides the timeout value set in the
+	// parent job.
+	// See: [Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout)
+	//
 	Timeout() awscdk.Duration
+	// Adds an argument that will be passed to the specified action when triggered as part of a workflow.
+	// See: [AWS Glue job parameters](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
+	//
 	AddArgument(key *string, value *string)
 	// Associates this action with a resource that is configuring a Glue trigger.
 	//
 	// Returns: The configuration that can be used to configure the underlying
 	// trigger resource.
 	Bind(scope constructs.IConstruct) *awsglue.CfnTrigger_ActionProperty
+	// Associates the action with a construct that is configuring a trigger for a Glue workflow.
+	//
+	// Returns: A configuration object that can be used to configure a triggered
+	// workflow action.
 	BindOptions(_scope constructs.IConstruct) interface{}
 }
 

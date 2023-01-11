@@ -39,7 +39,7 @@ func (w *jsiiProxy_WorkflowCrawlerAction) validateBindOptionsParameters(_scope c
 	return nil
 }
 
-func validateNewWorkflowCrawlerActionParameters(crawler ICrawler, options *WorkflowActionOptions) error {
+func validateNewWorkflowCrawlerActionParameters(crawler ICrawler, options *WorkflowCrawlerActionOptions) error {
 	if crawler == nil {
 		return fmt.Errorf("parameter crawler is required, but nil was provided")
 	}

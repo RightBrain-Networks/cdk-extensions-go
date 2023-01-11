@@ -17,7 +17,7 @@ func (w *jsiiProxy_WorkflowCrawlerAction) validateBindOptionsParameters(_scope c
 	return nil
 }
 
-func validateNewWorkflowCrawlerActionParameters(crawler ICrawler, options *WorkflowActionOptions) error {
+func validateNewWorkflowCrawlerActionParameters(crawler ICrawler, options *WorkflowCrawlerActionOptions) error {
 	return nil
 }
 

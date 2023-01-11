@@ -4,8 +4,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
-// Configuration for the Workflow Action resource.
-type WorkflowActionOptions struct {
+// Configuration options for the WorkflowCrawlerAction class.
+type WorkflowCrawlerActionOptions struct {
 	// The AWS account ID this resource belongs to.
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// ARN to deduce region and account from.

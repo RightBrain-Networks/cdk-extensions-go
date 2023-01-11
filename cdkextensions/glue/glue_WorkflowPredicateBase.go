@@ -7,7 +7,12 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// Base class providing common functionality for trigger predicate conditions.
 type WorkflowPredicateBase interface {
+	// Associates the predicate with a construct that is configuring a trigger for a Glue workflow.
+	//
+	// Returns: A configuration object that can be used to configure a predicate
+	// condition for the Glue trigger.
 	BindOptions(_scope constructs.IConstruct) interface{}
 }
 
@@ -16,6 +21,7 @@ type jsiiProxy_WorkflowPredicateBase struct {
 	_ byte // padding
 }
 
+// Create a new instance of the WorkflowPredicateBase class.
 func NewWorkflowPredicateBase(_options *WorkflowPredicateOptions) WorkflowPredicateBase {
 	_init_.Initialize()
 
@@ -33,6 +39,7 @@ func NewWorkflowPredicateBase(_options *WorkflowPredicateOptions) WorkflowPredic
 	return &j
 }
 
+// Create a new instance of the WorkflowPredicateBase class.
 func NewWorkflowPredicateBase_Override(w WorkflowPredicateBase, _options *WorkflowPredicateOptions) {
 	_init_.Initialize()
 

@@ -1,6 +1,7 @@
 package glue
 
 
+// Configuration options that specify the state a job must meet in order to satisfy the conditions of the predicate.
 type WorkflowJobPredicateOptions struct {
 	// The AWS account ID this resource belongs to.
 	Account *string `field:"optional" json:"account" yaml:"account"`
@@ -21,7 +22,15 @@ type WorkflowJobPredicateOptions struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// The logical operator which should be applied in determining whether a job meets the requested conditions.
+	//
+	// At the moment, the only supported operator is `EQUALS`.
+	// See: [Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator)
+	//
 	LogicalOperator PredicateLogicalOperator `field:"optional" json:"logicalOperator" yaml:"logicalOperator"`
+	// The state that the job must be in in order to meet the criteria to trigger the next stage of the workflow.
+	// See: [Trigger Predicate.Conditions.State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state)
+	//
 	State JobState `field:"optional" json:"state" yaml:"state"`
 }
 

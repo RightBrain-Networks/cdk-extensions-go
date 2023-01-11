@@ -5,8 +5,13 @@ import (
 	_init_ "github.com/vibe-io/cdk-extensions-go/cdkextensions/jsii"
 )
 
+// Controls the bookmark state of a Glue job.
+// See: [Using job bookmarks in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html#monitor-continuations-implement)
+//
 type BookmarkConfiguration interface {
+	// An optional range of job ID's that will correspond to the `job-bookmark-from` and `job-bookmark-to` arguments.
 	Range() *BookmarkRange
+	// The value to pass to the `job-bookmark-option` argument.
 	Value() *string
 }
 
@@ -36,6 +41,12 @@ func (j *jsiiProxy_BookmarkConfiguration) Value() *string {
 }
 
 
+// Job bookmarks are not used, and the job always processes the entire dataset.
+//
+// You are responsible for managing the output from previous job
+// runs.
+//
+// Returns: A configuration object that disabled job bookmarks.
 func BookmarkConfiguration_Disable() BookmarkConfiguration {
 	_init_.Initialize()
 
@@ -51,6 +62,13 @@ func BookmarkConfiguration_Disable() BookmarkConfiguration {
 	return returns
 }
 
+// Causes the job to update the state after a run to keep track of previously processed data.
+//
+// If your job has a source with job bookmark support, it
+// will keep track of processed data, and when a job runs, it processes new
+// data since the last checkpoint.
+//
+// Returns: A configuration object that enables job bookmarks.
 func BookmarkConfiguration_Enable() BookmarkConfiguration {
 	_init_.Initialize()
 
@@ -66,6 +84,9 @@ func BookmarkConfiguration_Enable() BookmarkConfiguration {
 	return returns
 }
 
+// An escape hatch method that allows specifying arbitrary values for the `job-bookmark-option` argument of a Glue job.
+//
+// Returns: A configuration object that represents the provided bookmark configuration.
 func BookmarkConfiguration_Of(value *string, range_ *BookmarkRange) BookmarkConfiguration {
 	_init_.Initialize()
 
@@ -84,6 +105,12 @@ func BookmarkConfiguration_Of(value *string, range_ *BookmarkRange) BookmarkConf
 	return returns
 }
 
+// Process incremental data since the last successful run or the data in a specified range, without updating the state of last bookmark.
+//
+// You are
+// responsible for managing the output from previous job runs.
+//
+// Returns: A configuration object that pauses job bookmarks.
 func BookmarkConfiguration_Pause(range_ *BookmarkRange) BookmarkConfiguration {
 	_init_.Initialize()
 

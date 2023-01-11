@@ -918,6 +918,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.glue.WorkflowCrawlerActionOptions",
+		reflect.TypeOf((*WorkflowCrawlerActionOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"cdk-extensions.glue.WorkflowCrawlerPredicate",
 		reflect.TypeOf((*WorkflowCrawlerPredicate)(nil)).Elem(),
