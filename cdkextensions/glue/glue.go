@@ -882,6 +882,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdk-extensions.glue.WorkflowAction",
+		reflect.TypeOf((*WorkflowAction)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_WorkflowAction{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdk-extensions.glue.WorkflowActionBase",
 		reflect.TypeOf((*WorkflowActionBase)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -986,6 +994,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdk-extensions.glue.WorkflowJobPredicateOptions",
 		reflect.TypeOf((*WorkflowJobPredicateOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.glue.WorkflowPredicate",
+		reflect.TypeOf((*WorkflowPredicate)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_WorkflowPredicate{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdk-extensions.glue.WorkflowPredicateBase",
