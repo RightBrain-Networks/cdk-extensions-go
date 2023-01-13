@@ -27,7 +27,7 @@ type WorkflowCrawlerPredicateOptions struct {
 	// At the moment, the only supported operator is `EQUALS`.
 	// See: [Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator)
 	//
-	LogicalOperator PredicateLogicalOperator `field:"required" json:"logicalOperator" yaml:"logicalOperator"`
+	LogicalOperator PredicateLogicalOperator `field:"optional" json:"logicalOperator" yaml:"logicalOperator"`
 	// The state that the crawler must be in in order to meet the criteria to trigger the next stage of the workflow.
 	// See: [Trigger Predicate.Conditions.CrawlState](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate)
 	//
