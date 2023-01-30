@@ -86,7 +86,8 @@ func BookmarkConfiguration_Enable() BookmarkConfiguration {
 
 // An escape hatch method that allows specifying arbitrary values for the `job-bookmark-option` argument of a Glue job.
 //
-// Returns: A configuration object that represents the provided bookmark configuration.
+// Returns: A configuration object that represents the provided bookmark
+// configuration.
 func BookmarkConfiguration_Of(value *string, range_ *BookmarkRange) BookmarkConfiguration {
 	_init_.Initialize()
 

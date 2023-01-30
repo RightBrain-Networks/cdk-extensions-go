@@ -27,4 +27,15 @@ func init() {
 			return &jsiiProxy_DataSize{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.core.State",
+		reflect.TypeOf((*State)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "get", GoMethod: "Get"},
+			_jsii_.MemberMethod{JsiiMethod: "set", GoMethod: "Set"},
+		},
+		func() interface{} {
+			return &jsiiProxy_State{}
+		},
+	)
 }
