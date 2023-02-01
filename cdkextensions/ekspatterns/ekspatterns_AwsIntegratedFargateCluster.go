@@ -9,8 +9,10 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm"
 	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/aps"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ekspatterns/internal"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/k8saws"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/k8sfargate"
 )
 
 type AwsIntegratedFargateCluster interface {
@@ -37,6 +39,8 @@ type AwsIntegratedFargateCluster interface {
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
 	PhysicalName() *string
+	PrometheusService() k8sfargate.Prometheus
+	PrometheusWorkspace() aps.IWorkspace
 	Resource() awseks.FargateCluster
 	Route53Dns() k8saws.Route53Dns
 	// The stack in which this resource is defined.
@@ -131,6 +135,26 @@ func (j *jsiiProxy_AwsIntegratedFargateCluster) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AwsIntegratedFargateCluster) PrometheusService() k8sfargate.Prometheus {
+	var returns k8sfargate.Prometheus
+	_jsii_.Get(
+		j,
+		"prometheusService",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AwsIntegratedFargateCluster) PrometheusWorkspace() aps.IWorkspace {
+	var returns aps.IWorkspace
+	_jsii_.Get(
+		j,
+		"prometheusWorkspace",
 		&returns,
 	)
 	return returns

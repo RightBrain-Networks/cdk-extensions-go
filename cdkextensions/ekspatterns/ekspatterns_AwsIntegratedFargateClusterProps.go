@@ -128,5 +128,6 @@ type AwsIntegratedFargateClusterProps struct {
 	ExternalDnsOptions *ClusterRoute53DnsOptions `field:"optional" json:"externalDnsOptions" yaml:"externalDnsOptions"`
 	ExternalSecretsOptions *ExternalSecretsOptions `field:"optional" json:"externalSecretsOptions" yaml:"externalSecretsOptions"`
 	LoggingOptions *ClusterFargateLoggingOptions `field:"optional" json:"loggingOptions" yaml:"loggingOptions"`
+	PrometheusOptions *ClusterPrometheusOptions `field:"optional" json:"prometheusOptions" yaml:"prometheusOptions"`
 }
 

@@ -21,6 +21,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "prometheusService", GoGetter: "PrometheusService"},
+			_jsii_.MemberProperty{JsiiProperty: "prometheusWorkspace", GoGetter: "PrometheusWorkspace"},
 			_jsii_.MemberMethod{JsiiMethod: "registerSecretsManagerSecret", GoMethod: "RegisterSecretsManagerSecret"},
 			_jsii_.MemberMethod{JsiiMethod: "registerSsmParameterSecret", GoMethod: "RegisterSsmParameterSecret"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
@@ -41,6 +43,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdk-extensions.eks_patterns.ClusterFargateLoggingOptions",
 		reflect.TypeOf((*ClusterFargateLoggingOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.eks_patterns.ClusterPrometheusOptions",
+		reflect.TypeOf((*ClusterPrometheusOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.eks_patterns.ClusterRoute53DnsOptions",

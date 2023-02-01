@@ -287,6 +287,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "workspaceArn", GoGetter: "WorkspaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "workspaceId", GoGetter: "WorkspaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "workspacePrometheusEndpoint", GoGetter: "WorkspacePrometheusEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceQueryUrl", GoGetter: "WorkspaceQueryUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceRemoteWriteUrl", GoGetter: "WorkspaceRemoteWriteUrl"},
 		},
 		func() interface{} {
 			return &jsiiProxy_IWorkspace{}
@@ -504,6 +506,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "workspaceArn", GoGetter: "WorkspaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "workspaceId", GoGetter: "WorkspaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "workspacePrometheusEndpoint", GoGetter: "WorkspacePrometheusEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceQueryUrl", GoGetter: "WorkspaceQueryUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceRemoteWriteUrl", GoGetter: "WorkspaceRemoteWriteUrl"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Workspace{}

@@ -86,6 +86,10 @@ type Workspace interface {
 	// This is the endpoint prefix without the remote_write or query API
 	// appended.
 	WorkspacePrometheusEndpoint() *string
+	// The URL of the remote write endpoint which can be used to ingest metrics into the Prometheus workspace.
+	WorkspaceQueryUrl() *string
+	// The URL of the endpoint that other services can use to query the workspace.
+	WorkspaceRemoteWriteUrl() *string
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -255,6 +259,26 @@ func (j *jsiiProxy_Workspace) WorkspacePrometheusEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"workspacePrometheusEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Workspace) WorkspaceQueryUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"workspaceQueryUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Workspace) WorkspaceRemoteWriteUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"workspaceRemoteWriteUrl",
 		&returns,
 	)
 	return returns
