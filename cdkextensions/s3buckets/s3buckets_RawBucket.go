@@ -153,7 +153,7 @@ type RawBucket interface {
 	// Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 	//
 	// If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-	// calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+	// calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 	// in this case, if you need to modify object ACLs, call this method explicitly.
 	GrantPutAcl(_identity awsiam.IGrantable, _objectsKeyPattern *string) awsiam.Grant
 	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
@@ -172,7 +172,7 @@ type RawBucket interface {
 	// and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
-	// use the {@link grantPutAcl} method.
+	// use the `grantPutAcl` method.
 	GrantReadWrite(_identity awsiam.IGrantable, _objectsKeyPattern interface{}) awsiam.Grant
 	// Grant write permissions to this bucket to an IAM principal.
 	//
@@ -185,7 +185,7 @@ type RawBucket interface {
 	// and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
-	// use the {@link grantPutAcl} method.
+	// use the `grantPutAcl` method.
 	GrantWrite(_identity awsiam.IGrantable, _objectsKeyPattern interface{}) awsiam.Grant
 	// Defines a CloudWatch event that triggers when something happens to this bucket.
 	//
