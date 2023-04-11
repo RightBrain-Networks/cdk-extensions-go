@@ -8,6 +8,10 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.AddNetworkOptions",
+		reflect.TypeOf((*AddNetworkOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.AddPoolOptions",
 		reflect.TypeOf((*AddPoolOptions)(nil)).Elem(),
 	)
@@ -241,6 +245,39 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.IpAddressManagerSharingProps",
 		reflect.TypeOf((*IpAddressManagerSharingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.ec2_patterns.NetworkController",
+		reflect.TypeOf((*NetworkController)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addHub", GoMethod: "AddHub"},
+			_jsii_.MemberProperty{JsiiProperty: "addressManager", GoGetter: "AddressManager"},
+			_jsii_.MemberMethod{JsiiMethod: "addSpoke", GoMethod: "AddSpoke"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultNetmask", GoGetter: "DefaultNetmask"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "globalNetwork", GoGetter: "GlobalNetwork"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "registerAccount", GoMethod: "RegisterAccount"},
+			_jsii_.MemberProperty{JsiiProperty: "registeredAccounts", GoGetter: "RegisteredAccounts"},
+			_jsii_.MemberProperty{JsiiProperty: "registeredRegions", GoGetter: "RegisteredRegions"},
+			_jsii_.MemberMethod{JsiiMethod: "registerRegion", GoMethod: "RegisterRegion"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NetworkController{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.NetworkControllerProps",
+		reflect.TypeOf((*NetworkControllerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration",
