@@ -1,0 +1,45 @@
+package ec2patterns
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/networkmanager"
+)
+
+type FourTierNetworkHubProps struct {
+	// The AWS account ID this resource belongs to.
+	Account *string `field:"optional" json:"account" yaml:"account"`
+	// ARN to deduce region and account from.
+	//
+	// The ARN is parsed and the account and region are taken from the ARN.
+	// This should be used for imported resources.
+	//
+	// Cannot be supplied together with either `account` or `region`.
+	EnvironmentFromArn *string `field:"optional" json:"environmentFromArn" yaml:"environmentFromArn"`
+	// The value passed in by users to the physical name prop of the resource.
+	//
+	// - `undefined` implies that a physical name will be allocated by
+	//   CloudFormation during deployment.
+	// - a concrete value implies a specific physical name
+	// - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+	//   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
+	// The AWS region this resource belongs to.
+	Region *string `field:"optional" json:"region" yaml:"region"`
+	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
+	Cidr ec2.ICidrProvider `field:"optional" json:"cidr" yaml:"cidr"`
+	DefaultInstanceTenancy awsec2.DefaultInstanceTenancy `field:"optional" json:"defaultInstanceTenancy" yaml:"defaultInstanceTenancy"`
+	EnableDnsHostnames *bool `field:"optional" json:"enableDnsHostnames" yaml:"enableDnsHostnames"`
+	EnableDnsSupport *bool `field:"optional" json:"enableDnsSupport" yaml:"enableDnsSupport"`
+	FlowLogs *map[string]*FlowLogOptions `field:"optional" json:"flowLogs" yaml:"flowLogs"`
+	GatewayEndpoints *map[string]*awsec2.GatewayVpcEndpointOptions `field:"optional" json:"gatewayEndpoints" yaml:"gatewayEndpoints"`
+	GlobalNetwork networkmanager.GlobalNetwork `field:"optional" json:"globalNetwork" yaml:"globalNetwork"`
+	MaxAzs *float64 `field:"optional" json:"maxAzs" yaml:"maxAzs"`
+	Sharing *FourTierNetworkShareProperties `field:"optional" json:"sharing" yaml:"sharing"`
+	VpcName *string `field:"optional" json:"vpcName" yaml:"vpcName"`
+	VpnConnections *map[string]*awsec2.VpnConnectionOptions `field:"optional" json:"vpnConnections" yaml:"vpnConnections"`
+	VpnGateway *bool `field:"optional" json:"vpnGateway" yaml:"vpnGateway"`
+	VpnGatewayAsn *float64 `field:"optional" json:"vpnGatewayAsn" yaml:"vpnGatewayAsn"`
+	VpnRoutePropagation *[]*awsec2.SubnetSelection `field:"optional" json:"vpnRoutePropagation" yaml:"vpnRoutePropagation"`
+}
+
