@@ -54,3 +54,14 @@ func IpamConsumer_EC2() IpamConsumer {
 	return returns
 }
 
+func IpamConsumer_NONE() IpamConsumer {
+	_init_.Initialize()
+	var returns IpamConsumer
+	_jsii_.StaticGet(
+		"cdk-extensions.ec2.IpamConsumer",
+		"NONE",
+		&returns,
+	)
+	return returns
+}
+

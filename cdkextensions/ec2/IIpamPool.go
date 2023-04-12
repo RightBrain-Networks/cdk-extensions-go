@@ -12,6 +12,7 @@ type IIpamPool interface {
 	AddChildPool(id *string, options *AddChildPoolOptions) IIpamPool
 	AddCidrToPool(id *string, options *AddCidrToPoolOptions) *AddCidrToPoolResult
 	AllocateCidrFromPool(id *string, options *AllocateCidrFromPoolOptions) IIpamAllocation
+	Consumer() IpamConsumer
 	IpamPoolArn() *string
 	IpamPoolDepth() *float64
 	IpamPoolId() *string
@@ -72,6 +73,16 @@ func (i *jsiiProxy_IIpamPool) AllocateCidrFromPool(id *string, options *Allocate
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IIpamPool) Consumer() IpamConsumer {
+	var returns IpamConsumer
+	_jsii_.Get(
+		j,
+		"consumer",
+		&returns,
+	)
 	return returns
 }
 

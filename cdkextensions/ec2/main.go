@@ -288,6 +288,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addCidrToPool", GoMethod: "AddCidrToPool"},
 			_jsii_.MemberMethod{JsiiMethod: "allocateCidrFromPool", GoMethod: "AllocateCidrFromPool"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "consumer", GoGetter: "Consumer"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolArn", GoGetter: "IpamPoolArn"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolDepth", GoGetter: "IpamPoolDepth"},

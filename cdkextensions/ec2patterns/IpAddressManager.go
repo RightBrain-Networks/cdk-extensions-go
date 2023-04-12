@@ -40,7 +40,7 @@ type IpAddressManager interface {
 	Stack() awscdk.Stack
 	AddPrivatePool(name *string, options *AddPoolOptions) ec2.IIpamPool
 	AddRegion(region *string)
-	AddStagePool(scope constructs.IConstruct, parent ec2.IIpamPool) ec2.IpamPool
+	AddStagePool(scope constructs.IConstruct, parent ec2.IIpamPool, consumer ec2.IpamConsumer) ec2.IpamPool
 	AllocatePrivateNetwork(scope constructs.IConstruct, id *string, options *AllocatePrivateNetworkOptions) ec2.IpamPool
 	// Apply the given removal policy to this resource.
 	//
@@ -293,7 +293,7 @@ func (i *jsiiProxy_IpAddressManager) AddRegion(region *string) {
 	)
 }
 
-func (i *jsiiProxy_IpAddressManager) AddStagePool(scope constructs.IConstruct, parent ec2.IIpamPool) ec2.IpamPool {
+func (i *jsiiProxy_IpAddressManager) AddStagePool(scope constructs.IConstruct, parent ec2.IIpamPool, consumer ec2.IpamConsumer) ec2.IpamPool {
 	if err := i.validateAddStagePoolParameters(scope, parent); err != nil {
 		panic(err)
 	}
@@ -302,7 +302,7 @@ func (i *jsiiProxy_IpAddressManager) AddStagePool(scope constructs.IConstruct, p
 	_jsii_.Invoke(
 		i,
 		"addStagePool",
-		[]interface{}{scope, parent},
+		[]interface{}{scope, parent, consumer},
 		&returns,
 	)
 
