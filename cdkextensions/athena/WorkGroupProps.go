@@ -1,8 +1,7 @@
-package ec2
+package athena
 
 
-// Configuration for the IPAM scope resource.
-type IpamScopeProps struct {
+type WorkGroupProps struct {
 	// The AWS account ID this resource belongs to.
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// ARN to deduce region and account from.
@@ -22,13 +21,10 @@ type IpamScopeProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
-	// The description of the scope.
-	// See: [IPAMScope Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description)
-	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The IPAM for which you're creating this scope.
-	// See: [IPAMScope IpamId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-ipamid)
-	//
-	Ipam IIpam `field:"required" json:"ipam" yaml:"ipam"`
+	Engine IAnalyticsEngine `field:"optional" json:"engine" yaml:"engine"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	RecursiveDelete *bool `field:"optional" json:"recursiveDelete" yaml:"recursiveDelete"`
+	State WorkGroupState `field:"optional" json:"state" yaml:"state"`
 }
 

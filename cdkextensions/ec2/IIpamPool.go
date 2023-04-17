@@ -12,7 +12,6 @@ type IIpamPool interface {
 	AddChildPool(id *string, options *AddChildPoolOptions) IIpamPool
 	AddCidrToPool(id *string, options *AddCidrToPoolOptions) *AddCidrToPoolResult
 	AllocateCidrFromPool(id *string, options *AllocateCidrFromPoolOptions) IIpamAllocation
-	Consumer() IpamConsumer
 	IpamPoolArn() *string
 	IpamPoolDepth() *float64
 	IpamPoolId() *string
@@ -21,6 +20,7 @@ type IIpamPool interface {
 	IpamPoolScopeType() *string
 	IpamPoolState() *string
 	IpamPoolStateMessage() *string
+	IpFamily() IpFamily
 }
 
 // The jsii proxy for IIpamPool
@@ -73,16 +73,6 @@ func (i *jsiiProxy_IIpamPool) AllocateCidrFromPool(id *string, options *Allocate
 		&returns,
 	)
 
-	return returns
-}
-
-func (j *jsiiProxy_IIpamPool) Consumer() IpamConsumer {
-	var returns IpamConsumer
-	_jsii_.Get(
-		j,
-		"consumer",
-		&returns,
-	)
 	return returns
 }
 
@@ -161,6 +151,16 @@ func (j *jsiiProxy_IIpamPool) IpamPoolStateMessage() *string {
 	_jsii_.Get(
 		j,
 		"ipamPoolStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IIpamPool) IpFamily() IpFamily {
+	var returns IpFamily
+	_jsii_.Get(
+		j,
+		"ipFamily",
 		&returns,
 	)
 	return returns

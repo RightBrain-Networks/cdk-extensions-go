@@ -8,7 +8,7 @@ func (i *jsiiProxy_Ipam) validateAddRegionParameters(region *string) error {
 	return nil
 }
 
-func (i *jsiiProxy_Ipam) validateAddScopeParameters(id *string, options *IpamScopeOptions) error {
+func (i *jsiiProxy_Ipam) validateAddScopeParameters(id *string, options *PrivateIpamScopeOptions) error {
 	return nil
 }
 

@@ -2,6 +2,7 @@ package gluetables
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/athena"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue"
 )
@@ -47,5 +48,9 @@ type FlowLogsTableProps struct {
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Set a custom prefix for the S3 Bucket.
 	S3Prefix *string `field:"optional" json:"s3Prefix" yaml:"s3Prefix"`
+	// The name of the workgroup where namedqueries should be created.
+	// See: [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+	//
+	WorkGroup athena.IWorkGroup `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 

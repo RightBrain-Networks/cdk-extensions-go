@@ -6,8 +6,9 @@ import (
 )
 
 type AddressConfiguration interface {
+	AdvertiseService() AdvertiseService
 	DefaultNetmaskLength() *float64
-	Family() *string
+	Family() IpFamily
 	MaxNetmaskLength() *float64
 	MinNetmaskLength() *float64
 	PubliclyAdvertisable() *bool
@@ -16,6 +17,16 @@ type AddressConfiguration interface {
 // The jsii proxy struct for AddressConfiguration
 type jsiiProxy_AddressConfiguration struct {
 	_ byte // padding
+}
+
+func (j *jsiiProxy_AddressConfiguration) AdvertiseService() AdvertiseService {
+	var returns AdvertiseService
+	_jsii_.Get(
+		j,
+		"advertiseService",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_AddressConfiguration) DefaultNetmaskLength() *float64 {
@@ -28,8 +39,8 @@ func (j *jsiiProxy_AddressConfiguration) DefaultNetmaskLength() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_AddressConfiguration) Family() *string {
-	var returns *string
+func (j *jsiiProxy_AddressConfiguration) Family() IpFamily {
+	var returns IpFamily
 	_jsii_.Get(
 		j,
 		"family",

@@ -2,6 +2,7 @@ package s3buckets
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/athena"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue"
 )
@@ -34,5 +35,6 @@ type FlowLogsBucketProps struct {
 	Format ec2.FlowLogFormat `field:"optional" json:"format" yaml:"format"`
 	FriendlyQueryNames *bool `field:"optional" json:"friendlyQueryNames" yaml:"friendlyQueryNames"`
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
+	WorkGroup athena.IWorkGroup `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 

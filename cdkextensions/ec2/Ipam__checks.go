@@ -19,7 +19,7 @@ func (i *jsiiProxy_Ipam) validateAddRegionParameters(region *string) error {
 	return nil
 }
 
-func (i *jsiiProxy_Ipam) validateAddScopeParameters(id *string, options *IpamScopeOptions) error {
+func (i *jsiiProxy_Ipam) validateAddScopeParameters(id *string, options *PrivateIpamScopeOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}

@@ -15,7 +15,7 @@ type IIpam interface {
 	// Returns: The scope that was added to the IPAM.
 	// See: [How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html)
 	//
-	AddScope(id *string, options *IpamScopeOptions) IIpamScope
+	AddScope(id *string, options *PrivateIpamScopeOptions) IPrivateIpamScope
 	// Associates an existing IPAM resource discovery with the IPAM.
 	//
 	// IPAM aggregates the resource CIDRs discovered by the associated resource
@@ -43,11 +43,11 @@ type jsiiProxy_IIpam struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IIpam) AddScope(id *string, options *IpamScopeOptions) IIpamScope {
+func (i *jsiiProxy_IIpam) AddScope(id *string, options *PrivateIpamScopeOptions) IPrivateIpamScope {
 	if err := i.validateAddScopeParameters(id, options); err != nil {
 		panic(err)
 	}
-	var returns IIpamScope
+	var returns IPrivateIpamScope
 
 	_jsii_.Invoke(
 		i,

@@ -1,10 +1,10 @@
 //go:build no_runtime_type_checking
 
-package ec2
+package athena
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateIpamConsumer_OfParameters(name *string) error {
+func validateApacheSparkEngineVersion_OfParameters(name *string) error {
 	return nil
 }
 

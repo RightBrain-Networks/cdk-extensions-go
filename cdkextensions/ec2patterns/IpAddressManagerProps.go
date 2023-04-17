@@ -21,9 +21,10 @@ type IpAddressManagerProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
-	DefaultPoolAllocationMask *float64 `field:"optional" json:"defaultPoolAllocationMask" yaml:"defaultPoolAllocationMask"`
-	DefaultPoolCidrs *[]*string `field:"optional" json:"defaultPoolCidrs" yaml:"defaultPoolCidrs"`
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 	Sharing *IpAddressManagerSharingProps `field:"optional" json:"sharing" yaml:"sharing"`
+	VpcAllocationMask *float64 `field:"optional" json:"vpcAllocationMask" yaml:"vpcAllocationMask"`
+	VpcPoolCidrs *[]*string `field:"optional" json:"vpcPoolCidrs" yaml:"vpcPoolCidrs"`
+	VpcRegionMask *float64 `field:"optional" json:"vpcRegionMask" yaml:"vpcRegionMask"`
 }
 

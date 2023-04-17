@@ -82,6 +82,22 @@ func (n *jsiiProxy_NetworkController) validateRegisterAccountParameters(account 
 	return nil
 }
 
+func (n *jsiiProxy_NetworkController) validateRegisterCidrParameters(scope constructs.IConstruct, id *string, cidr *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if cidr == nil {
+		return fmt.Errorf("parameter cidr is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (n *jsiiProxy_NetworkController) validateRegisterRegionParameters(region *string) error {
 	if region == nil {
 		return fmt.Errorf("parameter region is required, but nil was provided")

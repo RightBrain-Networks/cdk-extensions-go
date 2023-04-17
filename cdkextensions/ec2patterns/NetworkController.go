@@ -5,7 +5,9 @@ import (
 	_init_ "github.com/vibe-io/cdk-extensions-go/cdkextensions/jsii"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2patterns/internal"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/networkmanager"
 )
@@ -23,6 +25,8 @@ type NetworkController interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	FlowLogBucket() awss3.IBucket
+	FlowLogFormat() ec2.FlowLogFormat
 	GlobalNetwork() networkmanager.GlobalNetwork
 	// The tree node.
 	Node() constructs.Node
@@ -65,6 +69,7 @@ type NetworkController interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	RegisterAccount(account *string)
+	RegisterCidr(scope constructs.IConstruct, id *string, cidr *string)
 	RegisterRegion(region *string)
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -100,6 +105,26 @@ func (j *jsiiProxy_NetworkController) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkController) FlowLogBucket() awss3.IBucket {
+	var returns awss3.IBucket
+	_jsii_.Get(
+		j,
+		"flowLogBucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkController) FlowLogFormat() ec2.FlowLogFormat {
+	var returns ec2.FlowLogFormat
+	_jsii_.Get(
+		j,
+		"flowLogFormat",
 		&returns,
 	)
 	return returns
@@ -349,6 +374,17 @@ func (n *jsiiProxy_NetworkController) RegisterAccount(account *string) {
 		n,
 		"registerAccount",
 		[]interface{}{account},
+	)
+}
+
+func (n *jsiiProxy_NetworkController) RegisterCidr(scope constructs.IConstruct, id *string, cidr *string) {
+	if err := n.validateRegisterCidrParameters(scope, id, cidr); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"registerCidr",
+		[]interface{}{scope, id, cidr},
 	)
 }
 

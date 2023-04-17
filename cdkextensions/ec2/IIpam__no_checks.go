@@ -4,7 +4,7 @@ package ec2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IIpam) validateAddScopeParameters(id *string, options *IpamScopeOptions) error {
+func (i *jsiiProxy_IIpam) validateAddScopeParameters(id *string, options *PrivateIpamScopeOptions) error {
 	return nil
 }
 

@@ -15,7 +15,6 @@ type IpamPool interface {
 	IIpamPool
 	AddressConfiguration() AddressConfiguration
 	AutoImport() *bool
-	Consumer() IpamConsumer
 	Description() *string
 	// The environment this resource belongs to.
 	//
@@ -35,6 +34,7 @@ type IpamPool interface {
 	IpamPoolState() *string
 	IpamPoolStateMessage() *string
 	IpamScope() IIpamScope
+	IpFamily() IpFamily
 	Locale() *string
 	Name() *string
 	// The tree node.
@@ -82,6 +82,8 @@ type IpamPool interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Returns a string representation of this construct.
 	ToString() *string
+	ValidateChildLocale(locale *string) *bool
+	ValidateNestingSupport() *bool
 }
 
 // The jsii proxy struct for IpamPool
@@ -105,16 +107,6 @@ func (j *jsiiProxy_IpamPool) AutoImport() *bool {
 	_jsii_.Get(
 		j,
 		"autoImport",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IpamPool) Consumer() IpamConsumer {
-	var returns IpamConsumer
-	_jsii_.Get(
-		j,
-		"consumer",
 		&returns,
 	)
 	return returns
@@ -225,6 +217,16 @@ func (j *jsiiProxy_IpamPool) IpamScope() IIpamScope {
 	_jsii_.Get(
 		j,
 		"ipamScope",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IpamPool) IpFamily() IpFamily {
+	var returns IpFamily
+	_jsii_.Get(
+		j,
+		"ipFamily",
 		&returns,
 	)
 	return returns
@@ -524,6 +526,32 @@ func (i *jsiiProxy_IpamPool) ToString() *string {
 	_jsii_.Invoke(
 		i,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IpamPool) ValidateChildLocale(locale *string) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		i,
+		"validateChildLocale",
+		[]interface{}{locale},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IpamPool) ValidateNestingSupport() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		i,
+		"validateNestingSupport",
 		nil, // no parameters
 		&returns,
 	)

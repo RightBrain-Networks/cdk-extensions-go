@@ -119,5 +119,7 @@ type AwsLoggingStackProps struct {
 	StandardizeNames *bool `field:"optional" json:"standardizeNames" yaml:"standardizeNames"`
 	// A cdk-extensions/s3-buckets {@link aws-s3-buckets!WafLogsBucket} object.
 	WafLogsBucket s3buckets.WafLogsBucket `field:"optional" json:"wafLogsBucket" yaml:"wafLogsBucket"`
+	// Controls settings for an Athena WorkGroup used to query logs produced by AWS services.
+	WorkGroupConfiguration *LoggingWorkGroupConfiguration `field:"optional" json:"workGroupConfiguration" yaml:"workGroupConfiguration"`
 }
 

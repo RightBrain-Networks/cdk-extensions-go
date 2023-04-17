@@ -55,6 +55,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForObject", GoMethod: "UrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "virtualHostedUrlForObject", GoMethod: "VirtualHostedUrlForObject"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AlbLogsBucket{}
@@ -114,6 +115,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForObject", GoMethod: "UrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "virtualHostedUrlForObject", GoMethod: "VirtualHostedUrlForObject"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CloudfrontLogsBucket{}
@@ -173,6 +175,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForObject", GoMethod: "UrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "virtualHostedUrlForObject", GoMethod: "VirtualHostedUrlForObject"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CloudtrailBucket{}
@@ -235,6 +238,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForObject", GoMethod: "UrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "virtualHostedUrlForObject", GoMethod: "VirtualHostedUrlForObject"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_FlowLogsBucket{}
@@ -355,6 +359,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForObject", GoMethod: "UrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "virtualHostedUrlForObject", GoMethod: "VirtualHostedUrlForObject"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_S3AccessLogsBucket{}
@@ -414,6 +419,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForObject", GoMethod: "UrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "virtualHostedUrlForObject", GoMethod: "VirtualHostedUrlForObject"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_SesLogsBucket{}
@@ -473,6 +479,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForObject", GoMethod: "UrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "virtualHostedUrlForObject", GoMethod: "VirtualHostedUrlForObject"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_WafLogsBucket{}

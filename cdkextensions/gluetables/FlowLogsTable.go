@@ -76,6 +76,10 @@ type FlowLogsTable interface {
 	ViewExpandedText() *string
 	// {@link TableProps.viewOriginalText}.
 	ViewOriginalText() *string
+	// The name of the workgroup where namedqueries should be created.
+	// See: [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+	//
+	WorkGroup() athena.IWorkGroup
 	AddColumn(column glue.Column)
 	AddParameter(key *string, value *string)
 	AddPartitionKey(column glue.Column)
@@ -360,6 +364,16 @@ func (j *jsiiProxy_FlowLogsTable) ViewOriginalText() *string {
 	_jsii_.Get(
 		j,
 		"viewOriginalText",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FlowLogsTable) WorkGroup() athena.IWorkGroup {
+	var returns athena.IWorkGroup
+	_jsii_.Get(
+		j,
+		"workGroup",
 		&returns,
 	)
 	return returns

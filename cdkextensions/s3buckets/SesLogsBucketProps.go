@@ -1,6 +1,7 @@
 package s3buckets
 
 import (
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/athena"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue"
 )
 
@@ -30,5 +31,6 @@ type SesLogsBucketProps struct {
 	Database glue.Database `field:"optional" json:"database" yaml:"database"`
 	FriendlyQueryNames *bool `field:"optional" json:"friendlyQueryNames" yaml:"friendlyQueryNames"`
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
+	WorkGroup athena.IWorkGroup `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 

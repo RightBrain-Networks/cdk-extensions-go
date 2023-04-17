@@ -4,20 +4,12 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2/internal"
 )
 
 // Represents an IPAM scope in AWS.
 type IIpamScope interface {
-	// Adds an IPAM pool to the IPAM scope.
-	//
-	// A pool is a collection of contiguous IP address ranges (or CIDRs). IPAM
-	// pools enable you to organize your IP addresses according to your routing
-	// and security needs.
-	//
-	// Returns: The pool that was added to the scope.
-	// See: [How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html)
-	//
-	AddPool(id *string, options *IpamPoolOptions) IIpamPool
+	awscdk.IResource
 	// The ARN of the scope.
 	IpamScopeArn() *string
 	// The ID of an IPAM scope.
@@ -34,23 +26,7 @@ type IIpamScope interface {
 
 // The jsii proxy for IIpamScope
 type jsiiProxy_IIpamScope struct {
-	_ byte // padding
-}
-
-func (i *jsiiProxy_IIpamScope) AddPool(id *string, options *IpamPoolOptions) IIpamPool {
-	if err := i.validateAddPoolParameters(id, options); err != nil {
-		panic(err)
-	}
-	var returns IIpamPool
-
-	_jsii_.Invoke(
-		i,
-		"addPool",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
+	internal.Type__awscdkIResource
 }
 
 func (j *jsiiProxy_IIpamScope) IpamScopeArn() *string {

@@ -58,6 +58,10 @@ type NamedQuery interface {
 	Resource() awsathena.CfnNamedQuery
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The name of the workgroup that contains the named query.
+	// See: [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+	//
+	WorkGroup() IWorkGroup
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -196,6 +200,16 @@ func (j *jsiiProxy_NamedQuery) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NamedQuery) WorkGroup() IWorkGroup {
+	var returns IWorkGroup
+	_jsii_.Get(
+		j,
+		"workGroup",
 		&returns,
 	)
 	return returns

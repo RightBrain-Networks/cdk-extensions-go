@@ -41,5 +41,9 @@ type NamedQueryProps struct {
 	// See: [NamedQuery Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name)
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The name of the workgroup that contains the named query.
+	// See: [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+	//
+	WorkGroup IWorkGroup `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 

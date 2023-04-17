@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/athena"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/gluetables"
 )
@@ -66,6 +67,7 @@ type S3AccessLogsBucket interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	Table() gluetables.S3AccessLogsTable
+	WorkGroup() athena.IWorkGroup
 	// Adds a bucket notification event destination.
 	AddEventNotification(_event awss3.EventType, _dest awss3.IBucketNotificationDestination, _filters ...*awss3.NotificationKeyFilter)
 	AddLoggingAspect(scope constructs.IConstruct, options *LoggingAspectOptions)
@@ -423,6 +425,16 @@ func (j *jsiiProxy_S3AccessLogsBucket) Table() gluetables.S3AccessLogsTable {
 	_jsii_.Get(
 		j,
 		"table",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3AccessLogsBucket) WorkGroup() athena.IWorkGroup {
+	var returns athena.IWorkGroup
+	_jsii_.Get(
+		j,
+		"workGroup",
 		&returns,
 	)
 	return returns

@@ -4,7 +4,6 @@ package ec2
 type IpamPoolOptions struct {
 	AddressConfiguration AddressConfiguration `field:"optional" json:"addressConfiguration" yaml:"addressConfiguration"`
 	AutoImport *bool `field:"optional" json:"autoImport" yaml:"autoImport"`
-	Consumer IpamConsumer `field:"optional" json:"consumer" yaml:"consumer"`
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	Locale *string `field:"optional" json:"locale" yaml:"locale"`
 	Name *string `field:"optional" json:"name" yaml:"name"`

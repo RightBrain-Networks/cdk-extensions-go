@@ -38,10 +38,8 @@ type IpAddressManager interface {
 	SharingEnabled() *bool
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	AddPrivatePool(name *string, options *AddPoolOptions) ec2.IIpamPool
+	VpcAllocationMask() *float64
 	AddRegion(region *string)
-	AddStagePool(scope constructs.IConstruct, parent ec2.IIpamPool, consumer ec2.IpamConsumer) ec2.IpamPool
-	AllocatePrivateNetwork(scope constructs.IConstruct, id *string, options *AllocatePrivateNetworkOptions) ec2.IpamPool
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -66,7 +64,11 @@ type IpAddressManager interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	GetVpcConfiguration(scope constructs.IConstruct, id *string, options *GetVpcConfigurationOptions) ec2.ICidrProvider
+	PrivateVpcPoolForEnvironment(account *string, region *string) ec2.IIpamPool
+	PrivateVpcPoolForRegion(region *string) ec2.IIpamPool
 	RegisterAccount(account *string, pool ec2.IIpamPool)
+	RegisterCidr(scope constructs.IConstruct, id *string, cidr *string)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -151,6 +153,16 @@ func (j *jsiiProxy_IpAddressManager) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IpAddressManager) VpcAllocationMask() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"vpcAllocationMask",
 		&returns,
 	)
 	return returns
@@ -244,41 +256,36 @@ func IpAddressManager_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func IpAddressManager_DEFAULT_CIDR() *string {
-	_init_.Initialize()
-	var returns *string
-	_jsii_.StaticGet(
-		"cdk-extensions.ec2_patterns.IpAddressManager",
-		"DEFAULT_CIDR",
-		&returns,
-	)
-	return returns
-}
-
-func IpAddressManager_DEFAULT_POOL_ALLOCATION_MASK() *float64 {
+func IpAddressManager_DEFAULT_VPC_ALLOCATION_MASK() *float64 {
 	_init_.Initialize()
 	var returns *float64
 	_jsii_.StaticGet(
 		"cdk-extensions.ec2_patterns.IpAddressManager",
-		"DEFAULT_POOL_ALLOCATION_MASK",
+		"DEFAULT_VPC_ALLOCATION_MASK",
 		&returns,
 	)
 	return returns
 }
 
-func (i *jsiiProxy_IpAddressManager) AddPrivatePool(name *string, options *AddPoolOptions) ec2.IIpamPool {
-	if err := i.validateAddPrivatePoolParameters(name, options); err != nil {
-		panic(err)
-	}
-	var returns ec2.IIpamPool
-
-	_jsii_.Invoke(
-		i,
-		"addPrivatePool",
-		[]interface{}{name, options},
+func IpAddressManager_DEFAULT_VPC_POOL_CIDRS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"cdk-extensions.ec2_patterns.IpAddressManager",
+		"DEFAULT_VPC_POOL_CIDRS",
 		&returns,
 	)
+	return returns
+}
 
+func IpAddressManager_DEFAULT_VPC_REGION_MASK() *float64 {
+	_init_.Initialize()
+	var returns *float64
+	_jsii_.StaticGet(
+		"cdk-extensions.ec2_patterns.IpAddressManager",
+		"DEFAULT_VPC_REGION_MASK",
+		&returns,
+	)
 	return returns
 }
 
@@ -291,38 +298,6 @@ func (i *jsiiProxy_IpAddressManager) AddRegion(region *string) {
 		"addRegion",
 		[]interface{}{region},
 	)
-}
-
-func (i *jsiiProxy_IpAddressManager) AddStagePool(scope constructs.IConstruct, parent ec2.IIpamPool, consumer ec2.IpamConsumer) ec2.IpamPool {
-	if err := i.validateAddStagePoolParameters(scope, parent); err != nil {
-		panic(err)
-	}
-	var returns ec2.IpamPool
-
-	_jsii_.Invoke(
-		i,
-		"addStagePool",
-		[]interface{}{scope, parent, consumer},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IpAddressManager) AllocatePrivateNetwork(scope constructs.IConstruct, id *string, options *AllocatePrivateNetworkOptions) ec2.IpamPool {
-	if err := i.validateAllocatePrivateNetworkParameters(scope, id, options); err != nil {
-		panic(err)
-	}
-	var returns ec2.IpamPool
-
-	_jsii_.Invoke(
-		i,
-		"allocatePrivateNetwork",
-		[]interface{}{scope, id, options},
-		&returns,
-	)
-
-	return returns
 }
 
 func (i *jsiiProxy_IpAddressManager) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -381,6 +356,54 @@ func (i *jsiiProxy_IpAddressManager) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
+func (i *jsiiProxy_IpAddressManager) GetVpcConfiguration(scope constructs.IConstruct, id *string, options *GetVpcConfigurationOptions) ec2.ICidrProvider {
+	if err := i.validateGetVpcConfigurationParameters(scope, id, options); err != nil {
+		panic(err)
+	}
+	var returns ec2.ICidrProvider
+
+	_jsii_.Invoke(
+		i,
+		"getVpcConfiguration",
+		[]interface{}{scope, id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IpAddressManager) PrivateVpcPoolForEnvironment(account *string, region *string) ec2.IIpamPool {
+	if err := i.validatePrivateVpcPoolForEnvironmentParameters(account, region); err != nil {
+		panic(err)
+	}
+	var returns ec2.IIpamPool
+
+	_jsii_.Invoke(
+		i,
+		"privateVpcPoolForEnvironment",
+		[]interface{}{account, region},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IpAddressManager) PrivateVpcPoolForRegion(region *string) ec2.IIpamPool {
+	if err := i.validatePrivateVpcPoolForRegionParameters(region); err != nil {
+		panic(err)
+	}
+	var returns ec2.IIpamPool
+
+	_jsii_.Invoke(
+		i,
+		"privateVpcPoolForRegion",
+		[]interface{}{region},
+		&returns,
+	)
+
+	return returns
+}
+
 func (i *jsiiProxy_IpAddressManager) RegisterAccount(account *string, pool ec2.IIpamPool) {
 	if err := i.validateRegisterAccountParameters(account, pool); err != nil {
 		panic(err)
@@ -389,6 +412,17 @@ func (i *jsiiProxy_IpAddressManager) RegisterAccount(account *string, pool ec2.I
 		i,
 		"registerAccount",
 		[]interface{}{account, pool},
+	)
+}
+
+func (i *jsiiProxy_IpAddressManager) RegisterCidr(scope constructs.IConstruct, id *string, cidr *string) {
+	if err := i.validateRegisterCidrParameters(scope, id, cidr); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"registerCidr",
+		[]interface{}{scope, id, cidr},
 	)
 }
 

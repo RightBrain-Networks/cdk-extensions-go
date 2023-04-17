@@ -28,6 +28,10 @@ func (n *jsiiProxy_NetworkController) validateRegisterAccountParameters(account 
 	return nil
 }
 
+func (n *jsiiProxy_NetworkController) validateRegisterCidrParameters(scope constructs.IConstruct, id *string, cidr *string) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkController) validateRegisterRegionParameters(region *string) error {
 	return nil
 }

@@ -22,9 +22,9 @@ type Ipam interface {
 	awscdk.Resource
 	IIpam
 	// The IPAM's default private scope.
-	DefaultPrivateScope() IIpamScope
+	DefaultPrivateScope() IPrivateIpamScope
 	// The IPAM's default public scope.
-	DefaultPublicScope() IIpamScope
+	DefaultPublicScope() IPublicIpamScope
 	// The description for the IPAM.
 	// See: [IPAM Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-description)
 	//
@@ -89,7 +89,7 @@ type Ipam interface {
 	// Returns: The scope that was added to the IPAM.
 	// See: [How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html)
 	//
-	AddScope(id *string, options *IpamScopeOptions) IIpamScope
+	AddScope(id *string, options *PrivateIpamScopeOptions) IPrivateIpamScope
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -132,8 +132,8 @@ type jsiiProxy_Ipam struct {
 	jsiiProxy_IIpam
 }
 
-func (j *jsiiProxy_Ipam) DefaultPrivateScope() IIpamScope {
-	var returns IIpamScope
+func (j *jsiiProxy_Ipam) DefaultPrivateScope() IPrivateIpamScope {
+	var returns IPrivateIpamScope
 	_jsii_.Get(
 		j,
 		"defaultPrivateScope",
@@ -142,8 +142,8 @@ func (j *jsiiProxy_Ipam) DefaultPrivateScope() IIpamScope {
 	return returns
 }
 
-func (j *jsiiProxy_Ipam) DefaultPublicScope() IIpamScope {
-	var returns IIpamScope
+func (j *jsiiProxy_Ipam) DefaultPublicScope() IPublicIpamScope {
+	var returns IPublicIpamScope
 	_jsii_.Get(
 		j,
 		"defaultPublicScope",
@@ -447,11 +447,11 @@ func (i *jsiiProxy_Ipam) AddRegion(region *string) {
 	)
 }
 
-func (i *jsiiProxy_Ipam) AddScope(id *string, options *IpamScopeOptions) IIpamScope {
+func (i *jsiiProxy_Ipam) AddScope(id *string, options *PrivateIpamScopeOptions) IPrivateIpamScope {
 	if err := i.validateAddScopeParameters(id, options); err != nil {
 		panic(err)
 	}
-	var returns IIpamScope
+	var returns IPrivateIpamScope
 
 	_jsii_.Invoke(
 		i,

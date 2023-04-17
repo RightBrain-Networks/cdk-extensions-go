@@ -47,6 +47,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "viewExpandedText", GoGetter: "ViewExpandedText"},
 			_jsii_.MemberProperty{JsiiProperty: "viewOriginalText", GoGetter: "ViewOriginalText"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AlbLogsTable{}
@@ -100,6 +101,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "viewExpandedText", GoGetter: "ViewExpandedText"},
 			_jsii_.MemberProperty{JsiiProperty: "viewOriginalText", GoGetter: "ViewOriginalText"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CloudfrontLogsTable{}
@@ -151,6 +153,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "userLoginsNamedQuery", GoGetter: "UserLoginsNamedQuery"},
 			_jsii_.MemberProperty{JsiiProperty: "viewExpandedText", GoGetter: "ViewExpandedText"},
 			_jsii_.MemberProperty{JsiiProperty: "viewOriginalText", GoGetter: "ViewOriginalText"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CloudtrailTable{}
@@ -202,6 +205,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "viewExpandedText", GoGetter: "ViewExpandedText"},
 			_jsii_.MemberProperty{JsiiProperty: "viewOriginalText", GoGetter: "ViewOriginalText"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_FlowLogsTable{}
@@ -252,6 +256,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "viewExpandedText", GoGetter: "ViewExpandedText"},
 			_jsii_.MemberProperty{JsiiProperty: "viewOriginalText", GoGetter: "ViewOriginalText"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_S3AccessLogsTable{}
@@ -303,6 +308,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "viewExpandedText", GoGetter: "ViewExpandedText"},
 			_jsii_.MemberProperty{JsiiProperty: "viewOriginalText", GoGetter: "ViewOriginalText"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_SesLogsTable{}
@@ -354,6 +360,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "viewExpandedText", GoGetter: "ViewExpandedText"},
 			_jsii_.MemberProperty{JsiiProperty: "viewOriginalText", GoGetter: "ViewOriginalText"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
 		},
 		func() interface{} {
 			j := jsiiProxy_WafLogsTable{}

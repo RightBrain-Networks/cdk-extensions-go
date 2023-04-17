@@ -1,10 +1,10 @@
 //go:build no_runtime_type_checking
 
-package ec2
+package athena
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IIpamScope) validateAddPoolParameters(id *string, options *IpamPoolOptions) error {
+func (i *jsiiProxy_IAthenaResultEncryption) validateBindParameters(scope constructs.IConstruct) error {
 	return nil
 }
 

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/athena"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/glue"
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/s3buckets"
@@ -156,6 +157,9 @@ type AwsLoggingStack interface {
 	// The Amazon domain suffix for the region in which this stack is defined.
 	UrlSuffix() *string
 	WafLogsBucket() s3buckets.WafLogsBucket
+	WorkGroup() athena.WorkGroup
+	// Controls settings for an Athena WorkGroup used to query logs produced by AWS services.
+	WorkGroupConfiguration() *LoggingWorkGroupConfiguration
 	// Add a dependency between this stack and another stack.
 	//
 	// This can be used to define dependencies between any two stacks within an
@@ -684,6 +688,26 @@ func (j *jsiiProxy_AwsLoggingStack) WafLogsBucket() s3buckets.WafLogsBucket {
 	_jsii_.Get(
 		j,
 		"wafLogsBucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AwsLoggingStack) WorkGroup() athena.WorkGroup {
+	var returns athena.WorkGroup
+	_jsii_.Get(
+		j,
+		"workGroup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AwsLoggingStack) WorkGroupConfiguration() *LoggingWorkGroupConfiguration {
+	var returns *LoggingWorkGroupConfiguration
+	_jsii_.Get(
+		j,
+		"workGroupConfiguration",
 		&returns,
 	)
 	return returns

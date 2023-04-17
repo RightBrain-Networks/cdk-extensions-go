@@ -12,49 +12,9 @@ import (
 	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2"
 )
 
-func (i *jsiiProxy_IpAddressManager) validateAddPrivatePoolParameters(name *string, options *AddPoolOptions) error {
-	if name == nil {
-		return fmt.Errorf("parameter name is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (i *jsiiProxy_IpAddressManager) validateAddRegionParameters(region *string) error {
 	if region == nil {
 		return fmt.Errorf("parameter region is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (i *jsiiProxy_IpAddressManager) validateAddStagePoolParameters(scope constructs.IConstruct, parent ec2.IIpamPool) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if parent == nil {
-		return fmt.Errorf("parameter parent is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (i *jsiiProxy_IpAddressManager) validateAllocatePrivateNetworkParameters(scope constructs.IConstruct, id *string, options *AllocatePrivateNetworkOptions) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
 	}
 
 	return nil
@@ -91,6 +51,42 @@ func (i *jsiiProxy_IpAddressManager) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
+func (i *jsiiProxy_IpAddressManager) validateGetVpcConfigurationParameters(scope constructs.IConstruct, id *string, options *GetVpcConfigurationOptions) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validatePrivateVpcPoolForEnvironmentParameters(account *string, region *string) error {
+	if account == nil {
+		return fmt.Errorf("parameter account is required, but nil was provided")
+	}
+
+	if region == nil {
+		return fmt.Errorf("parameter region is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validatePrivateVpcPoolForRegionParameters(region *string) error {
+	if region == nil {
+		return fmt.Errorf("parameter region is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IpAddressManager) validateRegisterAccountParameters(account *string, pool ec2.IIpamPool) error {
 	if account == nil {
 		return fmt.Errorf("parameter account is required, but nil was provided")
@@ -98,6 +94,22 @@ func (i *jsiiProxy_IpAddressManager) validateRegisterAccountParameters(account *
 
 	if pool == nil {
 		return fmt.Errorf("parameter pool is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validateRegisterCidrParameters(scope constructs.IConstruct, id *string, cidr *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if cidr == nil {
+		return fmt.Errorf("parameter cidr is required, but nil was provided")
 	}
 
 	return nil

@@ -8,7 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func (i *jsiiProxy_IIpam) validateAddScopeParameters(id *string, options *IpamScopeOptions) error {
+func (i *jsiiProxy_IIpam) validateAddScopeParameters(id *string, options *PrivateIpamScopeOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}

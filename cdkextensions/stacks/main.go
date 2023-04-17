@@ -60,6 +60,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toYamlString", GoMethod: "ToYamlString"},
 			_jsii_.MemberProperty{JsiiProperty: "urlSuffix", GoGetter: "UrlSuffix"},
 			_jsii_.MemberProperty{JsiiProperty: "wafLogsBucket", GoGetter: "WafLogsBucket"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroup", GoGetter: "WorkGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "workGroupConfiguration", GoGetter: "WorkGroupConfiguration"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AwsLoggingStack{}
@@ -70,5 +72,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdk-extensions.stacks.AwsLoggingStackProps",
 		reflect.TypeOf((*AwsLoggingStackProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.stacks.LoggingWorkGroupConfiguration",
+		reflect.TypeOf((*LoggingWorkGroupConfiguration)(nil)).Elem(),
 	)
 }

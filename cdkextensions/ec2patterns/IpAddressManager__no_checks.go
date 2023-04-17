@@ -4,19 +4,7 @@ package ec2patterns
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IpAddressManager) validateAddPrivatePoolParameters(name *string, options *AddPoolOptions) error {
-	return nil
-}
-
 func (i *jsiiProxy_IpAddressManager) validateAddRegionParameters(region *string) error {
-	return nil
-}
-
-func (i *jsiiProxy_IpAddressManager) validateAddStagePoolParameters(scope constructs.IConstruct, parent ec2.IIpamPool) error {
-	return nil
-}
-
-func (i *jsiiProxy_IpAddressManager) validateAllocatePrivateNetworkParameters(scope constructs.IConstruct, id *string, options *AllocatePrivateNetworkOptions) error {
 	return nil
 }
 
@@ -32,7 +20,23 @@ func (i *jsiiProxy_IpAddressManager) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
+func (i *jsiiProxy_IpAddressManager) validateGetVpcConfigurationParameters(scope constructs.IConstruct, id *string, options *GetVpcConfigurationOptions) error {
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validatePrivateVpcPoolForEnvironmentParameters(account *string, region *string) error {
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validatePrivateVpcPoolForRegionParameters(region *string) error {
+	return nil
+}
+
 func (i *jsiiProxy_IpAddressManager) validateRegisterAccountParameters(account *string, pool ec2.IIpamPool) error {
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validateRegisterCidrParameters(scope constructs.IConstruct, id *string, cidr *string) error {
 	return nil
 }
 

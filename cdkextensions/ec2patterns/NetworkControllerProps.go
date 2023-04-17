@@ -1,5 +1,9 @@
 package ec2patterns
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2"
+)
 
 type NetworkControllerProps struct {
 	// The AWS account ID this resource belongs to.
@@ -22,5 +26,7 @@ type NetworkControllerProps struct {
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	DefaultNetmask *float64 `field:"optional" json:"defaultNetmask" yaml:"defaultNetmask"`
+	FlowLogBucket awss3.IBucket `field:"optional" json:"flowLogBucket" yaml:"flowLogBucket"`
+	FlowLogFormat ec2.FlowLogFormat `field:"optional" json:"flowLogFormat" yaml:"flowLogFormat"`
 }
 

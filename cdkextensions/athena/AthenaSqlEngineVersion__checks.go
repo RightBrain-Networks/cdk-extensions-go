@@ -1,12 +1,12 @@
 //go:build !no_runtime_type_checking
 
-package ec2
+package athena
 
 import (
 	"fmt"
 )
 
-func validateIpamConsumer_OfParameters(name *string) error {
+func validateAthenaSqlEngineVersion_OfParameters(name *string) error {
 	if name == nil {
 		return fmt.Errorf("parameter name is required, but nil was provided")
 	}

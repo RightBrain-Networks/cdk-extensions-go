@@ -8,6 +8,18 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.AddAwsProvidedIpv6PoolOptions",
+		reflect.TypeOf((*AddAwsProvidedIpv6PoolOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.AddByoipIpv4PoolOptions",
+		reflect.TypeOf((*AddByoipIpv4PoolOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.AddByoipIpv6PoolOptions",
+		reflect.TypeOf((*AddByoipIpv6PoolOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2.AddChildPoolOptions",
 		reflect.TypeOf((*AddChildPoolOptions)(nil)).Elem(),
 	)
@@ -23,6 +35,7 @@ func init() {
 		"cdk-extensions.ec2.AddressConfiguration",
 		reflect.TypeOf((*AddressConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "advertiseService", GoGetter: "AdvertiseService"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultNetmaskLength", GoGetter: "DefaultNetmaskLength"},
 			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},
 			_jsii_.MemberProperty{JsiiProperty: "maxNetmaskLength", GoGetter: "MaxNetmaskLength"},
@@ -36,6 +49,16 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2.AddressConfigurationProps",
 		reflect.TypeOf((*AddressConfigurationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.ec2.AdvertiseService",
+		reflect.TypeOf((*AdvertiseService)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AdvertiseService{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2.AllocateCidrFromPoolOptions",
@@ -209,17 +232,6 @@ func init() {
 		reflect.TypeOf((*FlowLogS3Options)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"cdk-extensions.ec2.IAddressConfiguration",
-		reflect.TypeOf((*IAddressConfiguration)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},
-			_jsii_.MemberProperty{JsiiProperty: "publiclyAdvertisable", GoGetter: "PubliclyAdvertisable"},
-		},
-		func() interface{} {
-			return &jsiiProxy_IAddressConfiguration{}
-		},
-	)
-	_jsii_.RegisterInterface(
 		"cdk-extensions.ec2.ICidrProvider",
 		reflect.TypeOf((*ICidrProvider)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -288,7 +300,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addCidrToPool", GoMethod: "AddCidrToPool"},
 			_jsii_.MemberMethod{JsiiMethod: "allocateCidrFromPool", GoMethod: "AllocateCidrFromPool"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "consumer", GoGetter: "Consumer"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolArn", GoGetter: "IpamPoolArn"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolDepth", GoGetter: "IpamPoolDepth"},
@@ -298,6 +309,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolScopeType", GoGetter: "IpamPoolScopeType"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolState", GoGetter: "IpamPoolState"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolStateMessage", GoGetter: "IpamPoolStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -311,11 +323,17 @@ func init() {
 		"cdk-extensions.ec2.IIpamPoolCidr",
 		reflect.TypeOf((*IIpamPoolCidr)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolCidrId", GoGetter: "IpamPoolCidrId"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolCidrState", GoGetter: "IpamPoolCidrState"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
-			return &jsiiProxy_IIpamPoolCidr{}
+			j := jsiiProxy_IIpamPoolCidr{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -374,16 +392,75 @@ func init() {
 		"cdk-extensions.ec2.IIpamScope",
 		reflect.TypeOf((*IIpamScope)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addPool", GoMethod: "AddPool"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamScopeArn", GoGetter: "IpamScopeArn"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamScopeId", GoGetter: "IpamScopeId"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIpamArn", GoGetter: "IpamScopeIpamArn"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIsDefault", GoGetter: "IpamScopeIsDefault"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamScopePoolCount", GoGetter: "IpamScopePoolCount"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamScopeType", GoGetter: "IpamScopeType"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
-			return &jsiiProxy_IIpamScope{}
+			j := jsiiProxy_IIpamScope{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdk-extensions.ec2.IIpv4IpamPool",
+		reflect.TypeOf((*IIpv4IpamPool)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addChildPool", GoMethod: "AddChildPool"},
+			_jsii_.MemberMethod{JsiiMethod: "addCidrToPool", GoMethod: "AddCidrToPool"},
+			_jsii_.MemberMethod{JsiiMethod: "allocateCidrFromPool", GoMethod: "AllocateCidrFromPool"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolArn", GoGetter: "IpamPoolArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolDepth", GoGetter: "IpamPoolDepth"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolId", GoGetter: "IpamPoolId"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolIpamArn", GoGetter: "IpamPoolIpamArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolScopeArn", GoGetter: "IpamPoolScopeArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolScopeType", GoGetter: "IpamPoolScopeType"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolState", GoGetter: "IpamPoolState"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolStateMessage", GoGetter: "IpamPoolStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IIpv4IpamPool{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIpamPool)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdk-extensions.ec2.IIpv6IpamPool",
+		reflect.TypeOf((*IIpv6IpamPool)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addChildPool", GoMethod: "AddChildPool"},
+			_jsii_.MemberMethod{JsiiMethod: "addCidrToPool", GoMethod: "AddCidrToPool"},
+			_jsii_.MemberMethod{JsiiMethod: "allocateCidrFromPool", GoMethod: "AllocateCidrFromPool"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolArn", GoGetter: "IpamPoolArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolDepth", GoGetter: "IpamPoolDepth"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolId", GoGetter: "IpamPoolId"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolIpamArn", GoGetter: "IpamPoolIpamArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolScopeArn", GoGetter: "IpamPoolScopeArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolScopeType", GoGetter: "IpamPoolScopeType"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolState", GoGetter: "IpamPoolState"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPoolStateMessage", GoGetter: "IpamPoolStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IIpv6IpamPool{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIpamPool)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -404,6 +481,52 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ILogDestination{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdk-extensions.ec2.IPrivateIpamScope",
+		reflect.TypeOf((*IPrivateIpamScope)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addPool", GoMethod: "AddPool"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeArn", GoGetter: "IpamScopeArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeId", GoGetter: "IpamScopeId"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIpamArn", GoGetter: "IpamScopeIpamArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIsDefault", GoGetter: "IpamScopeIsDefault"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopePoolCount", GoGetter: "IpamScopePoolCount"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeType", GoGetter: "IpamScopeType"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPrivateIpamScope{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIpamScope)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdk-extensions.ec2.IPublicIpamScope",
+		reflect.TypeOf((*IPublicIpamScope)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addAwsProvidedIpv6Pool", GoMethod: "AddAwsProvidedIpv6Pool"},
+			_jsii_.MemberMethod{JsiiMethod: "addByoipIpv4Pool", GoMethod: "AddByoipIpv4Pool"},
+			_jsii_.MemberMethod{JsiiMethod: "addByoipIpv6Pool", GoMethod: "AddByoipIpv6Pool"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeArn", GoGetter: "IpamScopeArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeId", GoGetter: "IpamScopeId"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIpamArn", GoGetter: "IpamScopeIpamArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIsDefault", GoGetter: "IpamScopeIsDefault"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopePoolCount", GoGetter: "IpamScopePoolCount"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeType", GoGetter: "IpamScopeType"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPublicIpamScope{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIpamScope)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -484,6 +607,16 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ITransitGatewayRouteTable{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.ec2.IpFamily",
+		reflect.TypeOf((*IpFamily)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IpFamily{}
 		},
 	)
 	_jsii_.RegisterClass(
@@ -568,16 +701,6 @@ func init() {
 		reflect.TypeOf((*IpamAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"cdk-extensions.ec2.IpamConsumer",
-		reflect.TypeOf((*IpamConsumer)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
-		},
-		func() interface{} {
-			return &jsiiProxy_IpamConsumer{}
-		},
-	)
-	_jsii_.RegisterClass(
 		"cdk-extensions.ec2.IpamPool",
 		reflect.TypeOf((*IpamPool)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -588,7 +711,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "allocateCidrFromPool", GoMethod: "AllocateCidrFromPool"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoImport", GoGetter: "AutoImport"},
-			_jsii_.MemberProperty{JsiiProperty: "consumer", GoGetter: "Consumer"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -603,6 +725,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolState", GoGetter: "IpamPoolState"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolStateMessage", GoGetter: "IpamPoolStateMessage"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamScope", GoGetter: "IpamScope"},
+			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
 			_jsii_.MemberProperty{JsiiProperty: "locale", GoGetter: "Locale"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -612,6 +735,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateChildLocale", GoMethod: "ValidateChildLocale"},
+			_jsii_.MemberMethod{JsiiMethod: "validateNestingSupport", GoMethod: "ValidateNestingSupport"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IpamPool{}
@@ -751,45 +876,14 @@ func init() {
 	_jsii_.RegisterClass(
 		"cdk-extensions.ec2.IpamScope",
 		reflect.TypeOf((*IpamScope)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addPool", GoMethod: "AddPool"},
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
-			_jsii_.MemberProperty{JsiiProperty: "ipam", GoGetter: "Ipam"},
-			_jsii_.MemberProperty{JsiiProperty: "ipamScopeArn", GoGetter: "IpamScopeArn"},
-			_jsii_.MemberProperty{JsiiProperty: "ipamScopeId", GoGetter: "IpamScopeId"},
-			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIpamArn", GoGetter: "IpamScopeIpamArn"},
-			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIsDefault", GoGetter: "IpamScopeIsDefault"},
-			_jsii_.MemberProperty{JsiiProperty: "ipamScopePoolCount", GoGetter: "IpamScopePoolCount"},
-			_jsii_.MemberProperty{JsiiProperty: "ipamScopeType", GoGetter: "IpamScopeType"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-		},
+		nil, // no members
 		func() interface{} {
-			j := jsiiProxy_IpamScope{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIpamScope)
-			return &j
+			return &jsiiProxy_IpamScope{}
 		},
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2.IpamScopeAttributes",
 		reflect.TypeOf((*IpamScopeAttributes)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"cdk-extensions.ec2.IpamScopeOptions",
-		reflect.TypeOf((*IpamScopeOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"cdk-extensions.ec2.IpamScopeProps",
-		reflect.TypeOf((*IpamScopeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2.Ipv4ConfigurationOptions",
@@ -816,6 +910,45 @@ func init() {
 		reflect.TypeOf((*NetmaskLengthOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"cdk-extensions.ec2.PrivateIpamScope",
+		reflect.TypeOf((*PrivateIpamScope)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addPool", GoMethod: "AddPool"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "ipam", GoGetter: "Ipam"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeArn", GoGetter: "IpamScopeArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeId", GoGetter: "IpamScopeId"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIpamArn", GoGetter: "IpamScopeIpamArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeIsDefault", GoGetter: "IpamScopeIsDefault"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopePoolCount", GoGetter: "IpamScopePoolCount"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamScopeType", GoGetter: "IpamScopeType"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PrivateIpamScope{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrivateIpamScope)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.PrivateIpamScopeOptions",
+		reflect.TypeOf((*PrivateIpamScopeOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.PrivateIpamScopeProps",
+		reflect.TypeOf((*PrivateIpamScopeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"cdk-extensions.ec2.PublicIpSource",
 		reflect.TypeOf((*PublicIpSource)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -823,6 +956,14 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_PublicIpSource{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.ec2.PublicIpamScope",
+		reflect.TypeOf((*PublicIpamScope)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_PublicIpamScope{}
 		},
 	)
 	_jsii_.RegisterStruct(
