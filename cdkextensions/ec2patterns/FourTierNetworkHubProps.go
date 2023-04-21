@@ -29,6 +29,7 @@ type FourTierNetworkHubProps struct {
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 	Cidr ec2.ICidrProvider `field:"optional" json:"cidr" yaml:"cidr"`
 	DefaultInstanceTenancy awsec2.DefaultInstanceTenancy `field:"optional" json:"defaultInstanceTenancy" yaml:"defaultInstanceTenancy"`
+	DefaultTransitGatewayRouteTable ec2.ITransitGatewayRouteTable `field:"optional" json:"defaultTransitGatewayRouteTable" yaml:"defaultTransitGatewayRouteTable"`
 	EnableDnsHostnames *bool `field:"optional" json:"enableDnsHostnames" yaml:"enableDnsHostnames"`
 	EnableDnsSupport *bool `field:"optional" json:"enableDnsSupport" yaml:"enableDnsSupport"`
 	FlowLogs *map[string]*FlowLogOptions `field:"optional" json:"flowLogs" yaml:"flowLogs"`

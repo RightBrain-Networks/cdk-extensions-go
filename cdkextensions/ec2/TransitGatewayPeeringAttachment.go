@@ -86,7 +86,7 @@ type TransitGatewayPeeringAttachment interface {
 	// Adds a route that directs traffic to this transit gateway attachment.
 	//
 	// Returns: The TransitGatewayRoute that was added.
-	AddRoute(cidr *string, routeTable ITransitGatewayRouteTable) ITransitGatewayRoute
+	AddRoute(id *string, cidr *string, routeTable ITransitGatewayRouteTable) ITransitGatewayRoute
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -447,8 +447,8 @@ func TransitGatewayPeeringAttachment_IsResource(construct constructs.IConstruct)
 	return returns
 }
 
-func (t *jsiiProxy_TransitGatewayPeeringAttachment) AddRoute(cidr *string, routeTable ITransitGatewayRouteTable) ITransitGatewayRoute {
-	if err := t.validateAddRouteParameters(cidr, routeTable); err != nil {
+func (t *jsiiProxy_TransitGatewayPeeringAttachment) AddRoute(id *string, cidr *string, routeTable ITransitGatewayRouteTable) ITransitGatewayRoute {
+	if err := t.validateAddRouteParameters(id, cidr, routeTable); err != nil {
 		panic(err)
 	}
 	var returns ITransitGatewayRoute
@@ -456,7 +456,7 @@ func (t *jsiiProxy_TransitGatewayPeeringAttachment) AddRoute(cidr *string, route
 	_jsii_.Invoke(
 		t,
 		"addRoute",
-		[]interface{}{cidr, routeTable},
+		[]interface{}{id, cidr, routeTable},
 		&returns,
 	)
 

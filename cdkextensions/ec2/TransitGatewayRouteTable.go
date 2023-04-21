@@ -63,7 +63,7 @@ type TransitGatewayRouteTable interface {
 	// Adds a route to this transit gateway route table.
 	//
 	// Returns: The TransitGatewayRoute that was added.
-	AddRoute(options *TransitGatewayRouteOptions) TransitGatewayRoute
+	AddRoute(id *string, options *TransitGatewayRouteOptions) TransitGatewayRoute
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -299,8 +299,8 @@ func TransitGatewayRouteTable_IsResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-func (t *jsiiProxy_TransitGatewayRouteTable) AddRoute(options *TransitGatewayRouteOptions) TransitGatewayRoute {
-	if err := t.validateAddRouteParameters(options); err != nil {
+func (t *jsiiProxy_TransitGatewayRouteTable) AddRoute(id *string, options *TransitGatewayRouteOptions) TransitGatewayRoute {
+	if err := t.validateAddRouteParameters(id, options); err != nil {
 		panic(err)
 	}
 	var returns TransitGatewayRoute
@@ -308,7 +308,7 @@ func (t *jsiiProxy_TransitGatewayRouteTable) AddRoute(options *TransitGatewayRou
 	_jsii_.Invoke(
 		t,
 		"addRoute",
-		[]interface{}{options},
+		[]interface{}{id, options},
 		&returns,
 	)
 

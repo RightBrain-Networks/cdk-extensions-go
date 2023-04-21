@@ -42,7 +42,7 @@ type NetworkController interface {
 	RegisteredRegions() *[]*string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	AddHub(scope constructs.IConstruct, id *string, options *AddNetworkOptions) FourTierNetworkHub
+	AddHub(scope constructs.IConstruct, id *string, options *AddHubOptions) FourTierNetworkHub
 	AddSpoke(scope constructs.IConstruct, id *string, options *AddNetworkOptions) FourTierNetworkSpoke
 	// Apply the given removal policy to this resource.
 	//
@@ -278,7 +278,7 @@ func NetworkController_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func (n *jsiiProxy_NetworkController) AddHub(scope constructs.IConstruct, id *string, options *AddNetworkOptions) FourTierNetworkHub {
+func (n *jsiiProxy_NetworkController) AddHub(scope constructs.IConstruct, id *string, options *AddHubOptions) FourTierNetworkHub {
 	if err := n.validateAddHubParameters(scope, id, options); err != nil {
 		panic(err)
 	}

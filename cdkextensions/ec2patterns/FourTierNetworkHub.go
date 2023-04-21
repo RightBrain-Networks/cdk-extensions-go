@@ -16,6 +16,7 @@ type FourTierNetworkHub interface {
 	// AZs for this VPC.
 	AvailabilityZones() *[]*string
 	DefaultInstanceTenancy() awsec2.DefaultInstanceTenancy
+	DefaultTransitGatewayRouteTable() ec2.ITransitGatewayRouteTable
 	// Indicates if instances launched in this VPC will have public DNS hostnames.
 	DnsHostnamesEnabled() *bool
 	// Indicates if DNS support is enabled for this VPC.
@@ -145,6 +146,16 @@ func (j *jsiiProxy_FourTierNetworkHub) DefaultInstanceTenancy() awsec2.DefaultIn
 	_jsii_.Get(
 		j,
 		"defaultInstanceTenancy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FourTierNetworkHub) DefaultTransitGatewayRouteTable() ec2.ITransitGatewayRouteTable {
+	var returns ec2.ITransitGatewayRouteTable
+	_jsii_.Get(
+		j,
+		"defaultTransitGatewayRouteTable",
 		&returns,
 	)
 	return returns

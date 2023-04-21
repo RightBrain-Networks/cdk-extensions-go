@@ -7,7 +7,7 @@ import (
 // Represents a transit gateway route table in AWS.
 type ITransitGatewayRouteTable interface {
 	// Adds a route to this transit gateway route table.
-	AddRoute(options *TransitGatewayRouteOptions) TransitGatewayRoute
+	AddRoute(id *string, options *TransitGatewayRouteOptions) TransitGatewayRoute
 	// The ARN of the transit gateway route table.
 	TransitGatewayRouteTableArn() *string
 	// The ID of the transit gateway route table.
@@ -19,8 +19,8 @@ type jsiiProxy_ITransitGatewayRouteTable struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ITransitGatewayRouteTable) AddRoute(options *TransitGatewayRouteOptions) TransitGatewayRoute {
-	if err := i.validateAddRouteParameters(options); err != nil {
+func (i *jsiiProxy_ITransitGatewayRouteTable) AddRoute(id *string, options *TransitGatewayRouteOptions) TransitGatewayRoute {
+	if err := i.validateAddRouteParameters(id, options); err != nil {
 		panic(err)
 	}
 	var returns TransitGatewayRoute
@@ -28,7 +28,7 @@ func (i *jsiiProxy_ITransitGatewayRouteTable) AddRoute(options *TransitGatewayRo
 	_jsii_.Invoke(
 		i,
 		"addRoute",
-		[]interface{}{options},
+		[]interface{}{id, options},
 		&returns,
 	)
 

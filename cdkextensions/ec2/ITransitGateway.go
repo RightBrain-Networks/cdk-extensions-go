@@ -14,6 +14,7 @@ type ITransitGateway interface {
 	AddRouteTable(options *TransitGatewayRouteTableOptions) TransitGatewayRouteTable
 	AddVpn(id *string, options *VpnAttachmentOptions) VpnConnection
 	AttachVpc(vpc awsec2.IVpc, options *VpcAttachmentOptions) TransitGatewayAttachment
+	DefaultRouteTable() ITransitGatewayRouteTable
 	TransitGatewayArn() *string
 	TransitGatewayId() *string
 }
@@ -68,6 +69,16 @@ func (i *jsiiProxy_ITransitGateway) AttachVpc(vpc awsec2.IVpc, options *VpcAttac
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_ITransitGateway) DefaultRouteTable() ITransitGatewayRouteTable {
+	var returns ITransitGatewayRouteTable
+	_jsii_.Get(
+		j,
+		"defaultRouteTable",
+		&returns,
+	)
 	return returns
 }
 

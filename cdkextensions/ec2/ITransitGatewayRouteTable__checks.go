@@ -8,7 +8,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func (i *jsiiProxy_ITransitGatewayRouteTable) validateAddRouteParameters(options *TransitGatewayRouteOptions) error {
+func (i *jsiiProxy_ITransitGatewayRouteTable) validateAddRouteParameters(id *string, options *TransitGatewayRouteOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if options == nil {
 		return fmt.Errorf("parameter options is required, but nil was provided")
 	}

@@ -9,7 +9,7 @@ type ITransitGatewayAttachment interface {
 	// Adds a route that directs traffic to this transit gateway attachment.
 	//
 	// Returns: The TransitGatewayRoute that was added.
-	AddRoute(cidr *string, routeTable ITransitGatewayRouteTable) ITransitGatewayRoute
+	AddRoute(id *string, cidr *string, routeTable ITransitGatewayRouteTable) ITransitGatewayRoute
 	// The ARN of the transit gateway attachment.
 	TransitGatewayAttachmentArn() *string
 	// The ID of the transit gateway attachment.
@@ -21,8 +21,8 @@ type jsiiProxy_ITransitGatewayAttachment struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ITransitGatewayAttachment) AddRoute(cidr *string, routeTable ITransitGatewayRouteTable) ITransitGatewayRoute {
-	if err := i.validateAddRouteParameters(cidr, routeTable); err != nil {
+func (i *jsiiProxy_ITransitGatewayAttachment) AddRoute(id *string, cidr *string, routeTable ITransitGatewayRouteTable) ITransitGatewayRoute {
+	if err := i.validateAddRouteParameters(id, cidr, routeTable); err != nil {
 		panic(err)
 	}
 	var returns ITransitGatewayRoute
@@ -30,7 +30,7 @@ func (i *jsiiProxy_ITransitGatewayAttachment) AddRoute(cidr *string, routeTable 
 	_jsii_.Invoke(
 		i,
 		"addRoute",
-		[]interface{}{cidr, routeTable},
+		[]interface{}{id, cidr, routeTable},
 		&returns,
 	)
 

@@ -4,7 +4,7 @@ package ec2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_ITransitGatewayRouteTable) validateAddRouteParameters(options *TransitGatewayRouteOptions) error {
+func (i *jsiiProxy_ITransitGatewayRouteTable) validateAddRouteParameters(id *string, options *TransitGatewayRouteOptions) error {
 	return nil
 }
 

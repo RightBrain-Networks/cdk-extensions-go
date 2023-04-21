@@ -8,6 +8,10 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.AddHubOptions",
+		reflect.TypeOf((*AddHubOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.AddNetworkOptions",
 		reflect.TypeOf((*AddNetworkOptions)(nil)).Elem(),
 	)
@@ -94,6 +98,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultInstanceTenancy", GoGetter: "DefaultInstanceTenancy"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultTransitGatewayRouteTable", GoGetter: "DefaultTransitGatewayRouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsHostnamesEnabled", GoGetter: "DnsHostnamesEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsSupportEnabled", GoGetter: "DnsSupportEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "enableDnsHostnames", GoGetter: "EnableDnsHostnames"},

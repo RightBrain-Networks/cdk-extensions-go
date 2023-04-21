@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (n *jsiiProxy_NetworkController) validateAddHubParameters(scope constructs.IConstruct, id *string, options *AddNetworkOptions) error {
+func (n *jsiiProxy_NetworkController) validateAddHubParameters(scope constructs.IConstruct, id *string, options *AddHubOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

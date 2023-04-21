@@ -546,6 +546,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addRouteTable", GoMethod: "AddRouteTable"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpn", GoMethod: "AddVpn"},
 			_jsii_.MemberMethod{JsiiMethod: "attachVpc", GoMethod: "AttachVpc"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultRouteTable", GoGetter: "DefaultRouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayArn", GoGetter: "TransitGatewayArn"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},

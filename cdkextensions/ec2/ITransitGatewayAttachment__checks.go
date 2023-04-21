@@ -6,7 +6,11 @@ import (
 	"fmt"
 )
 
-func (i *jsiiProxy_ITransitGatewayAttachment) validateAddRouteParameters(cidr *string, routeTable ITransitGatewayRouteTable) error {
+func (i *jsiiProxy_ITransitGatewayAttachment) validateAddRouteParameters(id *string, cidr *string, routeTable ITransitGatewayRouteTable) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if cidr == nil {
 		return fmt.Errorf("parameter cidr is required, but nil was provided")
 	}

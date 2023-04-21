@@ -11,7 +11,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (t *jsiiProxy_TransitGatewayRouteTable) validateAddRouteParameters(options *TransitGatewayRouteOptions) error {
+func (t *jsiiProxy_TransitGatewayRouteTable) validateAddRouteParameters(id *string, options *TransitGatewayRouteOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if options == nil {
 		return fmt.Errorf("parameter options is required, but nil was provided")
 	}

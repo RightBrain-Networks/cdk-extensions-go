@@ -11,7 +11,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (t *jsiiProxy_TransitGatewayPeeringAttachment) validateAddRouteParameters(cidr *string, routeTable ITransitGatewayRouteTable) error {
+func (t *jsiiProxy_TransitGatewayPeeringAttachment) validateAddRouteParameters(id *string, cidr *string, routeTable ITransitGatewayRouteTable) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if cidr == nil {
 		return fmt.Errorf("parameter cidr is required, but nil was provided")
 	}
