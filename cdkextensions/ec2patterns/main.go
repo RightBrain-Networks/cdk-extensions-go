@@ -8,8 +8,20 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.AddCidrBlockOptions",
+		reflect.TypeOf((*AddCidrBlockOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions",
+		reflect.TypeOf((*AddClientVpnEndpointOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.AddHubOptions",
 		reflect.TypeOf((*AddHubOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions",
+		reflect.TypeOf((*AddIsolatedClientVpnEndpointOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.AddNetworkOptions",
@@ -35,10 +47,13 @@ func init() {
 		"cdk-extensions.ec2_patterns.FourTierNetwork",
 		reflect.TypeOf((*FourTierNetwork)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addCidrBlock", GoMethod: "AddCidrBlock"},
 			_jsii_.MemberMethod{JsiiMethod: "addClientVpnEndpoint", GoMethod: "AddClientVpnEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addFlowLog", GoMethod: "AddFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayEndpoint", GoMethod: "AddGatewayEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addInterfaceEndpoint", GoMethod: "AddInterfaceEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addIsolatedClientVpnEndpoint", GoMethod: "AddIsolatedClientVpnEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "addressManager", GoGetter: "AddressManager"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpcFlowLog", GoMethod: "AddVpcFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -88,10 +103,13 @@ func init() {
 		"cdk-extensions.ec2_patterns.FourTierNetworkHub",
 		reflect.TypeOf((*FourTierNetworkHub)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addCidrBlock", GoMethod: "AddCidrBlock"},
 			_jsii_.MemberMethod{JsiiMethod: "addClientVpnEndpoint", GoMethod: "AddClientVpnEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addFlowLog", GoMethod: "AddFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayEndpoint", GoMethod: "AddGatewayEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addInterfaceEndpoint", GoMethod: "AddInterfaceEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addIsolatedClientVpnEndpoint", GoMethod: "AddIsolatedClientVpnEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "addressManager", GoGetter: "AddressManager"},
 			_jsii_.MemberMethod{JsiiMethod: "addSpoke", GoMethod: "AddSpoke"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpcFlowLog", GoMethod: "AddVpcFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
@@ -159,10 +177,13 @@ func init() {
 		"cdk-extensions.ec2_patterns.FourTierNetworkSpoke",
 		reflect.TypeOf((*FourTierNetworkSpoke)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addCidrBlock", GoMethod: "AddCidrBlock"},
 			_jsii_.MemberMethod{JsiiMethod: "addClientVpnEndpoint", GoMethod: "AddClientVpnEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addFlowLog", GoMethod: "AddFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayEndpoint", GoMethod: "AddGatewayEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addInterfaceEndpoint", GoMethod: "AddInterfaceEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addIsolatedClientVpnEndpoint", GoMethod: "AddIsolatedClientVpnEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "addressManager", GoGetter: "AddressManager"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpcFlowLog", GoMethod: "AddVpcFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -215,6 +236,14 @@ func init() {
 		reflect.TypeOf((*FourTierNetworkSpokeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.GetClientVpnConfigurationOptions",
+		reflect.TypeOf((*GetClientVpnConfigurationOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.GetClientVpnConfigurationResult",
+		reflect.TypeOf((*GetClientVpnConfigurationResult)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.GetVpcConfigurationOptions",
 		reflect.TypeOf((*GetVpcConfigurationOptions)(nil)).Elem(),
 	)
@@ -225,8 +254,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addRegion", GoMethod: "AddRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "allowExternalPricipals", GoGetter: "AllowExternalPricipals"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "clientVpnAllocationMask", GoGetter: "ClientVpnAllocationMask"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getClientVpnConfiguration", GoMethod: "GetClientVpnConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getVpcConfiguration", GoMethod: "GetVpcConfiguration"},
@@ -235,6 +266,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "privateVpcPoolForEnvironment", GoMethod: "PrivateVpcPoolForEnvironment"},
 			_jsii_.MemberMethod{JsiiMethod: "privateVpcPoolForRegion", GoMethod: "PrivateVpcPoolForRegion"},
+			_jsii_.MemberMethod{JsiiMethod: "privateVpnPoolForEnvironment", GoMethod: "PrivateVpnPoolForEnvironment"},
+			_jsii_.MemberMethod{JsiiMethod: "privateVpnPoolForRegion", GoMethod: "PrivateVpnPoolForRegion"},
 			_jsii_.MemberMethod{JsiiMethod: "registerAccount", GoMethod: "RegisterAccount"},
 			_jsii_.MemberMethod{JsiiMethod: "registerCidr", GoMethod: "RegisterCidr"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceShare", GoGetter: "ResourceShare"},
@@ -261,10 +294,12 @@ func init() {
 		"cdk-extensions.ec2_patterns.NetworkController",
 		reflect.TypeOf((*NetworkController)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addClientVpnEndpoint", GoMethod: "AddClientVpnEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addHub", GoMethod: "AddHub"},
 			_jsii_.MemberProperty{JsiiProperty: "addressManager", GoGetter: "AddressManager"},
 			_jsii_.MemberMethod{JsiiMethod: "addSpoke", GoMethod: "AddSpoke"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultClientVpnNetmask", GoGetter: "DefaultClientVpnNetmask"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultNetmask", GoGetter: "DefaultNetmask"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "flowLogBucket", GoGetter: "FlowLogBucket"},
@@ -292,6 +327,55 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.NetworkControllerProps",
 		reflect.TypeOf((*NetworkControllerProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint",
+		reflect.TypeOf((*NetworkIsolatedClientVpnEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizeAllUsersToVpcCidr", GoGetter: "AuthorizeAllUsersToVpcCidr"},
+			_jsii_.MemberProperty{JsiiProperty: "clientCertificate", GoGetter: "ClientCertificate"},
+			_jsii_.MemberProperty{JsiiProperty: "clientConnectionHandler", GoGetter: "ClientConnectionHandler"},
+			_jsii_.MemberProperty{JsiiProperty: "clientLoginBanner", GoGetter: "ClientLoginBanner"},
+			_jsii_.MemberProperty{JsiiProperty: "clientVpnEndpoint", GoGetter: "ClientVpnEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "dnsServers", GoGetter: "DnsServers"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "logStream", GoGetter: "LogStream"},
+			_jsii_.MemberProperty{JsiiProperty: "maxAzs", GoGetter: "MaxAzs"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "port", GoGetter: "Port"},
+			_jsii_.MemberProperty{JsiiProperty: "securityGroups", GoGetter: "SecurityGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "selfServicePortal", GoGetter: "SelfServicePortal"},
+			_jsii_.MemberProperty{JsiiProperty: "serverCertificate", GoGetter: "ServerCertificate"},
+			_jsii_.MemberProperty{JsiiProperty: "splitTunnel", GoGetter: "SplitTunnel"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "subnets", GoGetter: "Subnets"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGateway", GoGetter: "TransitGateway"},
+			_jsii_.MemberProperty{JsiiProperty: "transportProtocol", GoGetter: "TransportProtocol"},
+			_jsii_.MemberProperty{JsiiProperty: "userBasedAuthentication", GoGetter: "UserBasedAuthentication"},
+			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlock", GoGetter: "VpcCidrBlock"},
+			_jsii_.MemberProperty{JsiiProperty: "vpnCidr", GoGetter: "VpnCidr"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NetworkIsolatedClientVpnEndpoint{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps",
+		reflect.TypeOf((*NetworkIsolatedClientVpnEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration",

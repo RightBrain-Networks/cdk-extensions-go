@@ -25,7 +25,8 @@ type NetworkControllerProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
-	DefaultNetmask *float64 `field:"optional" json:"defaultNetmask" yaml:"defaultNetmask"`
+	DefaultClientVpnNetmask *float64 `field:"optional" json:"defaultClientVpnNetmask" yaml:"defaultClientVpnNetmask"`
+	DefaultVpcNetmask *float64 `field:"optional" json:"defaultVpcNetmask" yaml:"defaultVpcNetmask"`
 	FlowLogBucket awss3.IBucket `field:"optional" json:"flowLogBucket" yaml:"flowLogBucket"`
 	FlowLogFormat ec2.FlowLogFormat `field:"optional" json:"flowLogFormat" yaml:"flowLogFormat"`
 }

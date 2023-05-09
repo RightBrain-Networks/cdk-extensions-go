@@ -26,8 +26,10 @@ type FourTierNetworkHubProps struct {
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	AddressManager IpAddressManager `field:"optional" json:"addressManager" yaml:"addressManager"`
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
-	Cidr ec2.ICidrProvider `field:"optional" json:"cidr" yaml:"cidr"`
+	Cidr ec2.IIpv4CidrAssignment `field:"optional" json:"cidr" yaml:"cidr"`
+	ClientVpnPool ec2.IIpamPool `field:"optional" json:"clientVpnPool" yaml:"clientVpnPool"`
 	DefaultInstanceTenancy awsec2.DefaultInstanceTenancy `field:"optional" json:"defaultInstanceTenancy" yaml:"defaultInstanceTenancy"`
 	DefaultTransitGatewayRouteTable ec2.ITransitGatewayRouteTable `field:"optional" json:"defaultTransitGatewayRouteTable" yaml:"defaultTransitGatewayRouteTable"`
 	EnableDnsHostnames *bool `field:"optional" json:"enableDnsHostnames" yaml:"enableDnsHostnames"`

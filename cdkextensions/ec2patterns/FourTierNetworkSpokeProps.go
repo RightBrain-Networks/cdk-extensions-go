@@ -26,8 +26,10 @@ type FourTierNetworkSpokeProps struct {
 	// The AWS region this resource belongs to.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	Hub FourTierNetworkHub `field:"required" json:"hub" yaml:"hub"`
+	AddressManager IpAddressManager `field:"optional" json:"addressManager" yaml:"addressManager"`
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
-	Cidr ec2.ICidrProvider `field:"optional" json:"cidr" yaml:"cidr"`
+	Cidr ec2.IIpv4CidrAssignment `field:"optional" json:"cidr" yaml:"cidr"`
+	ClientVpnPool ec2.IIpamPool `field:"optional" json:"clientVpnPool" yaml:"clientVpnPool"`
 	DefaultInstanceTenancy awsec2.DefaultInstanceTenancy `field:"optional" json:"defaultInstanceTenancy" yaml:"defaultInstanceTenancy"`
 	EnableDnsHostnames *bool `field:"optional" json:"enableDnsHostnames" yaml:"enableDnsHostnames"`
 	EnableDnsSupport *bool `field:"optional" json:"enableDnsSupport" yaml:"enableDnsSupport"`

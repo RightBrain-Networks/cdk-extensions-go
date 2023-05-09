@@ -15,6 +15,7 @@ import (
 type NetworkController interface {
 	awscdk.Resource
 	AddressManager() IpAddressManager
+	DefaultClientVpnNetmask() *float64
 	DefaultNetmask() *float64
 	// The environment this resource belongs to.
 	//
@@ -42,6 +43,7 @@ type NetworkController interface {
 	RegisteredRegions() *[]*string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	AddClientVpnEndpoint(scope constructs.IConstruct, id *string, options *AddClientVpnEndpointOptions)
 	AddHub(scope constructs.IConstruct, id *string, options *AddHubOptions) FourTierNetworkHub
 	AddSpoke(scope constructs.IConstruct, id *string, options *AddNetworkOptions) FourTierNetworkSpoke
 	// Apply the given removal policy to this resource.
@@ -85,6 +87,16 @@ func (j *jsiiProxy_NetworkController) AddressManager() IpAddressManager {
 	_jsii_.Get(
 		j,
 		"addressManager",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkController) DefaultClientVpnNetmask() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"defaultClientVpnNetmask",
 		&returns,
 	)
 	return returns
@@ -276,6 +288,28 @@ func NetworkController_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func NetworkController_DEFAULT_CLIENT_VPN_NETMASK() *float64 {
+	_init_.Initialize()
+	var returns *float64
+	_jsii_.StaticGet(
+		"cdk-extensions.ec2_patterns.NetworkController",
+		"DEFAULT_CLIENT_VPN_NETMASK",
+		&returns,
+	)
+	return returns
+}
+
+func (n *jsiiProxy_NetworkController) AddClientVpnEndpoint(scope constructs.IConstruct, id *string, options *AddClientVpnEndpointOptions) {
+	if err := n.validateAddClientVpnEndpointParameters(scope, id, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"addClientVpnEndpoint",
+		[]interface{}{scope, id, options},
+	)
 }
 
 func (n *jsiiProxy_NetworkController) AddHub(scope constructs.IConstruct, id *string, options *AddHubOptions) FourTierNetworkHub {

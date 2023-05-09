@@ -10,7 +10,9 @@ import (
 
 type TieredSubnets interface {
 	awsec2.IIpAddresses
-	Provider() ICidrProvider
+	IpamOptions() *awsec2.VpcIpamOptions
+	IpamPool() IIpamPool
+	Netmask() *float64
 	TierMask() *float64
 	// Called by the VPC to retrieve Subnet options from the Ipam  Don't call this directly, the VPC will call it automatically.
 	AllocateSubnetsCidr(input *awsec2.AllocateCidrRequest) *awsec2.SubnetIpamOptions
@@ -23,11 +25,31 @@ type jsiiProxy_TieredSubnets struct {
 	internal.Type__awsec2IIpAddresses
 }
 
-func (j *jsiiProxy_TieredSubnets) Provider() ICidrProvider {
-	var returns ICidrProvider
+func (j *jsiiProxy_TieredSubnets) IpamOptions() *awsec2.VpcIpamOptions {
+	var returns *awsec2.VpcIpamOptions
 	_jsii_.Get(
 		j,
-		"provider",
+		"ipamOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TieredSubnets) IpamPool() IIpamPool {
+	var returns IIpamPool
+	_jsii_.Get(
+		j,
+		"ipamPool",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TieredSubnets) Netmask() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"netmask",
 		&returns,
 	)
 	return returns

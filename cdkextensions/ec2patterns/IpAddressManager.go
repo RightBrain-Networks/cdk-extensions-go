@@ -14,6 +14,7 @@ import (
 type IpAddressManager interface {
 	awscdk.Resource
 	AllowExternalPricipals() *bool
+	ClientVpnAllocationMask() *float64
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -51,6 +52,7 @@ type IpAddressManager interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
+	GetClientVpnConfiguration(scope constructs.IConstruct, id *string, options *GetClientVpnConfigurationOptions) ec2.IIpv4CidrAssignment
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
 	// Normally, this token will resolve to `arnAttr`, but if the resource is
@@ -64,9 +66,11 @@ type IpAddressManager interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	GetVpcConfiguration(scope constructs.IConstruct, id *string, options *GetVpcConfigurationOptions) ec2.ICidrProvider
+	GetVpcConfiguration(scope constructs.IConstruct, id *string, options *GetVpcConfigurationOptions) ec2.IIpv4CidrAssignment
 	PrivateVpcPoolForEnvironment(account *string, region *string) ec2.IIpamPool
 	PrivateVpcPoolForRegion(region *string) ec2.IIpamPool
+	PrivateVpnPoolForEnvironment(account *string, region *string) ec2.IIpamPool
+	PrivateVpnPoolForRegion(region *string) ec2.IIpamPool
 	RegisterAccount(account *string, pool ec2.IIpamPool)
 	RegisterCidr(scope constructs.IConstruct, id *string, cidr *string)
 	// Returns a string representation of this construct.
@@ -83,6 +87,16 @@ func (j *jsiiProxy_IpAddressManager) AllowExternalPricipals() *bool {
 	_jsii_.Get(
 		j,
 		"allowExternalPricipals",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IpAddressManager) ClientVpnAllocationMask() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"clientVpnAllocationMask",
 		&returns,
 	)
 	return returns
@@ -256,6 +270,17 @@ func IpAddressManager_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
+func IpAddressManager_DEFAULT_CLIENT_VPN_ALLOCATION_MASK() *float64 {
+	_init_.Initialize()
+	var returns *float64
+	_jsii_.StaticGet(
+		"cdk-extensions.ec2_patterns.IpAddressManager",
+		"DEFAULT_CLIENT_VPN_ALLOCATION_MASK",
+		&returns,
+	)
+	return returns
+}
+
 func IpAddressManager_DEFAULT_VPC_ALLOCATION_MASK() *float64 {
 	_init_.Initialize()
 	var returns *float64
@@ -278,12 +303,12 @@ func IpAddressManager_DEFAULT_VPC_POOL_CIDRS() *[]*string {
 	return returns
 }
 
-func IpAddressManager_DEFAULT_VPC_REGION_MASK() *float64 {
+func IpAddressManager_DEFAULT_VPN_POOL_CIDRS() *[]*string {
 	_init_.Initialize()
-	var returns *float64
+	var returns *[]*string
 	_jsii_.StaticGet(
 		"cdk-extensions.ec2_patterns.IpAddressManager",
-		"DEFAULT_VPC_REGION_MASK",
+		"DEFAULT_VPN_POOL_CIDRS",
 		&returns,
 	)
 	return returns
@@ -324,6 +349,22 @@ func (i *jsiiProxy_IpAddressManager) GeneratePhysicalName() *string {
 	return returns
 }
 
+func (i *jsiiProxy_IpAddressManager) GetClientVpnConfiguration(scope constructs.IConstruct, id *string, options *GetClientVpnConfigurationOptions) ec2.IIpv4CidrAssignment {
+	if err := i.validateGetClientVpnConfigurationParameters(scope, id, options); err != nil {
+		panic(err)
+	}
+	var returns ec2.IIpv4CidrAssignment
+
+	_jsii_.Invoke(
+		i,
+		"getClientVpnConfiguration",
+		[]interface{}{scope, id, options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (i *jsiiProxy_IpAddressManager) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	if err := i.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
 		panic(err)
@@ -356,11 +397,11 @@ func (i *jsiiProxy_IpAddressManager) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
-func (i *jsiiProxy_IpAddressManager) GetVpcConfiguration(scope constructs.IConstruct, id *string, options *GetVpcConfigurationOptions) ec2.ICidrProvider {
+func (i *jsiiProxy_IpAddressManager) GetVpcConfiguration(scope constructs.IConstruct, id *string, options *GetVpcConfigurationOptions) ec2.IIpv4CidrAssignment {
 	if err := i.validateGetVpcConfigurationParameters(scope, id, options); err != nil {
 		panic(err)
 	}
-	var returns ec2.ICidrProvider
+	var returns ec2.IIpv4CidrAssignment
 
 	_jsii_.Invoke(
 		i,
@@ -397,6 +438,38 @@ func (i *jsiiProxy_IpAddressManager) PrivateVpcPoolForRegion(region *string) ec2
 	_jsii_.Invoke(
 		i,
 		"privateVpcPoolForRegion",
+		[]interface{}{region},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IpAddressManager) PrivateVpnPoolForEnvironment(account *string, region *string) ec2.IIpamPool {
+	if err := i.validatePrivateVpnPoolForEnvironmentParameters(account, region); err != nil {
+		panic(err)
+	}
+	var returns ec2.IIpamPool
+
+	_jsii_.Invoke(
+		i,
+		"privateVpnPoolForEnvironment",
+		[]interface{}{account, region},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IpAddressManager) PrivateVpnPoolForRegion(region *string) ec2.IIpamPool {
+	if err := i.validatePrivateVpnPoolForRegionParameters(region); err != nil {
+		panic(err)
+	}
+	var returns ec2.IIpamPool
+
+	_jsii_.Invoke(
+		i,
+		"privateVpnPoolForRegion",
 		[]interface{}{region},
 		&returns,
 	)

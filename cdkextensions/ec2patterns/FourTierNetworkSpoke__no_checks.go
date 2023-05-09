@@ -4,6 +4,10 @@ package ec2patterns
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (f *jsiiProxy_FourTierNetworkSpoke) validateAddCidrBlockParameters(id *string, options *AddCidrBlockOptions) error {
+	return nil
+}
+
 func (f *jsiiProxy_FourTierNetworkSpoke) validateAddClientVpnEndpointParameters(id *string, options *awsec2.ClientVpnEndpointOptions) error {
 	return nil
 }
@@ -17,6 +21,10 @@ func (f *jsiiProxy_FourTierNetworkSpoke) validateAddGatewayEndpointParameters(id
 }
 
 func (f *jsiiProxy_FourTierNetworkSpoke) validateAddInterfaceEndpointParameters(id *string, options *awsec2.InterfaceVpcEndpointOptions) error {
+	return nil
+}
+
+func (f *jsiiProxy_FourTierNetworkSpoke) validateAddIsolatedClientVpnEndpointParameters(id *string, options *AddIsolatedClientVpnEndpointOptions) error {
 	return nil
 }
 

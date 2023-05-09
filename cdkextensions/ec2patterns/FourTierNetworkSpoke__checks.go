@@ -12,6 +12,21 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (f *jsiiProxy_FourTierNetworkSpoke) validateAddCidrBlockParameters(id *string, options *AddCidrBlockOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FourTierNetworkSpoke) validateAddClientVpnEndpointParameters(id *string, options *awsec2.ClientVpnEndpointOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
@@ -55,6 +70,21 @@ func (f *jsiiProxy_FourTierNetworkSpoke) validateAddGatewayEndpointParameters(id
 }
 
 func (f *jsiiProxy_FourTierNetworkSpoke) validateAddInterfaceEndpointParameters(id *string, options *awsec2.InterfaceVpcEndpointOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (f *jsiiProxy_FourTierNetworkSpoke) validateAddIsolatedClientVpnEndpointParameters(id *string, options *AddIsolatedClientVpnEndpointOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}

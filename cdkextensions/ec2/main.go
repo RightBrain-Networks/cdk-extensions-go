@@ -50,6 +50,14 @@ func init() {
 		"cdk-extensions.ec2.AddressConfigurationProps",
 		reflect.TypeOf((*AddressConfigurationProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"cdk-extensions.ec2.AddressFamily",
+		reflect.TypeOf((*AddressFamily)(nil)).Elem(),
+		map[string]interface{}{
+			"IPV4": AddressFamily_IPV4,
+			"IPV6": AddressFamily_IPV6,
+		},
+	)
 	_jsii_.RegisterClass(
 		"cdk-extensions.ec2.AdvertiseService",
 		reflect.TypeOf((*AdvertiseService)(nil)).Elem(),
@@ -64,13 +72,21 @@ func init() {
 		"cdk-extensions.ec2.AllocateCidrFromPoolOptions",
 		reflect.TypeOf((*AllocateCidrFromPoolOptions)(nil)).Elem(),
 	)
-	_jsii_.RegisterClass(
-		"cdk-extensions.ec2.CidrProvider",
-		reflect.TypeOf((*CidrProvider)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_CidrProvider{}
-		},
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.CidrAssignmentBindOptions",
+		reflect.TypeOf((*CidrAssignmentBindOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.CidrAssignmentCidrDetails",
+		reflect.TypeOf((*CidrAssignmentCidrDetails)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.CidrAssignmentDetails",
+		reflect.TypeOf((*CidrAssignmentDetails)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.CidrAssignmentIpamDetails",
+		reflect.TypeOf((*CidrAssignmentIpamDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdk-extensions.ec2.CustomerGateway",
@@ -232,15 +248,14 @@ func init() {
 		reflect.TypeOf((*FlowLogS3Options)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"cdk-extensions.ec2.ICidrProvider",
-		reflect.TypeOf((*ICidrProvider)(nil)).Elem(),
+		"cdk-extensions.ec2.ICidrAssignment",
+		reflect.TypeOf((*ICidrAssignment)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "ipamOptions", GoGetter: "IpamOptions"},
-			_jsii_.MemberProperty{JsiiProperty: "ipamPool", GoGetter: "IpamPool"},
-			_jsii_.MemberProperty{JsiiProperty: "netmask", GoGetter: "Netmask"},
+			_jsii_.MemberMethod{JsiiMethod: "getCidr", GoMethod: "GetCidr"},
+			_jsii_.MemberMethod{JsiiMethod: "getCidrOrIpamConfiguration", GoMethod: "GetCidrOrIpamConfiguration"},
 		},
 		func() interface{} {
-			return &jsiiProxy_ICidrProvider{}
+			return &jsiiProxy_ICidrAssignment{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -410,6 +425,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"cdk-extensions.ec2.IIpv4CidrAssignment",
+		reflect.TypeOf((*IIpv4CidrAssignment)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getCidr", GoMethod: "GetCidr"},
+			_jsii_.MemberMethod{JsiiMethod: "getCidrOrIpamConfiguration", GoMethod: "GetCidrOrIpamConfiguration"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IIpv4CidrAssignment{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICidrAssignment)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"cdk-extensions.ec2.IIpv4IpamPool",
 		reflect.TypeOf((*IIpv4IpamPool)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -433,6 +461,19 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IIpv4IpamPool{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIpamPool)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdk-extensions.ec2.IIpv6CidrAssignment",
+		reflect.TypeOf((*IIpv6CidrAssignment)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getCidr", GoMethod: "GetCidr"},
+			_jsii_.MemberMethod{JsiiMethod: "getCidrOrIpamConfiguration", GoMethod: "GetCidrOrIpamConfiguration"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IIpv6CidrAssignment{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICidrAssignment)
 			return &j
 		},
 	)
@@ -608,6 +649,23 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ITransitGatewayRouteTable{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdk-extensions.ec2.IVpcCidrBlock",
+		reflect.TypeOf((*IVpcCidrBlock)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlockAssociationId", GoGetter: "VpcCidrBlockAssociationId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlockCidr", GoGetter: "VpcCidrBlockCidr"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IVpcCidrBlock{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -886,9 +944,41 @@ func init() {
 		"cdk-extensions.ec2.IpamScopeAttributes",
 		reflect.TypeOf((*IpamScopeAttributes)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.ec2.Ipv4CidrAssignment",
+		reflect.TypeOf((*Ipv4CidrAssignment)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Ipv4CidrAssignment{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.Ipv4CidrAssignmentCustomOptions",
+		reflect.TypeOf((*Ipv4CidrAssignmentCustomOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions",
+		reflect.TypeOf((*Ipv4CidrAssignmentIpamPoolOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2.Ipv4ConfigurationOptions",
 		reflect.TypeOf((*Ipv4ConfigurationOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.ec2.Ipv6CidrAssignment",
+		reflect.TypeOf((*Ipv6CidrAssignment)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Ipv6CidrAssignment{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.Ipv6CidrAssignmentCustomOptions",
+		reflect.TypeOf((*Ipv6CidrAssignmentCustomOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions",
+		reflect.TypeOf((*Ipv6CidrAssignmentIpamPoolOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2.Ipv6ConfigurationOptions",
@@ -989,7 +1079,9 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "allocateSubnetsCidr", GoMethod: "AllocateSubnetsCidr"},
 			_jsii_.MemberMethod{JsiiMethod: "allocateVpcCidr", GoMethod: "AllocateVpcCidr"},
-			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamOptions", GoGetter: "IpamOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPool", GoGetter: "IpamPool"},
+			_jsii_.MemberProperty{JsiiProperty: "netmask", GoGetter: "Netmask"},
 			_jsii_.MemberProperty{JsiiProperty: "tierMask", GoGetter: "TierMask"},
 		},
 		func() interface{} {
@@ -1299,6 +1391,40 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2.VpcAttachmentOptions",
 		reflect.TypeOf((*VpcAttachmentOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.ec2.VpcCidrBlock",
+		reflect.TypeOf((*VpcCidrBlock)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlockAddressFamily", GoGetter: "VpcCidrBlockAddressFamily"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlockAssociationId", GoGetter: "VpcCidrBlockAssociationId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlockCidr", GoGetter: "VpcCidrBlockCidr"},
+		},
+		func() interface{} {
+			j := jsiiProxy_VpcCidrBlock{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVpcCidrBlock)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.VpcCidrBlockAttributes",
+		reflect.TypeOf((*VpcCidrBlockAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2.VpcCidrBlockProps",
+		reflect.TypeOf((*VpcCidrBlockProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2.VpnAttachmentOptions",

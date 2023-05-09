@@ -28,6 +28,22 @@ func (i *jsiiProxy_IpAddressManager) validateApplyRemovalPolicyParameters(policy
 	return nil
 }
 
+func (i *jsiiProxy_IpAddressManager) validateGetClientVpnConfigurationParameters(scope constructs.IConstruct, id *string, options *GetClientVpnConfigurationOptions) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IpAddressManager) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")
@@ -80,6 +96,26 @@ func (i *jsiiProxy_IpAddressManager) validatePrivateVpcPoolForEnvironmentParamet
 }
 
 func (i *jsiiProxy_IpAddressManager) validatePrivateVpcPoolForRegionParameters(region *string) error {
+	if region == nil {
+		return fmt.Errorf("parameter region is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validatePrivateVpnPoolForEnvironmentParameters(account *string, region *string) error {
+	if account == nil {
+		return fmt.Errorf("parameter account is required, but nil was provided")
+	}
+
+	if region == nil {
+		return fmt.Errorf("parameter region is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validatePrivateVpnPoolForRegionParameters(region *string) error {
 	if region == nil {
 		return fmt.Errorf("parameter region is required, but nil was provided")
 	}

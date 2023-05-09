@@ -6,8 +6,9 @@ import (
 )
 
 type FourTierNetworkProps struct {
+	AddressManager IpAddressManager `field:"optional" json:"addressManager" yaml:"addressManager"`
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
-	Cidr ec2.ICidrProvider `field:"optional" json:"cidr" yaml:"cidr"`
+	Cidr ec2.IIpv4CidrAssignment `field:"optional" json:"cidr" yaml:"cidr"`
 	DefaultInstanceTenancy awsec2.DefaultInstanceTenancy `field:"optional" json:"defaultInstanceTenancy" yaml:"defaultInstanceTenancy"`
 	EnableDnsHostnames *bool `field:"optional" json:"enableDnsHostnames" yaml:"enableDnsHostnames"`
 	EnableDnsSupport *bool `field:"optional" json:"enableDnsSupport" yaml:"enableDnsSupport"`

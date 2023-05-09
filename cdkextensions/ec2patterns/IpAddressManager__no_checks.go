@@ -12,6 +12,10 @@ func (i *jsiiProxy_IpAddressManager) validateApplyRemovalPolicyParameters(policy
 	return nil
 }
 
+func (i *jsiiProxy_IpAddressManager) validateGetClientVpnConfigurationParameters(scope constructs.IConstruct, id *string, options *GetClientVpnConfigurationOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IpAddressManager) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }
@@ -29,6 +33,14 @@ func (i *jsiiProxy_IpAddressManager) validatePrivateVpcPoolForEnvironmentParamet
 }
 
 func (i *jsiiProxy_IpAddressManager) validatePrivateVpcPoolForRegionParameters(region *string) error {
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validatePrivateVpnPoolForEnvironmentParameters(account *string, region *string) error {
+	return nil
+}
+
+func (i *jsiiProxy_IpAddressManager) validatePrivateVpnPoolForRegionParameters(region *string) error {
 	return nil
 }
 

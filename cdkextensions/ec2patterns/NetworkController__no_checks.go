@@ -4,6 +4,10 @@ package ec2patterns
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (n *jsiiProxy_NetworkController) validateAddClientVpnEndpointParameters(scope constructs.IConstruct, id *string, options *AddClientVpnEndpointOptions) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkController) validateAddHubParameters(scope constructs.IConstruct, id *string, options *AddHubOptions) error {
 	return nil
 }

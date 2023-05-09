@@ -13,6 +13,7 @@ import (
 
 type FourTierNetwork interface {
 	awsec2.Vpc
+	AddressManager() IpAddressManager
 	// AZs for this VPC.
 	AvailabilityZones() *[]*string
 	DefaultInstanceTenancy() awsec2.DefaultInstanceTenancy
@@ -75,6 +76,7 @@ type FourTierNetwork interface {
 	VpcName() *string
 	// Returns the id of the VPN Gateway (if enabled).
 	VpnGatewayId() *string
+	AddCidrBlock(id *string, options *AddCidrBlockOptions) ec2.IVpcCidrBlock
 	// Adds a new client VPN endpoint to this VPC.
 	AddClientVpnEndpoint(id *string, options *awsec2.ClientVpnEndpointOptions) awsec2.ClientVpnEndpoint
 	// Adds a new flow log to this VPC.
@@ -83,6 +85,7 @@ type FourTierNetwork interface {
 	AddGatewayEndpoint(id *string, options *awsec2.GatewayVpcEndpointOptions) awsec2.GatewayVpcEndpoint
 	// Adds a new interface endpoint to this VPC.
 	AddInterfaceEndpoint(id *string, options *awsec2.InterfaceVpcEndpointOptions) awsec2.InterfaceVpcEndpoint
+	AddIsolatedClientVpnEndpoint(id *string, options *AddIsolatedClientVpnEndpointOptions) NetworkIsolatedClientVpnEndpoint
 	AddVpcFlowLog(id *string, options *FlowLogOptions) awsec2.FlowLog
 	// Adds a new VPN connection to this VPC.
 	AddVpnConnection(id *string, options *awsec2.VpnConnectionOptions) awsec2.VpnConnection
@@ -123,6 +126,16 @@ type FourTierNetwork interface {
 // The jsii proxy struct for FourTierNetwork
 type jsiiProxy_FourTierNetwork struct {
 	internal.Type__awsec2Vpc
+}
+
+func (j *jsiiProxy_FourTierNetwork) AddressManager() IpAddressManager {
+	var returns IpAddressManager
+	_jsii_.Get(
+		j,
+		"addressManager",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_FourTierNetwork) AvailabilityZones() *[]*string {
@@ -597,6 +610,22 @@ func FourTierNetwork_DEFAULT_SUBNETS_NO_NAT() *[]*awsec2.SubnetConfiguration {
 	return returns
 }
 
+func (f *jsiiProxy_FourTierNetwork) AddCidrBlock(id *string, options *AddCidrBlockOptions) ec2.IVpcCidrBlock {
+	if err := f.validateAddCidrBlockParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns ec2.IVpcCidrBlock
+
+	_jsii_.Invoke(
+		f,
+		"addCidrBlock",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (f *jsiiProxy_FourTierNetwork) AddClientVpnEndpoint(id *string, options *awsec2.ClientVpnEndpointOptions) awsec2.ClientVpnEndpoint {
 	if err := f.validateAddClientVpnEndpointParameters(id, options); err != nil {
 		panic(err)
@@ -654,6 +683,22 @@ func (f *jsiiProxy_FourTierNetwork) AddInterfaceEndpoint(id *string, options *aw
 	_jsii_.Invoke(
 		f,
 		"addInterfaceEndpoint",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FourTierNetwork) AddIsolatedClientVpnEndpoint(id *string, options *AddIsolatedClientVpnEndpointOptions) NetworkIsolatedClientVpnEndpoint {
+	if err := f.validateAddIsolatedClientVpnEndpointParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns NetworkIsolatedClientVpnEndpoint
+
+	_jsii_.Invoke(
+		f,
+		"addIsolatedClientVpnEndpoint",
 		[]interface{}{id, options},
 		&returns,
 	)
