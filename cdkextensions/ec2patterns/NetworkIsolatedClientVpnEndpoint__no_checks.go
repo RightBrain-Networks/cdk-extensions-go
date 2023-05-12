@@ -4,6 +4,10 @@ package ec2patterns
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) validateAddMultiSubnetRouteParameters(id *string, options *AddMultiSubnetRouteOptions) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

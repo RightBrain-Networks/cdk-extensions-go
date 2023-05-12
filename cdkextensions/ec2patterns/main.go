@@ -24,6 +24,10 @@ func init() {
 		reflect.TypeOf((*AddIsolatedClientVpnEndpointOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions",
+		reflect.TypeOf((*AddMultiSubnetRouteOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.AddNetworkOptions",
 		reflect.TypeOf((*AddNetworkOptions)(nil)).Elem(),
 	)
@@ -332,6 +336,7 @@ func init() {
 		"cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint",
 		reflect.TypeOf((*NetworkIsolatedClientVpnEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addMultiSubnetRoute", GoMethod: "AddMultiSubnetRoute"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizeAllUsersToVpcCidr", GoGetter: "AuthorizeAllUsersToVpcCidr"},
 			_jsii_.MemberProperty{JsiiProperty: "clientCertificate", GoGetter: "ClientCertificate"},

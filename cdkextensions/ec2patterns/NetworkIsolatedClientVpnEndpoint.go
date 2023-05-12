@@ -62,6 +62,7 @@ type NetworkIsolatedClientVpnEndpoint interface {
 	Vpc() awsec2.IVpc
 	VpcCidrBlock() ec2.VpcCidrBlock
 	VpnCidr() ec2.IIpv4CidrAssignment
+	AddMultiSubnetRoute(id *string, options *AddMultiSubnetRouteOptions) interface{}
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -472,6 +473,22 @@ func NetworkIsolatedClientVpnEndpoint_DEFAULT_VPN_CIDR() *string {
 		"DEFAULT_VPN_CIDR",
 		&returns,
 	)
+	return returns
+}
+
+func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) AddMultiSubnetRoute(id *string, options *AddMultiSubnetRouteOptions) interface{} {
+	if err := n.validateAddMultiSubnetRouteParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns interface{}
+
+	_jsii_.Invoke(
+		n,
+		"addMultiSubnetRoute",
+		[]interface{}{id, options},
+		&returns,
+	)
+
 	return returns
 }
 
