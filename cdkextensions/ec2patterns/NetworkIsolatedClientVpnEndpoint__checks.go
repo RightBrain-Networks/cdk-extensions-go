@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/vibe-io/cdk-extensions-go/cdkextensions/ec2"
 )
 
 func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) validateAddAuthorizationRuleParameters(id *string, options *AddAuthorizationRuleOptions) error {
@@ -67,6 +68,14 @@ func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) validateGetResourceArnAttri
 func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) validateGetResourceNameAttributeParameters(nameAttr *string) error {
 	if nameAttr == nil {
 		return fmt.Errorf("parameter nameAttr is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) validateRegisterTransitGatewayParameters(transitGateway ec2.ITransitGateway) error {
+	if transitGateway == nil {
+		return fmt.Errorf("parameter transitGateway is required, but nil was provided")
 	}
 
 	return nil

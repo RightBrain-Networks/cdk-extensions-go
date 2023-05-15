@@ -24,6 +24,10 @@ func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) validateGetResourceNameAttr
 	return nil
 }
 
+func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) validateRegisterTransitGatewayParameters(transitGateway ec2.ITransitGateway) error {
+	return nil
+}
+
 func validateNetworkIsolatedClientVpnEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }

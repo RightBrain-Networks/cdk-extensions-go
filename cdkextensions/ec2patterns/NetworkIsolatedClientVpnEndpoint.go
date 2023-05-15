@@ -93,6 +93,7 @@ type NetworkIsolatedClientVpnEndpoint interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	RegisterTransitGateway(transitGateway ec2.ITransitGateway)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -589,6 +590,17 @@ func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) GetResourceNameAttribute(na
 	)
 
 	return returns
+}
+
+func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) RegisterTransitGateway(transitGateway ec2.ITransitGateway) {
+	if err := n.validateRegisterTransitGatewayParameters(transitGateway); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"registerTransitGateway",
+		[]interface{}{transitGateway},
+	)
 }
 
 func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) ToString() *string {
