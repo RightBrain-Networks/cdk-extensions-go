@@ -8,6 +8,10 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions",
+		reflect.TypeOf((*AddAuthorizationRuleOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdk-extensions.ec2_patterns.AddCidrBlockOptions",
 		reflect.TypeOf((*AddCidrBlockOptions)(nil)).Elem(),
 	)
@@ -336,6 +340,7 @@ func init() {
 		"cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint",
 		reflect.TypeOf((*NetworkIsolatedClientVpnEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addAuthorizationRule", GoMethod: "AddAuthorizationRule"},
 			_jsii_.MemberMethod{JsiiMethod: "addMultiSubnetRoute", GoMethod: "AddMultiSubnetRoute"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizeAllUsersToVpcCidr", GoGetter: "AuthorizeAllUsersToVpcCidr"},
@@ -346,6 +351,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsServers", GoGetter: "DnsServers"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointId", GoGetter: "EndpointId"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -363,6 +369,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "splitTunnel", GoGetter: "SplitTunnel"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnets", GoGetter: "Subnets"},
+			_jsii_.MemberProperty{JsiiProperty: "targetNetworksAssociated", GoGetter: "TargetNetworksAssociated"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGateway", GoGetter: "TransitGateway"},
 			_jsii_.MemberProperty{JsiiProperty: "transportProtocol", GoGetter: "TransportProtocol"},
@@ -374,6 +381,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_NetworkIsolatedClientVpnEndpoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsec2IClientVpnEndpoint)
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
 			return &j
 		},

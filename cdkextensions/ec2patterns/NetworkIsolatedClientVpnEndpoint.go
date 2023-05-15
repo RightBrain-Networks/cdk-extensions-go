@@ -15,6 +15,7 @@ import (
 
 type NetworkIsolatedClientVpnEndpoint interface {
 	awscdk.Resource
+	awsec2.IClientVpnEndpoint
 	awsec2.IConnectable
 	AuthorizeAllUsersToVpcCidr() *bool
 	ClientCertificate() awscertificatemanager.ICertificate
@@ -25,6 +26,8 @@ type NetworkIsolatedClientVpnEndpoint interface {
 	Connections() awsec2.Connections
 	Description() *string
 	DnsServers() *[]*string
+	// The endpoint ID.
+	EndpointId() *string
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -56,12 +59,15 @@ type NetworkIsolatedClientVpnEndpoint interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	Subnets() *[]awsec2.ISubnet
+	// Dependable that can be depended upon to force target networks associations.
+	TargetNetworksAssociated() constructs.IDependable
 	TransitGateway() ec2.ITransitGateway
 	TransportProtocol() awsec2.TransportProtocol
 	UserBasedAuthentication() awsec2.ClientVpnUserBasedAuthentication
 	Vpc() awsec2.IVpc
 	VpcCidrBlock() ec2.VpcCidrBlock
 	VpnCidr() ec2.IIpv4CidrAssignment
+	AddAuthorizationRule(id *string, options *AddAuthorizationRuleOptions) awsec2.ClientVpnAuthorizationRule
 	AddMultiSubnetRoute(id *string, options *AddMultiSubnetRouteOptions) interface{}
 	// Apply the given removal policy to this resource.
 	//
@@ -94,6 +100,7 @@ type NetworkIsolatedClientVpnEndpoint interface {
 // The jsii proxy struct for NetworkIsolatedClientVpnEndpoint
 type jsiiProxy_NetworkIsolatedClientVpnEndpoint struct {
 	internal.Type__awscdkResource
+	internal.Type__awsec2IClientVpnEndpoint
 	internal.Type__awsec2IConnectable
 }
 
@@ -172,6 +179,16 @@ func (j *jsiiProxy_NetworkIsolatedClientVpnEndpoint) DnsServers() *[]*string {
 	_jsii_.Get(
 		j,
 		"dnsServers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkIsolatedClientVpnEndpoint) EndpointId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"endpointId",
 		&returns,
 	)
 	return returns
@@ -312,6 +329,16 @@ func (j *jsiiProxy_NetworkIsolatedClientVpnEndpoint) Subnets() *[]awsec2.ISubnet
 	_jsii_.Get(
 		j,
 		"subnets",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkIsolatedClientVpnEndpoint) TargetNetworksAssociated() constructs.IDependable {
+	var returns constructs.IDependable
+	_jsii_.Get(
+		j,
+		"targetNetworksAssociated",
 		&returns,
 	)
 	return returns
@@ -473,6 +500,22 @@ func NetworkIsolatedClientVpnEndpoint_DEFAULT_VPN_CIDR() *string {
 		"DEFAULT_VPN_CIDR",
 		&returns,
 	)
+	return returns
+}
+
+func (n *jsiiProxy_NetworkIsolatedClientVpnEndpoint) AddAuthorizationRule(id *string, options *AddAuthorizationRuleOptions) awsec2.ClientVpnAuthorizationRule {
+	if err := n.validateAddAuthorizationRuleParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns awsec2.ClientVpnAuthorizationRule
+
+	_jsii_.Invoke(
+		n,
+		"addAuthorizationRule",
+		[]interface{}{id, options},
+		&returns,
+	)
+
 	return returns
 }
 

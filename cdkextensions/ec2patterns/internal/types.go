@@ -5,4 +5,5 @@ import (
 )
 type Type__awsec2Vpc = awsec2.Vpc
 type Type__awscdkResource = awscdk.Resource
+type Type__awsec2IClientVpnEndpoint = awsec2.IClientVpnEndpoint
 type Type__awsec2IConnectable = awsec2.IConnectable
