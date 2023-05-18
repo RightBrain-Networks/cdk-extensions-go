@@ -14,9 +14,13 @@ type TieredSubnets interface {
 	IpamPool() IIpamPool
 	Netmask() *float64
 	TierMask() *float64
-	// Called by the VPC to retrieve Subnet options from the Ipam  Don't call this directly, the VPC will call it automatically.
+	// Called by the VPC to retrieve Subnet options from the Ipam.
+	//
+	// Don't call this directly, the VPC will call it automatically.
 	AllocateSubnetsCidr(input *awsec2.AllocateCidrRequest) *awsec2.SubnetIpamOptions
-	// Called by the VPC to retrieve VPC options from the Ipam  Don't call this directly, the VPC will call it automatically.
+	// Called by the VPC to retrieve VPC options from the Ipam.
+	//
+	// Don't call this directly, the VPC will call it automatically.
 	AllocateVpcCidr() *awsec2.VpcIpamOptions
 }
 

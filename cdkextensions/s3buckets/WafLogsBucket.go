@@ -70,17 +70,23 @@ type WafLogsBucket interface {
 	WorkGroup() athena.IWorkGroup
 	// Adds a bucket notification event destination.
 	AddEventNotification(_event awss3.EventType, _dest awss3.IBucketNotificationDestination, _filters ...*awss3.NotificationKeyFilter)
-	// Subscribes a destination to receive notifications when an object is created in the bucket.
+	// Subscribes a destination to receive notifications when an object is created in the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(s3.EventType.OBJECT_CREATED)`.
 	AddObjectCreatedNotification(_dest awss3.IBucketNotificationDestination, _filters ...*awss3.NotificationKeyFilter)
-	// Subscribes a destination to receive notifications when an object is removed from the bucket.
+	// Subscribes a destination to receive notifications when an object is removed from the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_REMOVED)`.
 	AddObjectRemovedNotification(_dest awss3.IBucketNotificationDestination, _filters ...*awss3.NotificationKeyFilter)
-	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
+	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+	//
+	// Note that the policy statement may or may not be added to the policy.
+	// For example, when an `IBucket` is created from an existing bucket,
+	// it's not possible to tell whether the bucket already has a policy
+	// attached, let alone to re-use that policy to add more statements to it.
+	// So it's safest to do nothing in these cases.
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -92,11 +98,22 @@ type WafLogsBucket interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+	// Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 	//
 	// To represent all keys, specify ``"*"``.
 	ArnForObjects(_keyPattern *string) *string
-	// Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
+	// Enables event bridge notification, causing all events below to be sent to EventBridge:.
+	//
+	// - Object Deleted (DeleteObject)
+	// - Object Deleted (Lifecycle expiration)
+	// - Object Restore Initiated
+	// - Object Restore Completed
+	// - Object Restore Expired
+	// - Object Storage Class Changed
+	// - Object Access Tier Changed
+	// - Object ACL Updated
+	// - Object Tags Added
+	// - Object Tags Deleted.
 	EnableEventBridgeNotification()
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
@@ -112,7 +129,7 @@ type WafLogsBucket interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 	GrantDelete(_identity awsiam.IGrantable, _objectsKeyPattern interface{}) awsiam.Grant
 	// Allows unrestricted access to objects from this bucket.
 	//
@@ -142,12 +159,12 @@ type WafLogsBucket interface {
 	// calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 	// in this case, if you need to modify object ACLs, call this method explicitly.
 	GrantPutAcl(_identity awsiam.IGrantable, _objectsKeyPattern *string) awsiam.Grant
-	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
 	GrantRead(_identity awsiam.IGrantable, _objectsKeyPattern interface{}) awsiam.Grant
-	// Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+	// Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to use the key for
 	// encrypt/decrypt will also be granted.
@@ -173,11 +190,12 @@ type WafLogsBucket interface {
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
 	// use the `grantPutAcl` method.
 	GrantWrite(_identity awsiam.IGrantable, _objectsKeyPattern interface{}, _allowedActionPatterns *[]*string) awsiam.Grant
-	// Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
+	// Defines a CloudWatch event that triggers when something happens to this bucket.
 	//
-	// This method will not create the Trail.
+	// Requires that there exists at least one CloudTrail Trail in your account
+	// that captures the event. This method will not create the Trail.
 	OnCloudTrailEvent(_id *string, _options *awss3.OnCloudTrailBucketEventOptions) awsevents.Rule
-	// Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+	// Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 	//
 	// Note that some tools like `aws s3 cp` will automatically use either
 	// PutObject or the multipart upload API depending on the file size,
@@ -186,7 +204,7 @@ type WafLogsBucket interface {
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
 	OnCloudTrailPutObject(_id *string, _options *awss3.OnCloudTrailBucketEventOptions) awsevents.Rule
-	// Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+	// Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 	//
 	// This includes
 	// the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -214,18 +232,13 @@ type WafLogsBucket interface {
 	// - `https://bucket.s3-accelerate.amazonaws.com`
 	// - `https://bucket.s3-accelerate.amazonaws.com/key`
 	TransferAccelerationUrlForObject(_key *string, _options *awss3.TransferAccelerationUrlOptions) *string
-	// The https URL of an S3 object.
-	//
-	// For example:
+	// The https URL of an S3 object. For example:.
 	//
 	// - `https://s3.us-west-1.amazonaws.com/onlybucket`
 	// - `https://s3.us-west-1.amazonaws.com/bucket/key`
 	// - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 	UrlForObject(_key *string) *string
-	// The virtual hosted-style URL of an S3 object.
-	//
-	// Specify `regional: false` at
-	// the options for non-regional URL. For example:
+	// The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 	//
 	// - `https://only-bucket.s3.us-west-1.amazonaws.com`
 	// - `https://bucket.s3.us-west-1.amazonaws.com/key`

@@ -85,9 +85,7 @@ type VpnConnection interface {
 	//
 	// Sum over 5 minutes.
 	MetricTunnelDataOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// The state of the tunnel.
-	//
-	// 0 indicates DOWN and 1 indicates UP.
+	// The state of the tunnel. 0 indicates DOWN and 1 indicates UP.
 	//
 	// Average over 5 minutes.
 	MetricTunnelState(props *awscloudwatch.MetricOptions) awscloudwatch.Metric

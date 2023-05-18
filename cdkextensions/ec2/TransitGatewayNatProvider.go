@@ -14,9 +14,13 @@ type TransitGatewayNatProvider interface {
 	ConfiguredGateways() *[]*awsec2.GatewayConfig
 	TransitGateway() ITransitGateway
 	TransitGatewayAttachment() TransitGatewayAttachment
-	// Called by the VPC to configure NAT  Don't call this directly, the VPC will call it automatically.
+	// Called by the VPC to configure NAT.
+	//
+	// Don't call this directly, the VPC will call it automatically.
 	ConfigureNat(options *awsec2.ConfigureNatOptions)
-	// Configures subnet with the gateway  Don't call this directly, the VPC will call it automatically.
+	// Configures subnet with the gateway.
+	//
+	// Don't call this directly, the VPC will call it automatically.
 	ConfigureSubnet(subnet awsec2.PrivateSubnet)
 }
 
