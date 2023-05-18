@@ -39,8 +39,6 @@ type FlowLog interface {
 	// S3 bucket key prefix to publish the flow logs under.
 	KeyPrefix() *string
 	// The fields to include in the flow log record, in the order in which they should appear.
-	//
-	// For a list of available fields, see {@link FlowLogField}.
 	// See: [FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat)
 	//
 	LogFormat() FlowLogFormat

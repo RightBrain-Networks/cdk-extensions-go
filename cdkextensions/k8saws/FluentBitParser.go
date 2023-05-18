@@ -9,8 +9,6 @@ import (
 //
 // The records to which parsers are applied is controlled using the parser
 // filter.
-// See: {@link FluentBitParserFilter}.
-//
 type FluentBitParser interface {
 }
 

@@ -21,7 +21,7 @@ type Prometheus interface {
 	awscdk.Resource
 	// The Helm chart that was used to deploy Prometheus.
 	Chart() awseks.HelmChart
-	// {@inheritdoc PrometheusProps.cluster}.
+	// The EKS cluster where Prometheus should be deployed.
 	Cluster() awseks.Cluster
 	// The environment this resource belongs to.
 	//
@@ -34,7 +34,7 @@ type Prometheus interface {
 	Env() *awscdk.ResourceEnvironment
 	// The Fargate profile used for running the service in Fargate.
 	FargateProfile() awseks.FargateProfile
-	// {@inheritdoc PrometheusOptions.namespace}.
+	// The Kubernetes namespace where the service should be deployed.
 	Namespace() *string
 	// The tree node.
 	Node() constructs.Node
@@ -46,15 +46,15 @@ type Prometheus interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
-	// {@inheritdoc PropmetheusOptions.queueConfiguration}.
+	// Configures the queue used to write to Amazon Managed Service for Prometheus.
 	QueueConfiguration() *QueueConfiguration
 	// The service account that Prometheus will use to gain permissions for Kubernetes and AWS.
 	ServiceAccount() awseks.ServiceAccount
-	// {@inheritdoc PrometheusOptions.serviceAccountName}.
+	// Name of the Kubernetes service account that should be created and used by Prometheus.
 	ServiceAccountName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	// {@inheritdoc PrometheusProps.workspace}.
+	// The Amazon Managed Service for Prometheus workspace where the Prometheus server should sned its data.
 	Workspace() aps.IWorkspace
 	// Apply the given removal policy to this resource.
 	//

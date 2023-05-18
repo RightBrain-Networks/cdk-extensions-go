@@ -57,9 +57,9 @@ type ResourceShare interface {
 	// See: [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html)
 	//
 	Resource() awsram.CfnResourceShare
-	// {@inheritdoc IResourceShare.resourceShareArn}.
+	// The Amazon Resource Name (ARN) of the RAM resource share.
 	ResourceShareArn() *string
-	// {@inheritdoc IResourceShare.resourceShareId}.
+	// The ID of the RAM resource share.
 	ResourceShareId() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

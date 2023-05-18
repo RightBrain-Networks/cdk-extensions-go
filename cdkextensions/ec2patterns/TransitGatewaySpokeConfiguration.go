@@ -7,7 +7,7 @@ type TransitGatewaySpokeConfiguration struct {
 	// This Transit Gateway may have been created by another VPC in the
 	// same account or shared by a VPC in another account. If this is passed then a Transit Gateway
 	// Attachment will be created for the specified Transit Gateway and a new one will not be created
-	// even if {@link TransitGatewayHubConfiguration.principal | principals} are provided.
+	// even if principals are provided.
 	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 }
 
