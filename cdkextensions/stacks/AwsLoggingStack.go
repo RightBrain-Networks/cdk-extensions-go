@@ -20,7 +20,7 @@ import (
 // cdk-extensions/s3-buckets patterns for each service, and utilizes methods exposed
 // by cdk-extensions/s3-buckets S3AccessLogsBucket to enable logging for each created
 // bucket.
-// See: {@link aws-s3-buckets!WafLogsBucket | cdk-extensions/s3-buckets WafLogsBucket}
+// See: {@link aws-s3-buckets !WafLogsBucket | cdk-extensions/s3-buckets WafLogsBucket}
 //
 type AwsLoggingStack interface {
 	awscdk.Stack
@@ -83,7 +83,7 @@ type AwsLoggingStack interface {
 	// region/account-agnostic.
 	Environment() *string
 	FlowLogsBucket() s3buckets.FlowLogsBucket
-	// A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
+	// A cdk-extentions/ec2 {@link aws-ec2 !FlowLogFormat } object defining the desired formatting for Flow Logs.
 	FlowLogsFormat() ec2.FlowLogFormat
 	// Boolean for adding "friendly names" for the created Athena queries.
 	FriendlyQueryNames() *bool

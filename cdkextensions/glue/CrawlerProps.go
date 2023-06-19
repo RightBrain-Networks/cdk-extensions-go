@@ -35,7 +35,7 @@ type CrawlerProps struct {
 	// See: [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration)
 	//
 	Configuration *CrawlerConfiguration `field:"optional" json:"configuration" yaml:"configuration"`
-	// The {@link aws-glue.Database | Database } object in which the crawler's output is stored.
+	// The {@link aws-glue.Database Database } object in which the crawler's output is stored.
 	Database Database `field:"optional" json:"database" yaml:"database"`
 	// The deletion behavior when the crawler finds a deleted object.
 	// See: [AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior)
@@ -53,7 +53,7 @@ type CrawlerProps struct {
 	// See: [AWS::Glue::Crawler Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html)
 	//
 	ScheduleExpression awsevents.Schedule `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
-	// A {@link aws-glue.SecurityConfiguration | SecurityConfiguration } object to apply to the Crawler.
+	// A {@link aws-glue.SecurityConfiguration SecurityConfiguration } object to apply to the Crawler.
 	SecurityConfiguration SecurityConfiguration `field:"optional" json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The prefix added to the names of tables that are created.
 	// See: [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix)

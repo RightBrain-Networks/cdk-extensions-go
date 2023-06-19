@@ -99,25 +99,25 @@ type AwsLoggingStackProps struct {
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// Whether to enable termination protection for this stack.
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
-	// A cdk-extensions/s3-buckets {@link aws-s3-buckets!AlbLogsBucket} object.
+	// A cdk-extensions/s3-buckets {@link aws-s3-buckets !AlbLogsBucket} object.
 	AlbLogsBucket s3buckets.AlbLogsBucket `field:"optional" json:"albLogsBucket" yaml:"albLogsBucket"`
-	// A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudfrontLogsBucket} object.
+	// A cdk-extensions/s3-buckets {@link aws-s3-buckets !CloudfrontLogsBucket} object.
 	CloudfrontLogsBucket s3buckets.CloudfrontLogsBucket `field:"optional" json:"cloudfrontLogsBucket" yaml:"cloudfrontLogsBucket"`
-	// A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudtrailBucket} object.
+	// A cdk-extensions/s3-buckets {@link aws-s3-buckets !CloudtrailBucket} object.
 	CloudtrailLogsBucket s3buckets.CloudtrailBucket `field:"optional" json:"cloudtrailLogsBucket" yaml:"cloudtrailLogsBucket"`
 	// Name used for the Glue Database that will be created.
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
-	// A cdk-extensions/s3-buckets {@link aws-s3-buckets!FlowLogsBucket} object.
+	// A cdk-extensions/s3-buckets {@link aws-s3-buckets !FlowLogsBucket} object.
 	FlowLogsBucket s3buckets.FlowLogsBucket `field:"optional" json:"flowLogsBucket" yaml:"flowLogsBucket"`
-	// A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
+	// A cdk-extentions/ec2 {@link aws-ec2 !FlowLogFormat } object defining the desired formatting for Flow Logs.
 	FlowLogsFormat ec2.FlowLogFormat `field:"optional" json:"flowLogsFormat" yaml:"flowLogsFormat"`
 	// Boolean for adding "friendly names" for the created Athena queries.
 	FriendlyQueryNames *bool `field:"optional" json:"friendlyQueryNames" yaml:"friendlyQueryNames"`
-	// A cdk-extensions/s3-buckets {@link aws-s3-buckets!SesLogsBucket} object.
+	// A cdk-extensions/s3-buckets {@link aws-s3-buckets !SesLogsBucket} object.
 	SesLogsBucket s3buckets.SesLogsBucket `field:"optional" json:"sesLogsBucket" yaml:"sesLogsBucket"`
 	// Boolean for using "standardized" naming (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets.
 	StandardizeNames *bool `field:"optional" json:"standardizeNames" yaml:"standardizeNames"`
-	// A cdk-extensions/s3-buckets {@link aws-s3-buckets!WafLogsBucket} object.
+	// A cdk-extensions/s3-buckets {@link aws-s3-buckets !WafLogsBucket} object.
 	WafLogsBucket s3buckets.WafLogsBucket `field:"optional" json:"wafLogsBucket" yaml:"wafLogsBucket"`
 	// Controls settings for an Athena WorkGroup used to query logs produced by AWS services.
 	WorkGroupConfiguration *LoggingWorkGroupConfiguration `field:"optional" json:"workGroupConfiguration" yaml:"workGroupConfiguration"`

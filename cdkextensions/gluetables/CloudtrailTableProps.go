@@ -31,7 +31,7 @@ type CloudtrailTableProps struct {
 	// See: [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
 	//
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
-	// A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+	// A cdk-extensions/glue {@link aws-glue !Database } object that the table should be created in.
 	// See: [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
 	//
 	Database glue.Database `field:"required" json:"database" yaml:"database"`

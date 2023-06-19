@@ -36,7 +36,7 @@ type FlowLogsTable interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
-	// A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
+	// A cdk-extentions/ec2 {@link aws-ec2 !FlowLogFormat } object defining the desired formatting for Flow Logs.
 	Format() ec2.FlowLogFormat
 	// Boolean for adding "friendly names" for the created Athena queries.
 	FriendlyQueryNames() *bool

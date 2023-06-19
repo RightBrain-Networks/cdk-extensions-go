@@ -145,8 +145,8 @@ type CloudfrontLogsBucket interface {
 	// as needed. For example, you can add a condition that will restrict access only
 	// to an IPv4 range like this:
 	//
-	//      const grant = bucket.grantPublicAccess();
-	//      grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+	//     const grant = bucket.grantPublicAccess();
+	//     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
 	GrantPublicAccess(_keyPrefix *string, _allowedActions ...*string) awsiam.Grant
 	// Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
 	//

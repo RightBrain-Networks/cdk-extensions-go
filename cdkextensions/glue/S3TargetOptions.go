@@ -3,7 +3,7 @@ package glue
 
 // Configuration for Crawler S3 target.
 type S3TargetOptions struct {
-	// A {@link aws-glue.Connection | "Connection" } object to connect to the target with.
+	// A {@link aws-glue.Connection "Connection" } object to connect to the target with.
 	Connection Connection `field:"optional" json:"connection" yaml:"connection"`
 	// A list of glob patterns used to exclude from the crawl.
 	// See: [For More Information](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)

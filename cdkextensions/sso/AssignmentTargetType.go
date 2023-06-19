@@ -35,7 +35,7 @@ func (j *jsiiProxy_AssignmentTargetType) Name() *string {
 // It is recommended that the provided static types be used when possible
 // instead of calling `of`.
 //
-// Returns: An {@link AssignmentTargetType} object representing the specified type.
+// Returns: An {@link AssignmentTargetType } object representing the specified type.
 func AssignmentTargetType_Of(name *string) AssignmentTargetType {
 	_init_.Initialize()
 

@@ -18,7 +18,7 @@ import (
 type Job interface {
 	awscdk.Resource
 	IJob
-	// {@link JobProps.allocatedCapacity }.
+	// {@link JobProps.allocatedCapacity}.
 	AllocatedCapacity() *float64
 	// {@link JobProps.connections}.
 	Connections() *[]Connection

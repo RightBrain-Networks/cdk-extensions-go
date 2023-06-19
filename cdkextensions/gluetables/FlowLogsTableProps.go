@@ -32,7 +32,7 @@ type FlowLogsTableProps struct {
 	// See: [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
 	//
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
-	// A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+	// A cdk-extensions/glue {@link aws-glue !Database } object that the table should be created in.
 	// See: [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
 	//
 	Database glue.Database `field:"required" json:"database" yaml:"database"`
@@ -40,7 +40,7 @@ type FlowLogsTableProps struct {
 	// See: [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
 	//
 	CreateQueries *bool `field:"optional" json:"createQueries" yaml:"createQueries"`
-	// A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
+	// A cdk-extentions/ec2 {@link aws-ec2 !FlowLogFormat } object defining the desired formatting for Flow Logs.
 	Format ec2.FlowLogFormat `field:"optional" json:"format" yaml:"format"`
 	// Boolean for adding "friendly names" for the created Athena queries.
 	FriendlyQueryNames *bool `field:"optional" json:"friendlyQueryNames" yaml:"friendlyQueryNames"`

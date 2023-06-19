@@ -14,7 +14,7 @@ type BookmarkRange struct {
 	//
 	// The
 	// corresponding input excluding the input identified by the
-	// {@link BookmarkRange.from | from} is processed by the job. Any input later
+	// {@link BookmarkRange.fromfrom} is processed by the job. Any input later
 	// than this input is also excluded for processing.
 	To *string `field:"required" json:"to" yaml:"to"`
 }
