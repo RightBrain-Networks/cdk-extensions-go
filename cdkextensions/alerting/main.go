@@ -22,6 +22,47 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdk-extensions.alerting.ConfigComplianceChange",
+		reflect.TypeOf((*ConfigComplianceChange)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDefaultTrigger", GoMethod: "AddDefaultTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "buildDescription", GoMethod: "BuildDescription"},
+			_jsii_.MemberMethod{JsiiMethod: "buildLogging", GoMethod: "BuildLogging"},
+			_jsii_.MemberMethod{JsiiMethod: "buildResourceUrl", GoMethod: "BuildResourceUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "handler", GoGetter: "Handler"},
+			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
+			_jsii_.MemberProperty{JsiiProperty: "matchType", GoGetter: "MatchType"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "registerIssueTrigger", GoMethod: "RegisterIssueTrigger"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "triggers", GoGetter: "Triggers"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ConfigComplianceChange{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IssueParserPluginBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIssueParser)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.alerting.ConfigComplianceChangeProps",
+		reflect.TypeOf((*ConfigComplianceChangeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.alerting.ConfigComplianceChangeRuleOptions",
+		reflect.TypeOf((*ConfigComplianceChangeRuleOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"cdk-extensions.alerting.DescriptionBuilder",
 		reflect.TypeOf((*DescriptionBuilder)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -413,6 +454,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdk-extensions.alerting.IssueManagerProps",
 		reflect.TypeOf((*IssueManagerProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdk-extensions.alerting.IssueParser",
+		reflect.TypeOf((*IssueParser)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_IssueParser{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdk-extensions.alerting.IssueParserPluginBase",
