@@ -83,6 +83,12 @@ type AwsLoggingStackProps struct {
 	PermissionsBoundary awscdk.PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Name to deploy the stack with.
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
+	// Enable this flag to suppress indentation in generated CloudFormation templates.
+	//
+	// If not specified, the value of the `@aws-cdk/core:suppressTemplateIndentation`
+	// context key will be used. If that is not specified, then the
+	// default value `false` will be used.
+	SuppressTemplateIndentation *bool `field:"optional" json:"suppressTemplateIndentation" yaml:"suppressTemplateIndentation"`
 	// Synthesis method to use while deploying this stack.
 	//
 	// The Stack Synthesizer controls aspects of synthesis and deployment,
