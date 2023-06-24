@@ -160,6 +160,47 @@ func init() {
 		reflect.TypeOf((*DescriptionBuilderSectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"cdk-extensions.alerting.Discord",
+		reflect.TypeOf((*Discord)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiDestination", GoGetter: "ApiDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildEventOverrides", GoMethod: "BuildEventOverrides"},
+			_jsii_.MemberMethod{JsiiMethod: "buildLogging", GoMethod: "BuildLogging"},
+			_jsii_.MemberProperty{JsiiProperty: "channel", GoGetter: "Channel"},
+			_jsii_.MemberProperty{JsiiProperty: "connection", GoGetter: "Connection"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "eventBus", GoGetter: "EventBus"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "handler", GoGetter: "Handler"},
+			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
+			_jsii_.MemberProperty{JsiiProperty: "mentions", GoGetter: "Mentions"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
+			_jsii_.MemberProperty{JsiiProperty: "token", GoGetter: "Token"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Discord{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IssuePluginBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIssueHandler)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.alerting.DiscordOverrideOptions",
+		reflect.TypeOf((*DiscordOverrideOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdk-extensions.alerting.DiscordProps",
+		reflect.TypeOf((*DiscordProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"cdk-extensions.alerting.EcrImageScanSeverity",
 		reflect.TypeOf((*EcrImageScanSeverity)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -39,6 +39,24 @@ func NewIssueHander_Override(i IssueHander) {
 	)
 }
 
+func IssueHander_Discord(scope constructs.IConstruct, id *string, props *DiscordProps) Discord {
+	_init_.Initialize()
+
+	if err := validateIssueHander_DiscordParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns Discord
+
+	_jsii_.StaticInvoke(
+		"cdk-extensions.alerting.IssueHander",
+		"discord",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
 func IssueHander_JiraTicket(scope constructs.IConstruct, id *string, props *JiraTicketProps) JiraTicket {
 	_init_.Initialize()
 
