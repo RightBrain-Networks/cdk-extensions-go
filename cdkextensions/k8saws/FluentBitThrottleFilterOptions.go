@@ -17,6 +17,8 @@ type FluentBitThrottleFilterOptions struct {
 	// Amount of messages for the time.
 	Rate *float64 `field:"optional" json:"rate" yaml:"rate"`
 	// Amount of intervals to calculate average over.
+	// Default: 5.
+	//
 	Window *float64 `field:"optional" json:"window" yaml:"window"`
 }
 

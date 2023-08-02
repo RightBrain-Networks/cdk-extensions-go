@@ -22,6 +22,8 @@ type ClusterFargateLoggingOptions struct {
 	// The parsers to be used when reading log files.
 	Parsers *[]k8saws.IFluentBitParserPlugin `field:"optional" json:"parsers" yaml:"parsers"`
 	// Controls whether logging will be set up for pods using the default Fargate provide on the EKS cluster.
+	// Default: true.
+	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

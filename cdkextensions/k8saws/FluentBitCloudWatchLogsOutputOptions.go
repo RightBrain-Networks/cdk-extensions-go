@@ -12,6 +12,8 @@ type FluentBitCloudWatchLogsOutputOptions struct {
 	// The pattern to match for records that this output should apply to.
 	Match FluentBitMatch `field:"optional" json:"match" yaml:"match"`
 	// Automatically create the log group.
+	// Default: false.
+	//
 	AutoCreateGroup *bool `field:"optional" json:"autoCreateGroup" yaml:"autoCreateGroup"`
 	// Immediately retry failed requests to AWS services once.
 	//
@@ -20,6 +22,8 @@ type FluentBitCloudWatchLogsOutputOptions struct {
 	// it enables an immediate retry with no delay for networking errors, which
 	// may help improve throughput when there are transient/random networking
 	// issues.
+	// Default: true.
+	//
 	AutoRetryRequests *bool `field:"optional" json:"autoRetryRequests" yaml:"autoRetryRequests"`
 	// Specify a custom endpoint for the CloudWatch Logs API.
 	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`

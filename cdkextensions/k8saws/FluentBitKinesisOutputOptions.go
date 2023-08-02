@@ -18,6 +18,8 @@ type FluentBitKinesisOutputOptions struct {
 	// it enables an immediate retry with no delay for networking errors, which
 	// may help improve throughput when there are transient/random networking
 	// issues.
+	// Default: true.
+	//
 	AutoRetryRequests *bool `field:"optional" json:"autoRetryRequests" yaml:"autoRetryRequests"`
 	// Specify a custom endpoint for the Firehose API.
 	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
@@ -38,6 +40,8 @@ type FluentBitKinesisOutputOptions struct {
 	// Add the timestamp to the record under this key.
 	TimeKey *string `field:"optional" json:"timeKey" yaml:"timeKey"`
 	// A strftime compliant format string for the timestamp.
+	// Default: '%Y-%m-%dT%H:%M:%S'.
+	//
 	TimeKeyFormat *string `field:"optional" json:"timeKeyFormat" yaml:"timeKeyFormat"`
 }
 

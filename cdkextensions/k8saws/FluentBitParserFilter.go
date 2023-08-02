@@ -23,10 +23,14 @@ type FluentBitParserFilter interface {
 	// Keep original `keyName` field in the parsed result.
 	//
 	// If `false`, the field will be removed.
+	// Default: false.
+	//
 	PreserveKey() *bool
 	// Keep all other original fields in the parsed result.
 	//
 	// If `false`, all other original fields will be removed.
+	// Default: false.
+	//
 	ReserveData() *bool
 	// Adds a new parser to apply to matched log entries.
 	//

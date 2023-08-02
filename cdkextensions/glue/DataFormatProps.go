@@ -10,6 +10,8 @@ type DataFormatProps struct {
 	// Serialization library for this data format.
 	SerializationLibrary SerializationLibrary `field:"required" json:"serializationLibrary" yaml:"serializationLibrary"`
 	// Classification string given to tables with this data format.
+	// Default: - No classification is specified.
+	//
 	ClassificationString ClassificationString `field:"optional" json:"classificationString" yaml:"classificationString"`
 }
 

@@ -13,6 +13,8 @@ type FluentBitElasticsearchOutputOptions struct {
 	// IP address or hostname of the target Elasticsearch instance.
 	Host *string `field:"required" json:"host" yaml:"host"`
 	// Enable AWS Sigv4 Authentication for Amazon Elasticsearch Service.
+	// Default: false.
+	//
 	AwsAuth *bool `field:"optional" json:"awsAuth" yaml:"awsAuth"`
 	// External ID for the AWS IAM Role specified with `awsRole`.
 	AwsExternalId *string `field:"optional" json:"awsExternalId" yaml:"awsExternalId"`
@@ -35,6 +37,8 @@ type FluentBitElasticsearchOutputOptions struct {
 	// Set payload compression mechanism.
 	Compress ElasticsearchCompressionFormat `field:"optional" json:"compress" yaml:"compress"`
 	// Use current time for index generation instead of message record.
+	// Default: false.
+	//
 	CurrentTimeIndex *bool `field:"optional" json:"currentTimeIndex" yaml:"currentTimeIndex"`
 	// When enabled, generate `_id` for outgoing records.
 	//
@@ -50,17 +54,25 @@ type FluentBitElasticsearchOutputOptions struct {
 	// When enabled, it append the Tag name to the record.
 	IncludeTagKey *bool `field:"optional" json:"includeTagKey" yaml:"includeTagKey"`
 	// Index name.
+	// Default: 'fluent-bit.
+	//
 	Index *string `field:"optional" json:"index" yaml:"index"`
 	// Time format (based on strftime) to generate the second part of the Index name.
 	// See: [strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)
 	//
+	// Default: '%Y.%m.%d'
+	//
 	LogstashDateFormat *string `field:"optional" json:"logstashDateFormat" yaml:"logstashDateFormat"`
 	// Enable Logstash format compatibility.
+	// Default: false.
+	//
 	LogstashFormat *bool `field:"optional" json:"logstashFormat" yaml:"logstashFormat"`
 	// When `logstashFormat` is enabled, the Index name is composed using a prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your index will become 'mydata-YYYY.MM.DD'.
 	//
 	// The last string appended belongs to the date when the data is being
 	// generated.
+	// Default: 'logstash'.
+	//
 	LogstashPrefix *string `field:"optional" json:"logstashPrefix" yaml:"logstashPrefix"`
 	// When included: the value in the record that belongs to the key will be looked up and over-write the `logstashPrefix` for index generation.
 	//
@@ -84,32 +96,56 @@ type FluentBitElasticsearchOutputOptions struct {
 	// allows to define which pipeline the database should use.
 	Pipeline *string `field:"optional" json:"pipeline" yaml:"pipeline"`
 	// TCP port of the target Elasticsearch instance.
+	// Default: 9200.
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// When enabled, replace field name dots with underscore.
+	// Default: false.
+	//
 	ReplaceDots *bool `field:"optional" json:"replaceDots" yaml:"replaceDots"`
 	// When enabled, mapping types is removed and `type` option is ignored.
+	// Default: false.
+	//
 	SuppressTypeName *bool `field:"optional" json:"suppressTypeName" yaml:"suppressTypeName"`
 	// When `includeTagKey` is enabled, this property defines the key name for the tag.
+	// Default: '_flb-key'.
+	//
 	TagKey *string `field:"optional" json:"tagKey" yaml:"tagKey"`
 	// When `logstashFormat` is enabled, each record will get a new timestamp field.
 	//
 	// The`timeKey` property defines the name of that field.
+	// Default: '@timestamp'.
+	//
 	TimeKey *string `field:"optional" json:"timeKey" yaml:"timeKey"`
 	// When `logstashFormat` is enabled, this property defines the format of the timestamp.
 	// See: [strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)
 	//
+	// Default: '%Y-%m-%dT%H:%M:%S'.
+	//
 	TimeKeyFormat *string `field:"optional" json:"timeKeyFormat" yaml:"timeKeyFormat"`
 	// When `logstashFormat` is enabled, enabling this property sends nanosecond precision timestamps.
+	// Default: false.
+	//
 	TimeKeyNanos *bool `field:"optional" json:"timeKeyNanos" yaml:"timeKeyNanos"`
 	// When enabled print the Elasticsearch API calls to stdout when Elasticsearch returns an error (for diag only).
+	// Default: false.
+	//
 	TraceError *bool `field:"optional" json:"traceError" yaml:"traceError"`
 	// When enabled print the Elasticsearch API calls to stdout (for diag only).
+	// Default: false.
+	//
 	TraceOutput *bool `field:"optional" json:"traceOutput" yaml:"traceOutput"`
 	// Type name.
+	// Default: '_doc'.
+	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// Enables dedicated thread(s) for this output.
+	// Default: 2.
+	//
 	Workers *float64 `field:"optional" json:"workers" yaml:"workers"`
 	// Operation to use to write in bulk requests.
+	// Default: 'create'.
+	//
 	WriteOperation *string `field:"optional" json:"writeOperation" yaml:"writeOperation"`
 }
 

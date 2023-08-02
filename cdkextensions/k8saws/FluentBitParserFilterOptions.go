@@ -14,10 +14,14 @@ type FluentBitParserFilterOptions struct {
 	// Keep original `keyName` field in the parsed result.
 	//
 	// If `false`, the field will be removed.
+	// Default: false.
+	//
 	PreserveKey *bool `field:"optional" json:"preserveKey" yaml:"preserveKey"`
 	// Keep all other original fields in the parsed result.
 	//
 	// If `false`, all other original fields will be removed.
+	// Default: false.
+	//
 	ReserveData *bool `field:"optional" json:"reserveData" yaml:"reserveData"`
 }
 

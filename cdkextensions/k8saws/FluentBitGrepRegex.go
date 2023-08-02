@@ -14,6 +14,8 @@ type FluentBitGrepRegex struct {
 	//
 	// When this is false, only records that do not match the given expression
 	// will be output.
+	// Default: false.
+	//
 	Exclude *bool `field:"optional" json:"exclude" yaml:"exclude"`
 }
 

@@ -7,6 +7,8 @@ import (
 // Configuration for the ExternalSecretsOperator resource.
 type ExternalSecretsOperatorProps struct {
 	// The AWS account ID this resource belongs to.
+	// Default: - the resource is in the same account as the stack it belongs to.
+	//
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// ARN to deduce region and account from.
 	//
@@ -14,6 +16,8 @@ type ExternalSecretsOperatorProps struct {
 	// This should be used for imported resources.
 	//
 	// Cannot be supplied together with either `account` or `region`.
+	// Default: - take environment from `account`, `region` parameters, or use Stack environment.
+	//
 	EnvironmentFromArn *string `field:"optional" json:"environmentFromArn" yaml:"environmentFromArn"`
 	// The value passed in by users to the physical name prop of the resource.
 	//
@@ -22,8 +26,12 @@ type ExternalSecretsOperatorProps struct {
 	// - a concrete value implies a specific physical name
 	// - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
 	//   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+	// Default: - The physical name will be allocated by CloudFormation at deployment time.
+	//
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
+	// Default: - the resource is in the same region as the stack it belongs to.
+	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// The EKS cluster where the external secrets operator should be installed.
 	Cluster awseks.Cluster `field:"required" json:"cluster" yaml:"cluster"`
@@ -34,8 +42,12 @@ type ExternalSecretsOperatorProps struct {
 	//
 	// When this flag is `false` and the namespace doesn't exist, an error will
 	// occur and resource creation will fail.
+	// Default: true.
+	//
 	CreateNamespace *bool `field:"optional" json:"createNamespace" yaml:"createNamespace"`
 	// The Kubernetes namespace where the external secrets operator service should be installed and configured.
+	// Default: {@link ExternalSecretsOperator.DEFAULT_NAMESPACE }
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 

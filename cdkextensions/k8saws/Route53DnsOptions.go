@@ -4,20 +4,32 @@ package k8saws
 // Optional configuration for the Route53Dns resource.
 type Route53DnsOptions struct {
 	// Maximum number of retries for AWS API calls before giving up.
+	// Default: 3.
+	//
 	ApiRetries *float64 `field:"optional" json:"apiRetries" yaml:"apiRetries"`
 	// Set the maximum number of changes that will be applied in each batch.
+	// Default: 1000.
+	//
 	BatchChangeSize *float64 `field:"optional" json:"batchChangeSize" yaml:"batchChangeSize"`
 	// Limits possible target zones by domain suffixes.
 	DomainFilter *[]*string `field:"optional" json:"domainFilter" yaml:"domainFilter"`
 	// Sets a flag determining whether the health of the backend service should be evaluated when determining DNS routing.
 	EvaluateTargetHealth *bool `field:"optional" json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
 	// Sets the output format external dns will use when generating logs.
+	// Default: {@link ExternalDnsLogLevel.JSON }
+	//
 	LogFormat ExternalDnsLogFormat `field:"optional" json:"logFormat" yaml:"logFormat"`
 	// Controls the verbosity of logs generated using the external-dns service.
+	// Default: {@link ExternalDnsLogLevel.INFO }
+	//
 	LogLevel ExternalDnsLogLevel `field:"optional" json:"logLevel" yaml:"logLevel"`
 	// The Kubernetes namespace where the service should be deployed.
+	// Default: 'kube-system'.
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// When true, alias records will be avoided and CNAME records will be used instead.
+	// Default: false.
+	//
 	PreferCname *bool `field:"optional" json:"preferCname" yaml:"preferCname"`
 	// Registry specifying how ExternalDNS should track record ownership.
 	//
@@ -29,16 +41,24 @@ type Route53DnsOptions struct {
 	// running or if there are other services managing DNS records in similar
 	// zones as the different services could try to make conflicting changes due
 	// to lacking a shared state.
+	// Default: A TXT registry configured with defaults.
+	//
 	RecordOwnershipRegistry IExternalDnsRegistry `field:"optional" json:"recordOwnershipRegistry" yaml:"recordOwnershipRegistry"`
 	// Override the default region external-dns uses when calling AWS API's.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Desired number of ExternalDNS replicas.
+	// Default: 1.
+	//
 	ReplicaCount *float64 `field:"optional" json:"replicaCount" yaml:"replicaCount"`
 	// Controls the operations ExternalDNS will perform on the records it manages.
+	// Default: {@link ExternalDnsSyncPolicy.SYNC }
+	//
 	SyncPolicy ExternalDnsSyncPolicy `field:"optional" json:"syncPolicy" yaml:"syncPolicy"`
 	// A set of tags that can be used to restrict which hosted zones external DNS will make changes to.
 	ZoneTags *[]*ExternalDnsZoneTag `field:"optional" json:"zoneTags" yaml:"zoneTags"`
 	// Controls the types of hosted zones external-dns will create records for.
+	// Default: ExternalDnsZoneType.ALL
+	//
 	ZoneType ExternalDnsZoneType `field:"optional" json:"zoneType" yaml:"zoneType"`
 }
 

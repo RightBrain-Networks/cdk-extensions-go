@@ -18,6 +18,8 @@ type FluentBitKinesisFirehoseOutputOptions struct {
 	// it enables an immediate retry with no delay for networking errors, which
 	// may help improve throughput when there are transient/random networking
 	// issues.
+	// Default: true.
+	//
 	AutoRetryRequests *bool `field:"optional" json:"autoRetryRequests" yaml:"autoRetryRequests"`
 	// Compression type for Firehose records.
 	//
@@ -43,6 +45,8 @@ type FluentBitKinesisFirehoseOutputOptions struct {
 	// Add the timestamp to the record under this key.
 	TimeKey *string `field:"optional" json:"timeKey" yaml:"timeKey"`
 	// A strftime compliant format string for the timestamp.
+	// Default: '%Y-%m-%dT%H:%M:%S'.
+	//
 	TimeKeyFormat *string `field:"optional" json:"timeKeyFormat" yaml:"timeKeyFormat"`
 }
 

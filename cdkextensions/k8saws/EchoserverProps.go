@@ -9,6 +9,8 @@ import (
 // Configuration for the Echoserver resource.
 type EchoserverProps struct {
 	// The AWS account ID this resource belongs to.
+	// Default: - the resource is in the same account as the stack it belongs to.
+	//
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// ARN to deduce region and account from.
 	//
@@ -16,6 +18,8 @@ type EchoserverProps struct {
 	// This should be used for imported resources.
 	//
 	// Cannot be supplied together with either `account` or `region`.
+	// Default: - take environment from `account`, `region` parameters, or use Stack environment.
+	//
 	EnvironmentFromArn *string `field:"optional" json:"environmentFromArn" yaml:"environmentFromArn"`
 	// The value passed in by users to the physical name prop of the resource.
 	//
@@ -24,22 +28,36 @@ type EchoserverProps struct {
 	// - a concrete value implies a specific physical name
 	// - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
 	//   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+	// Default: - The physical name will be allocated by CloudFormation at deployment time.
+	//
 	PhysicalName *string `field:"optional" json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
+	// Default: - the resource is in the same region as the stack it belongs to.
+	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// The EKS Cluster where the service should be deployed.
 	Cluster awseks.ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// Determines the behavior of automatic DNS discovery and configuration.
+	// Default: DomainDiscovery.PUBLIC
+	//
 	DomainDiscovery route53.DomainDiscovery `field:"optional" json:"domainDiscovery" yaml:"domainDiscovery"`
 	// The subnets where the load balancer should be created.
 	LoadBalancerSubnets *awsec2.SubnetSelection `field:"optional" json:"loadBalancerSubnets" yaml:"loadBalancerSubnets"`
 	// The name of the Kubernetes service to be created.
+	// Default: 'echoserver'.
+	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The Kubernetes namespace where the service should be created.
+	// Default: 'default'.
+	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The port which netcat should listen on.
+	// Default: 80.
+	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The number of replicas that should exist.
+	// Default: 1.
+	//
 	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// The Security groups which should be applied to the service.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`

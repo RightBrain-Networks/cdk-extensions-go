@@ -6,6 +6,8 @@ type TxtRegistryOptions struct {
 	// A unique identifier that is used to establish ownership of managed DNS records.
 	//
 	// Prevents conflicts in the event of multiple clusters running external-dns.
+	// Default: Unique address of the owning CDK node.
+	//
 	OwnerId *string `field:"optional" json:"ownerId" yaml:"ownerId"`
 	// A prefix to be added top TXT ownership records.
 	//
@@ -15,6 +17,8 @@ type TxtRegistryOptions struct {
 	//
 	// This prefix is used to prevent such name collissions while still allowing
 	// DNS ownership records to be created.
+	// Default: 'edns.''
+	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

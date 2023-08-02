@@ -13,13 +13,19 @@ type ExecutionLogOptions struct {
 	// `false`, data is excluded.
 	// See: [StateMachine LoggingConfiguration.IncludeExecutionData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata)
 	//
+	// Default: true.
+	//
 	IncludeExecutionData *bool `field:"required" json:"includeExecutionData" yaml:"includeExecutionData"`
 	// Defines which category of execution history events are logged.
 	// See: [StateMachine LoggingConfiguration.Level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level)
 	//
+	// Default: LogLevel.ALL
+	//
 	Level awsstepfunctions.LogLevel `field:"required" json:"level" yaml:"level"`
 	// Controls whether logging from the state machine is enabled.
 	// See: [StateMachine LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration)
+	//
+	// Default: true.
 	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies a log group which will receive execution events from the state machine.

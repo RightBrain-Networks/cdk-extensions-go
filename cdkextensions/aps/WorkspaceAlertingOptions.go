@@ -12,6 +12,8 @@ type WorkspaceAlertingOptions struct {
 	// configuration that sends all alerts to SNS will be used.
 	Configuration IAlertManagerConfiguration `field:"optional" json:"configuration" yaml:"configuration"`
 	// Controls whether alerting from the APS workspace should be configured.
+	// Default: true.
+	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The SNS topic where alerts should be sent when using the default alerting configuration.
 	//

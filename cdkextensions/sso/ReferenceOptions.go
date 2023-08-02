@@ -17,6 +17,8 @@ type ReferenceOptions struct {
 	// forward slashes. In addition, it can contain any ASCII character from
 	// the ! (`\u0021`) through the DEL character (`\u007F`), including most
 	// punctuation characters, digits, and upper and lowercased letters.
+	// Default: '/''.
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 

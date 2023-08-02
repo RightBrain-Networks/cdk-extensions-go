@@ -9,6 +9,8 @@ type FlowLogOptions struct {
 	// Specifies the type of destination to which the flow log data is to be published.
 	//
 	// Flow log data can be published to CloudWatch Logs or Amazon S3.
+	// Default: FlowLogDestinationType.toCloudWatchLogs()
+	//
 	Destination awsec2.FlowLogDestination `field:"optional" json:"destination" yaml:"destination"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	//
@@ -16,12 +18,18 @@ type FlowLogOptions struct {
 	// string, pass a single field constructed with `LogFormat.custom()`.
 	//
 	// See https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records
+	// Default: - default log format is used.
+	//
 	LogFormat *[]awsec2.LogFormat `field:"optional" json:"logFormat" yaml:"logFormat"`
 	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+	// Default: FlowLogMaxAggregationInterval.TEN_MINUTES
+	//
 	MaxAggregationInterval awsec2.FlowLogMaxAggregationInterval `field:"optional" json:"maxAggregationInterval" yaml:"maxAggregationInterval"`
 	// The type of traffic to log.
 	//
 	// You can log traffic that the resource accepts or rejects, or all traffic.
+	// Default: ALL.
+	//
 	TrafficType awsec2.FlowLogTrafficType `field:"optional" json:"trafficType" yaml:"trafficType"`
 	LogFormatDefinition ec2.FlowLogFormat `field:"optional" json:"logFormatDefinition" yaml:"logFormatDefinition"`
 }

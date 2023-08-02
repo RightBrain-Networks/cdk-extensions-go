@@ -7,6 +7,8 @@ import (
 // Logging configuration to use when setting up the APS workspace.
 type WorkspaceLoggingOptions struct {
 	// Controls whether logging for the workspace should be enabled.
+	// Default: true.
+	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The log group where events from the APS workspace will be written.
 	//

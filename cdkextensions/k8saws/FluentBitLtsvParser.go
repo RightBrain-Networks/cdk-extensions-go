@@ -19,10 +19,16 @@ type FluentBitLtsvParser interface {
 	// Defines the format of the timestamp on the inbound record.
 	// See: [strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)
 	//
+	// Default: Inputs.
+	//
 	TimeFormat() *string
 	// The key under which timestamp information for the inbound record is given.
+	// Default: Inputs.
+	//
 	TimeKey() *string
 	// Maps group names matched by the regex to the data types they should be interpreted as.
+	// Default: Inputs.
+	//
 	Types() *map[string]ParserPluginDataType
 	// Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
 	//

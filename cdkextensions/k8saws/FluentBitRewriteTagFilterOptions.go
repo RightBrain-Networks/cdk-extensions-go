@@ -11,6 +11,8 @@ type FluentBitRewriteTagFilterOptions struct {
 	// The pattern to match for records that this output should apply to.
 	Match FluentBitMatch `field:"optional" json:"match" yaml:"match"`
 	// Set a limit on the amount of memory the tag rewrite emitter can consume if the outputs provide backpressure.
+	// Default: 10M.
+	//
 	EmitterMemBufLimit core.DataSize `field:"optional" json:"emitterMemBufLimit" yaml:"emitterMemBufLimit"`
 	// When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job.
 	//
