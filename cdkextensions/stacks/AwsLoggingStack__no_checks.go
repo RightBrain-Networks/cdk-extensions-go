@@ -76,6 +76,10 @@ func validateAwsLoggingStack_OfParameters(construct constructs.IConstruct) error
 	return nil
 }
 
+func (j *jsiiProxy_AwsLoggingStack) validateSetTerminationProtectionParameters(val *bool) error {
+	return nil
+}
+
 func validateNewAwsLoggingStackParameters(scope constructs.Construct, id *string, props *AwsLoggingStackProps) error {
 	return nil
 }

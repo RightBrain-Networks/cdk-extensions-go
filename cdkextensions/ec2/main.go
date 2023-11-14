@@ -157,6 +157,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamArn", GoGetter: "DeliveryStreamArn"},
 			_jsii_.MemberProperty{JsiiProperty: "destination", GoGetter: "Destination"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "flowLogId", GoGetter: "FlowLogId"},

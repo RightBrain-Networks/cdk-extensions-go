@@ -17,6 +17,8 @@ type FlowLog interface {
 	awsec2.FlowLog
 	// The S3 bucket to publish flow logs to.
 	Bucket() awss3.IBucket
+	// The ARN of the Kinesis Data Firehose delivery stream to publish flow logs to.
+	DeliveryStreamArn() *string
 	// The location where flow logs should be delivered.
 	// See: [FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype)
 	//
@@ -110,6 +112,16 @@ func (j *jsiiProxy_FlowLog) Bucket() awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"bucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FlowLog) DeliveryStreamArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deliveryStreamArn",
 		&returns,
 	)
 	return returns

@@ -154,6 +154,7 @@ type AwsLoggingStack interface {
 	TemplateOptions() awscdk.ITemplateOptions
 	// Whether termination protection is enabled for this stack.
 	TerminationProtection() *bool
+	SetTerminationProtection(val *bool)
 	// The Amazon domain suffix for the region in which this stack is defined.
 	UrlSuffix() *string
 	WafLogsBucket() s3buckets.WafLogsBucket
@@ -740,6 +741,17 @@ func NewAwsLoggingStack_Override(a AwsLoggingStack, scope constructs.Construct, 
 		"cdk-extensions.stacks.AwsLoggingStack",
 		[]interface{}{scope, id, props},
 		a,
+	)
+}
+
+func (j *jsiiProxy_AwsLoggingStack)SetTerminationProtection(val *bool) {
+	if err := j.validateSetTerminationProtectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"terminationProtection",
+		val,
 	)
 }
 
